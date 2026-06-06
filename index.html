@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>MPSPED — Európa, vörösen szállítva</title>
-<meta name="description" content="MPSPED — nemzetközi szállítmányozás és logisztika. A piros, ami megérkezik." />
+<meta name="description" content="MPSPED Kft. — Költöztetés és áruszállítás 1989 óta, az ország minden pontjára. A piros, ami megérkezik." />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,19 +12,21 @@
 <!-- FIXED NAV -->
 <header class="nav">
   <a class="brand" href="#top" aria-label="MPSPED kezdőlap">
-    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-      <rect x="2" y="2" width="36" height="36" rx="8" fill="#E11D2A"/>
-      <path d="M9 28V12h6l5 9 5-9h6v16h-5v-9l-4 7h-4l-4-7v9z" fill="#fff"/>
+    <!-- Logo a tényleges MP SPED jelvény után: piros négyzet, sárga MP -->
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+      <rect x="2" y="2" width="44" height="44" rx="6" fill="#E11D2A"/>
+      <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="20" fill="#FFD60A" letter-spacing="-1">MP</text>
+      <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
     </svg>
     <span>MPSPED</span>
   </a>
   <nav class="nav-links" aria-label="Fő navigáció">
-    <a href="#road">Útvonal</a>
-    <a href="#network">Hálózat</a>
+    <a href="#story">Rólunk</a>
+    <a href="#network">Lefedettség</a>
     <a href="#services">Szolgáltatások</a>
     <a href="#contact">Kapcsolat</a>
   </nav>
-  <a class="nav-cta" href="#contact">Árajánlat</a>
+  <a class="nav-cta" href="#contact">Ajánlatkérés</a>
 </header>
 
 <!-- SCROLL PROGRESS -->
@@ -93,7 +95,11 @@
         <div class="truck-wrap">
           <div class="headlight headlight--l" data-anim="headlight"></div>
           <div class="headlight headlight--r" data-anim="headlight"></div>
-          <svg class="truck" viewBox="0 0 1200 480" aria-label="MPSPED kamion">
+          <!-- Ha az assets/truck.png létezik, azt használja (valós fotó);
+               különben az SVG fallback látszik. A photo-loaded osztályt
+               a JS állítja be sikeres betöltéskor. -->
+          <img class="truck-photo" src="assets/truck.png" alt="MPSPED piros kamion" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"/>
+          <svg class="truck truck-svg" viewBox="0 0 1200 480" aria-label="MPSPED kamion">
             <use href="#truck-red"/>
           </svg>
           <div class="truck-shadow"></div>
@@ -103,13 +109,13 @@
       <div class="layer layer--floor" data-anim="floor"></div>
 
       <div class="copy copy--center copy--depot" data-anim="depot-copy">
-        <p class="eyebrow">MPSPED · Logisztika</p>
+        <p class="eyebrow">MPSPED · 1989 óta</p>
         <h1 class="display">
           A <span class="accent">piros</span>,<br/>
           ami megérkezik.
         </h1>
-        <p class="lede">Nemzetközi szállítmányozás és logisztika — Magyarország szívéből, Európa minden pontjára.</p>
-        <a class="scroll-hint" href="#road">
+        <p class="lede">Költöztetés és áruszállítás — több mint 30 éve, az ország minden pontjára.</p>
+        <a class="scroll-hint" href="#story">
           <span>Görgess</span>
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         </a>
@@ -122,7 +128,7 @@
   <!-- ════════════════════════════════════════════════════════════════
        SCENE 2 — OPEN ROAD
        ════════════════════════════════════════════════════════════════ -->
-  <section class="scene-wrap" id="road" data-scene="road" style="--length: 280vh;" aria-label="Nyílt út">
+  <section class="scene-wrap" id="story" data-scene="road" style="--length: 280vh;" aria-label="Útvonal">
     <div class="stage scene--road">
 
       <div class="layer layer--sky"></div>
