@@ -283,10 +283,19 @@ button { font: inherit; }
   will-change: transform;
 }
 .truck { width: 100%; height: auto; }
-/* Ha az assets/truck.png betöltődik, a fotó váltja a SVG-t */
-.truck-photo { width: 100%; height: auto; display: none; }
+/* Fotó-fallback rendszer: a JS keresi az assets/truck.{png,jpg,...}
+   fájlt és ha találja, a fotó váltja a SVG-t minden jelenetben */
+.truck-photo {
+  width: 100%; height: auto; display: none;
+  object-fit: contain;
+  /* Brutális kivágás nélküli kompozit — a fotót csak megjelenítjük */
+}
 .truck-wrap.has-photo .truck-photo { display: block; }
 .truck-wrap.has-photo .truck-svg    { display: none; }
+
+/* Road és Arrival jelenetekhez különböző méretek a wrappereken */
+.truck-wrap--road    { width: min(560px, 70vw); position: relative; }
+.truck-wrap--arrival { width: min(340px, 42vw); position: relative; }
 
 .headlight {
   position: absolute;
@@ -657,6 +666,51 @@ button { font: inherit; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PHOTO UPLOAD FALLBACK
+   Floating control in the bottom-right when no photo file was found
+   ═══════════════════════════════════════════════════════════════ */
+.photo-upload {
+  position: fixed;
+  right: 18px; bottom: 18px;
+  z-index: 200;
+  background: rgba(10,12,18,.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  max-width: 280px;
+  box-shadow: 0 12px 36px rgba(0,0,0,.5);
+  font-size: 12px;
+  color: var(--ink-200);
+}
+.photo-upload label {
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(180deg, #ff3848 0%, var(--red-500) 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(225,29,42,.4);
+  transition: transform .2s var(--ease-out);
+}
+.photo-upload label:hover { transform: translateY(-1px); }
+.photo-upload input { display: none; }
+.photo-upload p {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--ink-400);
+}
+.photo-upload code {
+  background: rgba(255,255,255,.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink-200);
+}
+
+/* ═══════════════════════════════════════════════════════════════
    REDUCED MOTION
    ═══════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
@@ -757,10 +811,9 @@ button { font: inherit; }
         <div class="truck-wrap">
           <div class="headlight headlight--l" data-anim="headlight"></div>
           <div class="headlight headlight--r" data-anim="headlight"></div>
-          <!-- Ha az assets/truck.png létezik, azt használja (valós fotó);
-               különben az SVG fallback látszik. A photo-loaded osztályt
-               a JS állítja be sikeres betöltéskor. -->
-          <img class="truck-photo" src="assets/truck.png" alt="MPSPED piros kamion" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"/>
+          <!-- JS megpróbálja assets/truck.png, .jpg, .jpeg, .webp sorban
+               és az első sikeresnél azt használja minden jelenetben. -->
+          <img class="truck-photo" alt="MPSPED kamion"/>
           <svg class="truck truck-svg" viewBox="0 0 1200 480" aria-label="MPSPED kamion">
             <use href="#truck-red"/>
           </svg>
@@ -827,7 +880,10 @@ button { font: inherit; }
       </div>
 
       <div class="layer layer--truck-road" data-anim="truck-road">
-        <svg class="truck truck--road" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        <div class="truck-wrap truck-wrap--road">
+          <img class="truck-photo truck-photo--road" alt=""/>
+          <svg class="truck truck-svg truck--road" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        </div>
         <div class="truck-shadow truck-shadow--road"></div>
         <div class="dust" data-anim="dust"></div>
       </div>
@@ -1033,7 +1089,10 @@ button { font: inherit; }
         </svg>
       </div>
       <div class="layer layer--truck-arrival" data-anim="truck-arrival">
-        <svg class="truck truck--arrival" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        <div class="truck-wrap truck-wrap--arrival">
+          <img class="truck-photo truck-photo--arrival" alt=""/>
+          <svg class="truck truck-svg truck--arrival" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        </div>
         <div class="truck-shadow truck-shadow--arrival"></div>
       </div>
 
@@ -1402,6 +1461,59 @@ button { font: inherit; }
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  /* ─────────────────────────────────────────────────────────
+     Photo loader: try assets/truck.{png,jpg,jpeg,webp} in
+     order, use the first that loads. If none load, show a
+     small floating "Upload photo" button so the user can
+     pick a local file via FileReader (no folder needed).
+     ───────────────────────────────────────────────────────── */
+  const applyPhoto = (src) => {
+    document.querySelectorAll('.truck-photo').forEach(img => { img.src = src; });
+    document.querySelectorAll('.truck-wrap').forEach(w => { w.classList.add('has-photo'); });
+  };
+
+  (() => {
+    const candidates = [
+      'assets/truck.png',  'assets/truck.jpg',  'assets/truck.jpeg', 'assets/truck.webp',
+      'assets/Truck.png',  'assets/Truck.jpg',
+      'truck.png', 'truck.jpg',
+    ];
+    const tryNext = (i) => {
+      if (i >= candidates.length) {
+        console.log('[MPSPED] Nincs fotó az assets/ mappában. Kattints az "📷 Fotó feltöltése" gombra a jobb alsó sarokban.');
+        showUploadFallback();
+        return;
+      }
+      const probe = new Image();
+      probe.onload  = () => { console.log('[MPSPED] Fotó betöltve:', candidates[i]); applyPhoto(candidates[i]); };
+      probe.onerror = () => tryNext(i + 1);
+      probe.src = candidates[i];
+    };
+    tryNext(0);
+  })();
+
+  // Floating upload button shown when no file was found on the path
+  function showUploadFallback() {
+    const wrap = document.createElement('div');
+    wrap.className = 'photo-upload';
+    wrap.innerHTML = `
+      <label>
+        <span>📷 Saját fotó feltöltése</span>
+        <input type="file" accept="image/*" />
+      </label>
+      <p>vagy mentsd a képet ide: <code>assets/truck.png</code></p>
+    `;
+    document.body.appendChild(wrap);
+    const input = wrap.querySelector('input');
+    input.addEventListener('change', () => {
+      const f = input.files && input.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = () => { applyPhoto(r.result); wrap.remove(); };
+      r.readAsDataURL(f);
+    });
+  }
+
   // ── easings ────────────────────────────────────────────────
   const easeOut    = t => 1 - Math.pow(1 - t, 3);
   const easeIn     = t => t * t * t;
@@ -1495,9 +1607,10 @@ button { font: inherit; }
         el.style.transform = `translateY(${lerp(90, -10, p)}%) scale(${lerp(1.25, 1, p)})`;
       });
 
-      // Truck: starts small/distant, grows large/near
+      // Truck: starts small/distant, grows large/near.
+      // Target the wrapper so transforms apply to photo OR svg.
       const truckP = clamp01((p - 0.05) / 0.85);
-      set('.truck--road', el => {
+      set('.truck-wrap--road', el => {
         const s = lerp(.45, 1.1, easeOut(truckP));
         const ty = lerp(20, 0, easeOut(truckP));
         el.style.transform = `translateY(${ty}%) scale(${s})`;
@@ -1612,7 +1725,7 @@ button { font: inherit; }
       set('.layer--dusk-hills', el => {
         el.style.transform = `translateY(${lerp(30, 0, p)}%) scale(${lerp(1.06, 1, p)})`;
       });
-      set('.truck--arrival', el => {
+      set('.truck-wrap--arrival', el => {
         const t = easeOut(clamp01(p / 0.7));
         el.style.transform = `translateX(${lerp(-80, 0, t)}%) scale(${lerp(.85, 1, t)})`;
       });

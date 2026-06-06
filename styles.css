@@ -275,10 +275,19 @@ button { font: inherit; }
   will-change: transform;
 }
 .truck { width: 100%; height: auto; }
-/* Ha az assets/truck.png betöltődik, a fotó váltja a SVG-t */
-.truck-photo { width: 100%; height: auto; display: none; }
+/* Fotó-fallback rendszer: a JS keresi az assets/truck.{png,jpg,...}
+   fájlt és ha találja, a fotó váltja a SVG-t minden jelenetben */
+.truck-photo {
+  width: 100%; height: auto; display: none;
+  object-fit: contain;
+  /* Brutális kivágás nélküli kompozit — a fotót csak megjelenítjük */
+}
 .truck-wrap.has-photo .truck-photo { display: block; }
 .truck-wrap.has-photo .truck-svg    { display: none; }
+
+/* Road és Arrival jelenetekhez különböző méretek a wrappereken */
+.truck-wrap--road    { width: min(560px, 70vw); position: relative; }
+.truck-wrap--arrival { width: min(340px, 42vw); position: relative; }
 
 .headlight {
   position: absolute;
@@ -646,6 +655,51 @@ button { font: inherit; }
   color: var(--ink-400);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
   border-top: 1px solid rgba(255,255,255,.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PHOTO UPLOAD FALLBACK
+   Floating control in the bottom-right when no photo file was found
+   ═══════════════════════════════════════════════════════════════ */
+.photo-upload {
+  position: fixed;
+  right: 18px; bottom: 18px;
+  z-index: 200;
+  background: rgba(10,12,18,.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  max-width: 280px;
+  box-shadow: 0 12px 36px rgba(0,0,0,.5);
+  font-size: 12px;
+  color: var(--ink-200);
+}
+.photo-upload label {
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(180deg, #ff3848 0%, var(--red-500) 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(225,29,42,.4);
+  transition: transform .2s var(--ease-out);
+}
+.photo-upload label:hover { transform: translateY(-1px); }
+.photo-upload input { display: none; }
+.photo-upload p {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--ink-400);
+}
+.photo-upload code {
+  background: rgba(255,255,255,.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink-200);
 }
 
 /* ═══════════════════════════════════════════════════════════════

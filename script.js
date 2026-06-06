@@ -12,6 +12,59 @@
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  /* ─────────────────────────────────────────────────────────
+     Photo loader: try assets/truck.{png,jpg,jpeg,webp} in
+     order, use the first that loads. If none load, show a
+     small floating "Upload photo" button so the user can
+     pick a local file via FileReader (no folder needed).
+     ───────────────────────────────────────────────────────── */
+  const applyPhoto = (src) => {
+    document.querySelectorAll('.truck-photo').forEach(img => { img.src = src; });
+    document.querySelectorAll('.truck-wrap').forEach(w => { w.classList.add('has-photo'); });
+  };
+
+  (() => {
+    const candidates = [
+      'assets/truck.png',  'assets/truck.jpg',  'assets/truck.jpeg', 'assets/truck.webp',
+      'assets/Truck.png',  'assets/Truck.jpg',
+      'truck.png', 'truck.jpg',
+    ];
+    const tryNext = (i) => {
+      if (i >= candidates.length) {
+        console.log('[MPSPED] Nincs fotó az assets/ mappában. Kattints az "📷 Fotó feltöltése" gombra a jobb alsó sarokban.');
+        showUploadFallback();
+        return;
+      }
+      const probe = new Image();
+      probe.onload  = () => { console.log('[MPSPED] Fotó betöltve:', candidates[i]); applyPhoto(candidates[i]); };
+      probe.onerror = () => tryNext(i + 1);
+      probe.src = candidates[i];
+    };
+    tryNext(0);
+  })();
+
+  // Floating upload button shown when no file was found on the path
+  function showUploadFallback() {
+    const wrap = document.createElement('div');
+    wrap.className = 'photo-upload';
+    wrap.innerHTML = `
+      <label>
+        <span>📷 Saját fotó feltöltése</span>
+        <input type="file" accept="image/*" />
+      </label>
+      <p>vagy mentsd a képet ide: <code>assets/truck.png</code></p>
+    `;
+    document.body.appendChild(wrap);
+    const input = wrap.querySelector('input');
+    input.addEventListener('change', () => {
+      const f = input.files && input.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = () => { applyPhoto(r.result); wrap.remove(); };
+      r.readAsDataURL(f);
+    });
+  }
+
   // ── easings ────────────────────────────────────────────────
   const easeOut    = t => 1 - Math.pow(1 - t, 3);
   const easeIn     = t => t * t * t;
@@ -105,9 +158,10 @@
         el.style.transform = `translateY(${lerp(90, -10, p)}%) scale(${lerp(1.25, 1, p)})`;
       });
 
-      // Truck: starts small/distant, grows large/near
+      // Truck: starts small/distant, grows large/near.
+      // Target the wrapper so transforms apply to photo OR svg.
       const truckP = clamp01((p - 0.05) / 0.85);
-      set('.truck--road', el => {
+      set('.truck-wrap--road', el => {
         const s = lerp(.45, 1.1, easeOut(truckP));
         const ty = lerp(20, 0, easeOut(truckP));
         el.style.transform = `translateY(${ty}%) scale(${s})`;
@@ -222,7 +276,7 @@
       set('.layer--dusk-hills', el => {
         el.style.transform = `translateY(${lerp(30, 0, p)}%) scale(${lerp(1.06, 1, p)})`;
       });
-      set('.truck--arrival', el => {
+      set('.truck-wrap--arrival', el => {
         const t = easeOut(clamp01(p / 0.7));
         el.style.transform = `translateX(${lerp(-80, 0, t)}%) scale(${lerp(.85, 1, t)})`;
       });

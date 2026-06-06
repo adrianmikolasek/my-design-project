@@ -95,10 +95,9 @@
         <div class="truck-wrap">
           <div class="headlight headlight--l" data-anim="headlight"></div>
           <div class="headlight headlight--r" data-anim="headlight"></div>
-          <!-- Ha az assets/truck.png létezik, azt használja (valós fotó);
-               különben az SVG fallback látszik. A photo-loaded osztályt
-               a JS állítja be sikeres betöltéskor. -->
-          <img class="truck-photo" src="assets/truck.png" alt="MPSPED piros kamion" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"/>
+          <!-- JS megpróbálja assets/truck.png, .jpg, .jpeg, .webp sorban
+               és az első sikeresnél azt használja minden jelenetben. -->
+          <img class="truck-photo" alt="MPSPED kamion"/>
           <svg class="truck truck-svg" viewBox="0 0 1200 480" aria-label="MPSPED kamion">
             <use href="#truck-red"/>
           </svg>
@@ -165,7 +164,10 @@
       </div>
 
       <div class="layer layer--truck-road" data-anim="truck-road">
-        <svg class="truck truck--road" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        <div class="truck-wrap truck-wrap--road">
+          <img class="truck-photo truck-photo--road" alt=""/>
+          <svg class="truck truck-svg truck--road" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        </div>
         <div class="truck-shadow truck-shadow--road"></div>
         <div class="dust" data-anim="dust"></div>
       </div>
@@ -371,7 +373,10 @@
         </svg>
       </div>
       <div class="layer layer--truck-arrival" data-anim="truck-arrival">
-        <svg class="truck truck--arrival" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        <div class="truck-wrap truck-wrap--arrival">
+          <img class="truck-photo truck-photo--arrival" alt=""/>
+          <svg class="truck truck-svg truck--arrival" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
+        </div>
         <div class="truck-shadow truck-shadow--arrival"></div>
       </div>
 
