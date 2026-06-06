@@ -275,6 +275,10 @@ button { font: inherit; }
   will-change: transform;
 }
 .truck { width: 100%; height: auto; }
+/* Ha az assets/truck.png betöltődik, a fotó váltja a SVG-t */
+.truck-photo { width: 100%; height: auto; display: none; }
+.truck-wrap.has-photo .truck-photo { display: block; }
+.truck-wrap.has-photo .truck-svg    { display: none; }
 
 .headlight {
   position: absolute;
@@ -444,6 +448,14 @@ button { font: inherit; }
   width: min(780px, 64vw);
   height: auto;
   filter: drop-shadow(0 0 40px rgba(225,29,42,.22));
+}
+.hungary { width: min(900px, 75vw); }
+.city-labels text {
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: rgba(0,0,0,.65);
+  stroke-width: 3;
+  stroke-linejoin: round;
 }
 .continent { transition: fill .6s var(--ease-out); }
 .nodes circle {

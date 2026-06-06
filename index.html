@@ -171,14 +171,13 @@
       </div>
 
       <div class="copy copy--left" data-anim="road-copy">
-        <p class="eyebrow">01 — Útvonal</p>
-        <h2 class="h2">Egy kontinens. <span class="accent">Egy kamion.</span></h2>
-        <p class="lede">Hazai központtal, európai léptékben — saját flottával és bevizsgált partnerhálózattal.</p>
-        <!-- TODO: a tényleges statisztikákat töltsd ki -->
+        <p class="eyebrow">01 — Rólunk</p>
+        <h2 class="h2"><span class="accent">1989</span> óta<br/>az ország útjain.</h2>
+        <p class="lede">Családi vállalkozásként indultunk — ma is ugyanazzal a precizitással, megbízhatósággal és igényességgel dolgozunk, mint az első napon.</p>
         <ul class="stat-row">
-          <li><strong>—</strong><span>év</span></li>
-          <li><strong>—</strong><span>jármű</span></li>
-          <li><strong>—</strong><span>ország</span></li>
+          <li><strong>30+</strong><span>év tapasztalat</span></li>
+          <li><strong>1989</strong><span>óta működünk</span></li>
+          <li><strong>HU</strong><span>országosan</span></li>
         </ul>
       </div>
 
@@ -215,9 +214,9 @@
       </div>
 
       <div class="copy copy--right" data-anim="hwy-copy">
-        <p class="eyebrow">02 — Sebesség</p>
-        <h2 class="h2">Just-in-time. <span class="accent">Mindig.</span></h2>
-        <p class="lede">Élő nyomkövetés, 24/7 diszpécser-szolgálat, garantált menetidő. Az ön rakománya soha nem áll meg fél úton.</p>
+        <p class="eyebrow">02 — Hogyan dolgozunk</p>
+        <h2 class="h2">Pontosan. <span class="accent">Sérülésmentesen.</span></h2>
+        <p class="lede">Megfelelően felszerelt teherautó, szakképzett kollégák, csomagolóanyagok és bútorvédő eszközök — hogy minden tárgya épségben érkezzen az új helyére.</p>
       </div>
 
     </div>
@@ -227,45 +226,63 @@
   <!-- ════════════════════════════════════════════════════════════════
        SCENE 4 — EUROPE NETWORK
        ════════════════════════════════════════════════════════════════ -->
-  <section class="scene-wrap" id="network" data-scene="map" style="--length: 280vh;" aria-label="Európai hálózat">
+  <section class="scene-wrap" id="network" data-scene="map" style="--length: 280vh;" aria-label="Országos lefedettség">
     <div class="stage scene--map">
       <div class="layer layer--map-bg"></div>
       <div class="layer layer--map" data-anim="map">
-        <svg viewBox="0 0 800 600" class="europe" aria-hidden="true">
-          <path class="continent" d="M120,180 L180,140 L260,130 L300,150 L360,120 L430,130 L500,110 L560,140 L620,160 L680,200 L700,260 L660,310 L620,340 L600,400 L560,440 L520,460 L470,470 L420,460 L380,480 L340,500 L300,490 L260,460 L240,430 L200,420 L170,390 L140,360 L120,310 L110,250 Z" fill="#1a1f29" stroke="#2a3140" stroke-width="1"/>
+        <svg viewBox="0 0 800 360" class="europe hungary" aria-hidden="true">
+          <!-- Magyarország egyszerűsített kontúrja -->
+          <path class="continent" d="M60,90 C 130,68 230,55 330,52 C 400,38 490,32 590,45 C 660,55 720,75 760,98 C 772,135 762,172 732,205 C 690,238 620,260 540,266 C 460,275 380,276 300,272 C 220,266 148,266 98,246 C 68,222 48,190 48,150 C 48,115 54,96 60,90 Z" fill="#1a1f29" stroke="#3a4150" stroke-width="1.2"/>
+
+          <!-- városok -->
           <g class="nodes" data-anim="nodes">
-            <circle data-city="Budapest" cx="430" cy="280" r="7"/>
-            <circle data-city="Bécs" cx="395" cy="255" r="5"/>
-            <circle data-city="Berlin" cx="395" cy="195" r="5"/>
-            <circle data-city="Párizs" cx="290" cy="245" r="5"/>
-            <circle data-city="Madrid" cx="220" cy="380" r="5"/>
-            <circle data-city="Róma" cx="380" cy="385" r="5"/>
-            <circle data-city="Varsó" cx="455" cy="210" r="5"/>
-            <circle data-city="Bukarest" cx="510" cy="305" r="5"/>
-            <circle data-city="Athén" cx="495" cy="430" r="5"/>
-            <circle data-city="Helsinki" cx="475" cy="120" r="5"/>
-            <circle data-city="Lisszabon" cx="160" cy="395" r="5"/>
-            <circle data-city="London" cx="265" cy="200" r="5"/>
+            <circle data-city="Budapest"        cx="400" cy="130" r="8"/>
+            <circle data-city="Debrecen"        cx="600" cy="110" r="5"/>
+            <circle data-city="Szeged"          cx="440" cy="240" r="5"/>
+            <circle data-city="Pécs"            cx="280" cy="252" r="5"/>
+            <circle data-city="Győr"            cx="210" cy="92"  r="5"/>
+            <circle data-city="Miskolc"         cx="500" cy="65"  r="5"/>
+            <circle data-city="Nyíregyháza"     cx="630" cy="85"  r="5"/>
+            <circle data-city="Veszprém"        cx="245" cy="170" r="5"/>
+            <circle data-city="Székesfehérvár"  cx="310" cy="155" r="5"/>
+            <circle data-city="Kecskemét"       cx="420" cy="185" r="5"/>
+            <circle data-city="Szombathely"     cx="100" cy="165" r="5"/>
           </g>
+
+          <!-- útvonalak Budapestről -->
           <g class="routes" data-anim="routes" fill="none" stroke="#E11D2A" stroke-width="2" stroke-linecap="round">
-            <path d="M430,280 Q415,267 395,255"/>
-            <path d="M430,280 Q412,237 395,195"/>
-            <path d="M430,280 Q360,262 290,245"/>
-            <path d="M430,280 Q325,330 220,380"/>
-            <path d="M430,280 Q405,332 380,385"/>
-            <path d="M430,280 Q442,245 455,210"/>
-            <path d="M430,280 Q470,292 510,305"/>
-            <path d="M430,280 Q462,355 495,430"/>
-            <path d="M430,280 Q452,200 475,120"/>
-            <path d="M430,280 Q295,337 160,395"/>
-            <path d="M430,280 Q347,240 265,200"/>
+            <path d="M400,130 Q500,115 600,110"/>      <!-- Debrecen -->
+            <path d="M400,130 Q420,180 440,240"/>      <!-- Szeged -->
+            <path d="M400,130 Q340,195 280,252"/>      <!-- Pécs -->
+            <path d="M400,130 Q305,108 210,92"/>       <!-- Győr -->
+            <path d="M400,130 Q450,95 500,65"/>        <!-- Miskolc -->
+            <path d="M400,130 Q515,105 630,85"/>       <!-- Nyíregyháza -->
+            <path d="M400,130 Q322,148 245,170"/>      <!-- Veszprém -->
+            <path d="M400,130 Q355,142 310,155"/>      <!-- Székesfehérvár -->
+            <path d="M400,130 Q410,158 420,185"/>      <!-- Kecskemét -->
+            <path d="M400,130 Q250,147 100,165"/>      <!-- Szombathely -->
+          </g>
+
+          <!-- város címkék -->
+          <g class="city-labels" font-family="Inter, Arial, sans-serif" font-size="11" fill="#cfd5e0" opacity=".75">
+            <text x="408" y="120">Budapest</text>
+            <text x="610" y="105">Debrecen</text>
+            <text x="450" y="255">Szeged</text>
+            <text x="220" y="265">Pécs</text>
+            <text x="178" y="84">Győr</text>
+            <text x="475" y="55">Miskolc</text>
+            <text x="595" y="76">Nyíregyháza</text>
+            <text x="195" y="184">Veszprém</text>
+            <text x="237" y="148">Székesfehérvár</text>
+            <text x="430" y="200">Kecskemét</text>
+            <text x="50"  y="178">Szombathely</text>
           </g>
         </svg>
       </div>
       <div class="copy copy--center" data-anim="map-copy">
-        <p class="eyebrow">03 — Hálózat</p>
-        <h2 class="h2">Egy <span class="accent">vörös vonal</span><br/>Európán át.</h2>
-        <p class="lede">Budapest-központú hálózat, európai fővárosokat összekötő rendszeres járatokkal.</p>
+        <p class="eyebrow">03 — Lefedettség</p>
+        <h2 class="h2">Az <span class="accent">egész ország</span><br/>területére.</h2>
+        <p class="lede">Magyarország bármely városába vállalunk költöztetést és áruszállítást — Budapesttől Nyíregyházáig, Sopronból Pécsig.</p>
       </div>
     </div>
   </section>
@@ -279,46 +296,63 @@
 
     <div class="copy copy--top">
       <p class="eyebrow">04 — Szolgáltatások</p>
-      <h2 class="h2">Több, mint <span class="accent">fuvarozás.</span></h2>
+      <h2 class="h2">Költöztetés. <span class="accent">Áruszállítás.</span></h2>
+      <p class="lede">Költözés előtt áll, vagy szállítási gondja akadt? Több mint 30 éves tapasztalattal, rugalmasan, az Ön igényei szerint.</p>
     </div>
 
     <div class="services-grid">
-      <!--
-        TODO: Cseréld le a hat kártyát a mpsped.hu szerinti tényleges
-        szolgáltatás-portfólióra (cím + 1–2 mondat leírás).
-        Az alábbi kártyák szándékosan általánosak — bármely
-        nemzetközi fuvarozó kínálatára igazak —, hogy ne legyen
-        bennük kitalált tény (m², ország-szám, stb.).
-      -->
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M6 32V14h22l8 8v10M6 32h36M10 38a4 4 0 100-8 4 4 0 000 8zm26 0a4 4 0 100-8 4 4 0 000 8z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Nemzetközi fuvarozás</h3>
-        <p>Közúti áruszállítás Európa-szerte — saját flottával és bevizsgált partnerhálózattal.</p>
+        <div class="svc-ico">
+          <!-- ház ikon -->
+          <svg viewBox="0 0 48 48"><path d="M8 40V20l16-12 16 12v20M8 40h32M18 40V28h12v12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Költöztetés</h3>
+        <p>Magánlakások · Irodák · Irodaházak · Cégek · Raktárak. Csomagolóanyagokkal és bútorvédő eszközökkel — épségben, sérülésmentesen.</p>
       </article>
+
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M8 40V18l16-10 16 10v22M8 40h32M18 40V26h12v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
-        <h3>Belföldi fuvarozás</h3>
-        <p>Magyarországi gyűjtő- és komplett szállítások, gyors menetidővel.</p>
+        <div class="svc-ico">
+          <!-- doboz / áru ikon -->
+          <svg viewBox="0 0 48 48"><path d="M24 6l16 8v20l-16 8-16-8V14z M8 14l16 8m16-8l-16 8m0 0v18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Áruszállítás</h3>
+        <p>Belföldi áruszállítás bárhova az ország területén. Bútorok, dobozos és raklapos áruk — gyors, megbízható kiszállítással.</p>
       </article>
+
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12v12l8 4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-        <h3>Szállítmányozás</h3>
-        <p>Teljes körű logisztikai szervezés — útvonaltervezés, dokumentáció, koordináció.</p>
+        <div class="svc-ico">
+          <!-- zongora ikon -->
+          <svg viewBox="0 0 48 48"><path d="M6 36V14h36v22M6 36h36 M14 14v8m6-8v8m6-8v8m6-8v8m6-8v8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Speciális tételek</h3>
+        <p>Zongorák · Pianinók · Széfek · Páncélszekrények. Kényes, nagy értékű és nehéz tárgyak szakszerű mozgatása, megfelelő eszközökkel.</p>
       </article>
+
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M10 14h28v24H10z M16 14V8h16v6 M4 24h40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
-        <h3>Speciális rakomány</h3>
-        <p>Veszélyes anyagok (ADR), túlméretes és időkritikus szállítmányok kezelése.</p>
+        <div class="svc-ico">
+          <!-- bútor / szék ikon -->
+          <svg viewBox="0 0 48 48"><path d="M12 8v22h24V8M12 30v10M36 30v10M8 22h32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Bútorszerelés</h3>
+        <p>Helyszíni szét- és összeszerelés szakképzett kollégákkal — hogy ne kelljen Önnek bajlódnia a régi és új bútorokkal.</p>
       </article>
+
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M24 6l16 8v12c0 10-7 18-16 22-9-4-16-12-16-22V14z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 24l5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Biztosítás</h3>
-        <p>CMR biztosítás minden szállítmányra; igény esetén kiterjesztett kárfedezet.</p>
+        <div class="svc-ico">
+          <!-- raklap / paletta ikon -->
+          <svg viewBox="0 0 48 48"><path d="M4 30h40v6H4z M4 36v6h6v-6M22 36v6h6v-6M36 36v6h6v-6M8 14h32v16H8z M14 14v16m6-16v16m6-16v16m6-16v16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Raklapos áru</h3>
+        <p>Darab- és raklapos áruk szállítása az ország bármely pontjára. Megfelelő autóparkkal és bevizsgált eszközökkel.</p>
       </article>
+
       <article class="svc">
-        <div class="svc-ico"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 18h36 M14 26h8 M14 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-        <h3>Élő nyomkövetés</h3>
-        <p>Folyamatos egyeztetés és státuszinformáció — telefonon, e-mailben.</p>
+        <div class="svc-ico">
+          <!-- pajzs / megbízhatóság ikon -->
+          <svg viewBox="0 0 48 48"><path d="M24 6l16 8v12c0 10-7 18-16 22-9-4-16-12-16-22V14z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 24l5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Megbízhatóság</h3>
+        <p>1989 óta a piacon — családi vállalkozás, precíz munkavégzés, igényesség. A kényes bútorokat szükség esetén fóliázzuk, dobozokat biztosítunk.</p>
       </article>
     </div>
   </section>
@@ -342,24 +376,23 @@
       </div>
 
       <div class="copy copy--center contact-copy" data-anim="contact-copy">
-        <p class="eyebrow">05 — Megérkezés</p>
-        <h2 class="h2"><span class="accent">Mozdítsuk</span><br/>a rakományát.</h2>
-        <!-- TODO: cseréld le a placeholder elérhetőségeket a tényleges adatokra -->
+        <p class="eyebrow">05 — Kapcsolat</p>
+        <h2 class="h2">Több mint <span class="accent">30 éve</span><br/>Önökért.</h2>
         <div class="contact-grid">
-          <div class="contact-item">
-            <span class="ci-label">Telefon</span>
-            <span class="ci-value">[telefonszám]</span>
-          </div>
-          <div class="contact-item">
-            <span class="ci-label">Email</span>
-            <span class="ci-value">[email cím]</span>
-          </div>
-          <div class="contact-item">
-            <span class="ci-label">Cím</span>
-            <span class="ci-value">[postai cím]</span>
-          </div>
+          <a class="contact-item" href="tel:+36702110215">
+            <span class="ci-label">Mobil</span>
+            <span class="ci-value">+36 70 211 0215</span>
+          </a>
+          <a class="contact-item" href="tel:+3688410785">
+            <span class="ci-label">Vezetékes</span>
+            <span class="ci-value">+36 88 410 785</span>
+          </a>
+          <a class="contact-item" href="https://mpsped.hu" target="_blank" rel="noopener">
+            <span class="ci-label">Web</span>
+            <span class="ci-value">mpsped.hu</span>
+          </a>
         </div>
-        <a class="btn btn--primary" href="#">Árajánlatot kérek</a>
+        <a class="btn btn--primary" href="tel:+36702110215">Hívom most</a>
       </div>
     </div>
   </section>
@@ -480,15 +513,36 @@
       <!-- trailer specular sweep -->
       <rect x="360" y="92" width="820" height="180" fill="url(#cabSpec)" opacity=".35"/>
 
-      <!-- MPSPED wordmark on trailer -->
-      <g opacity=".95">
-        <text x="770" y="220" text-anchor="middle"
+      <!-- MPSPED valós trailer dekoráció: sárga MP/SPED logó középen,
+           bal oldalt KÖLTÖZTETÉS, jobbra ÁRUSZÁLLÍTÁS, alatta telefonszám -->
+      <g>
+        <!-- bal felirat -->
+        <text x="510" y="200" text-anchor="middle"
               font-family="Archivo, Helvetica, Arial, sans-serif"
-              font-weight="900" font-size="78" fill="#fff" letter-spacing="-2">MPSPED</text>
-        <line x1="660" y1="245" x2="880" y2="245" stroke="#fff" stroke-width="2" opacity=".55"/>
-        <text x="770" y="278" text-anchor="middle"
+              font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">KÖLTÖZTETÉS</text>
+        <!-- jobb felirat -->
+        <text x="1020" y="200" text-anchor="middle"
+              font-family="Archivo, Helvetica, Arial, sans-serif"
+              font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">ÁRUSZÁLLÍTÁS</text>
+
+        <!-- központi MP/SPED jelvény -->
+        <g transform="translate(770 210)">
+          <text text-anchor="middle" y="0"
+                font-family="Archivo, Helvetica, Arial, sans-serif"
+                font-weight="900" font-size="64" fill="#FFD60A" letter-spacing="-3">MP</text>
+          <text text-anchor="middle" y="22"
+                font-family="Archivo, Helvetica, Arial, sans-serif"
+                font-weight="800" font-size="18" fill="#FFD60A" letter-spacing="4">SPED</text>
+        </g>
+
+        <!-- telefonszám -->
+        <text x="770" y="262" text-anchor="middle"
+              font-family="Archivo, Helvetica, Arial, sans-serif"
+              font-weight="800" font-size="22" fill="#FFD60A" letter-spacing="1">☎ 06 70 211 0215</text>
+        <!-- vezetékes + web -->
+        <text x="770" y="292" text-anchor="middle"
               font-family="Inter, Helvetica, Arial, sans-serif"
-              font-weight="500" font-size="18" fill="#fff" opacity=".75" letter-spacing="5">LOGISTICS</text>
+              font-weight="500" font-size="13" fill="#FFD60A" opacity=".88" letter-spacing="1">06 88 410 785 · mpsped.hu</text>
       </g>
 
       <!-- trailer rear door -->
