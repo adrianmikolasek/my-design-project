@@ -93,7 +93,7 @@
         <div class="truck-wrap">
           <div class="headlight headlight--l" data-anim="headlight"></div>
           <div class="headlight headlight--r" data-anim="headlight"></div>
-          <svg class="truck" viewBox="0 0 800 360" aria-label="MPSPED kamion">
+          <svg class="truck" viewBox="0 0 1200 480" aria-label="MPSPED kamion">
             <use href="#truck-red"/>
           </svg>
           <div class="truck-shadow"></div>
@@ -103,12 +103,12 @@
       <div class="layer layer--floor" data-anim="floor"></div>
 
       <div class="copy copy--center copy--depot" data-anim="depot-copy">
-        <p class="eyebrow">MPSPED · est. 1993</p>
+        <p class="eyebrow">MPSPED · Logisztika</p>
         <h1 class="display">
           A <span class="accent">piros</span>,<br/>
           ami megérkezik.
         </h1>
-        <p class="lede">Nemzetközi szállítmányozás Európa szívéből — Budapesttől Lisszabonig, Helsinkitől Athénig.</p>
+        <p class="lede">Nemzetközi szállítmányozás és logisztika — Magyarország szívéből, Európa minden pontjára.</p>
         <a class="scroll-hint" href="#road">
           <span>Görgess</span>
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
@@ -159,7 +159,7 @@
       </div>
 
       <div class="layer layer--truck-road" data-anim="truck-road">
-        <svg class="truck truck--road" viewBox="0 0 800 360" aria-hidden="true"><use href="#truck-red"/></svg>
+        <svg class="truck truck--road" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
         <div class="truck-shadow truck-shadow--road"></div>
         <div class="dust" data-anim="dust"></div>
       </div>
@@ -167,11 +167,12 @@
       <div class="copy copy--left" data-anim="road-copy">
         <p class="eyebrow">01 — Útvonal</p>
         <h2 class="h2">Egy kontinens. <span class="accent">Egy kamion.</span></h2>
-        <p class="lede">30+ év tapasztalat, 200+ saját jármű, napi szintű indulások Európa minden főbb csomópontja felé.</p>
+        <p class="lede">Hazai központtal, európai léptékben — saját flottával és bevizsgált partnerhálózattal.</p>
+        <!-- TODO: a tényleges statisztikákat töltsd ki -->
         <ul class="stat-row">
-          <li><strong>30+</strong><span>év</span></li>
-          <li><strong>200+</strong><span>jármű</span></li>
-          <li><strong>40</strong><span>ország</span></li>
+          <li><strong>—</strong><span>év</span></li>
+          <li><strong>—</strong><span>jármű</span></li>
+          <li><strong>—</strong><span>ország</span></li>
         </ul>
       </div>
 
@@ -203,7 +204,7 @@
       </div>
 
       <div class="layer layer--truck-hwy" data-anim="truck-hwy">
-        <svg class="truck truck--hwy" viewBox="0 0 800 360" aria-hidden="true"><use href="#truck-red"/></svg>
+        <svg class="truck truck--hwy" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
         <div class="motion-blur" data-anim="blur"></div>
       </div>
 
@@ -258,7 +259,7 @@
       <div class="copy copy--center" data-anim="map-copy">
         <p class="eyebrow">03 — Hálózat</p>
         <h2 class="h2">Egy <span class="accent">vörös vonal</span><br/>Európán át.</h2>
-        <p class="lede">Budapest-központú hub-and-spoke hálózat 12 fő európai csomóponttal és napi indulásokkal.</p>
+        <p class="lede">Budapest-központú hálózat, európai fővárosokat összekötő rendszeres járatokkal.</p>
       </div>
     </div>
   </section>
@@ -276,35 +277,42 @@
     </div>
 
     <div class="services-grid">
+      <!--
+        TODO: Cseréld le a hat kártyát a mpsped.hu szerinti tényleges
+        szolgáltatás-portfólióra (cím + 1–2 mondat leírás).
+        Az alábbi kártyák szándékosan általánosak — bármely
+        nemzetközi fuvarozó kínálatára igazak —, hogy ne legyen
+        bennük kitalált tény (m², ország-szám, stb.).
+      -->
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M6 32V14h22l8 8v10M6 32h36M10 38a4 4 0 100-8 4 4 0 000 8zm26 0a4 4 0 100-8 4 4 0 000 8z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Nemzetközi fuvarozás</h3>
-        <p>FTL & LTL Európa-szerte, saját flottával és ellenőrzött partnerekkel.</p>
+        <p>Közúti áruszállítás Európa-szerte — saját flottával és bevizsgált partnerhálózattal.</p>
       </article>
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M8 40V18l16-10 16 10v22M8 40h32M18 40V26h12v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
-        <h3>Raktározás</h3>
-        <p>15 000 m² fedett és vámszabad raktárterület Budapest peremén.</p>
+        <h3>Belföldi fuvarozás</h3>
+        <p>Magyarországi gyűjtő- és komplett szállítások, gyors menetidővel.</p>
       </article>
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12v12l8 4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-        <h3>Express megoldások</h3>
-        <p>Sürgős, időkritikus küldemények dedikált járművel, 2 fős sofőrökkel.</p>
+        <h3>Szállítmányozás</h3>
+        <p>Teljes körű logisztikai szervezés — útvonaltervezés, dokumentáció, koordináció.</p>
       </article>
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M10 14h28v24H10z M16 14V8h16v6 M4 24h40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
-        <h3>Vámügyintézés</h3>
-        <p>Teljes körű vám- és okmányolási szolgáltatás, EU-n belül és kívül.</p>
+        <h3>Speciális rakomány</h3>
+        <p>Veszélyes anyagok (ADR), túlméretes és időkritikus szállítmányok kezelése.</p>
       </article>
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M24 6l16 8v12c0 10-7 18-16 22-9-4-16-12-16-22V14z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 24l5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Biztosítás</h3>
-        <p>CMR biztosítás minden szállítmányra, kiterjesztett kárfedezeti opciókkal.</p>
+        <p>CMR biztosítás minden szállítmányra; igény esetén kiterjesztett kárfedezet.</p>
       </article>
       <article class="svc">
         <div class="svc-ico"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 18h36 M14 26h8 M14 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <h3>Élő nyomkövetés</h3>
-        <p>Valós idejű GPS, hőmérséklet és ETA — bármikor, bármilyen eszközről.</p>
+        <p>Folyamatos egyeztetés és státuszinformáció — telefonon, e-mailben.</p>
       </article>
     </div>
   </section>
@@ -323,28 +331,29 @@
         </svg>
       </div>
       <div class="layer layer--truck-arrival" data-anim="truck-arrival">
-        <svg class="truck truck--arrival" viewBox="0 0 800 360" aria-hidden="true"><use href="#truck-red"/></svg>
+        <svg class="truck truck--arrival" viewBox="0 0 1200 480" aria-hidden="true"><use href="#truck-red"/></svg>
         <div class="truck-shadow truck-shadow--arrival"></div>
       </div>
 
       <div class="copy copy--center contact-copy" data-anim="contact-copy">
         <p class="eyebrow">05 — Megérkezés</p>
         <h2 class="h2"><span class="accent">Mozdítsuk</span><br/>a rakományát.</h2>
+        <!-- TODO: cseréld le a placeholder elérhetőségeket a tényleges adatokra -->
         <div class="contact-grid">
-          <a class="contact-item" href="tel:+3614000000">
+          <div class="contact-item">
             <span class="ci-label">Telefon</span>
-            <span class="ci-value">+36 1 400 0000</span>
-          </a>
-          <a class="contact-item" href="mailto:info@mpsped.hu">
+            <span class="ci-value">[telefonszám]</span>
+          </div>
+          <div class="contact-item">
             <span class="ci-label">Email</span>
-            <span class="ci-value">info@mpsped.hu</span>
-          </a>
+            <span class="ci-value">[email cím]</span>
+          </div>
           <div class="contact-item">
             <span class="ci-label">Cím</span>
-            <span class="ci-value">1239 Budapest,<br/>Haraszti út 44.</span>
+            <span class="ci-value">[postai cím]</span>
           </div>
         </div>
-        <a class="btn btn--primary" href="mailto:info@mpsped.hu?subject=Árajánlat%20kérés">Árajánlatot kérek</a>
+        <a class="btn btn--primary" href="#">Árajánlatot kérek</a>
       </div>
     </div>
   </section>
@@ -359,59 +368,299 @@
 <!-- ════════════ SVG SYMBOLS ════════════ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="truck-red" viewBox="0 0 800 360">
+    <!-- ───────── Photorealistic-ish red European semi truck ─────────
+         Side view, multi-stop gradients for body curvature,
+         chrome bumper / exhaust stacks, real alloy wheels.
+         Designed at viewBox 1200×480 for plenty of detail. -->
+    <symbol id="truck-red" viewBox="0 0 1200 480">
       <defs>
-        <linearGradient id="bodyRed" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#ff2a3a"/>
-          <stop offset=".55" stop-color="#d31624"/>
-          <stop offset="1" stop-color="#7a0b13"/>
+        <!-- Cab body: top highlight → main red → underbelly shadow -->
+        <linearGradient id="cabBody" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"    stop-color="#ff6470"/>
+          <stop offset=".18"  stop-color="#ee2533"/>
+          <stop offset=".55"  stop-color="#c0121f"/>
+          <stop offset=".85"  stop-color="#5e0810"/>
+          <stop offset="1"    stop-color="#2a0306"/>
         </linearGradient>
-        <linearGradient id="trailerRed" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#e6212f"/>
-          <stop offset="1" stop-color="#8a0c15"/>
+        <!-- Trailer body: subtle horizontal banding for ribbed panels -->
+        <linearGradient id="trailerBody" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"    stop-color="#ff5462"/>
+          <stop offset=".12"  stop-color="#e72030"/>
+          <stop offset=".5"   stop-color="#bd111e"/>
+          <stop offset=".85"  stop-color="#660a12"/>
+          <stop offset="1"    stop-color="#260306"/>
         </linearGradient>
-        <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#9ec7ff"/>
-          <stop offset="1" stop-color="#243549"/>
+        <!-- Specular sweep that suggests curved metal -->
+        <linearGradient id="cabSpec" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0"   stop-color="rgba(255,255,255,0)"/>
+          <stop offset=".4"  stop-color="rgba(255,255,255,.35)"/>
+          <stop offset=".55" stop-color="rgba(255,255,255,.05)"/>
+          <stop offset="1"   stop-color="rgba(255,255,255,0)"/>
         </linearGradient>
+        <!-- Glass with sky reflection -->
+        <linearGradient id="glassRefl" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"    stop-color="#cfe1f5"/>
+          <stop offset=".35"  stop-color="#6b8aa8"/>
+          <stop offset=".65"  stop-color="#1f2a3a"/>
+          <stop offset="1"    stop-color="#0a0f17"/>
+        </linearGradient>
+        <!-- Tire rubber -->
+        <radialGradient id="tire" cx=".5" cy=".5" r=".5">
+          <stop offset="0"   stop-color="#1c1c1c"/>
+          <stop offset=".7"  stop-color="#0a0a0a"/>
+          <stop offset="1"   stop-color="#000"/>
+        </radialGradient>
+        <!-- Alloy wheel hub -->
+        <radialGradient id="hub" cx=".5" cy=".5" r=".5">
+          <stop offset="0"   stop-color="#cfd4db"/>
+          <stop offset=".4"  stop-color="#6a7280"/>
+          <stop offset=".75" stop-color="#2a2f38"/>
+          <stop offset="1"   stop-color="#0e1116"/>
+        </radialGradient>
+        <!-- Chrome -->
+        <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"   stop-color="#f0f4f8"/>
+          <stop offset=".35" stop-color="#9aa3ad"/>
+          <stop offset=".5"  stop-color="#1e242c"/>
+          <stop offset=".65" stop-color="#7a838d"/>
+          <stop offset="1"   stop-color="#cfd5dc"/>
+        </linearGradient>
+        <!-- Headlight bulb -->
+        <radialGradient id="bulb" cx=".5" cy=".5" r=".5">
+          <stop offset="0"   stop-color="#ffffff"/>
+          <stop offset=".4"  stop-color="#fff4c8"/>
+          <stop offset="1"   stop-color="#d3a64a"/>
+        </radialGradient>
+        <!-- Ground contact ellipse -->
+        <radialGradient id="ground" cx=".5" cy=".5" r=".5">
+          <stop offset="0"   stop-color="rgba(0,0,0,.75)"/>
+          <stop offset="1"   stop-color="rgba(0,0,0,0)"/>
+        </radialGradient>
       </defs>
-      <rect x="250" y="60" width="490" height="200" rx="6" fill="url(#trailerRed)" stroke="#3a070c" stroke-width="2"/>
-      <g stroke="#3a070c" stroke-width="1.5" opacity=".55">
-        <line x1="320" y1="60" x2="320" y2="260"/>
-        <line x1="400" y1="60" x2="400" y2="260"/>
-        <line x1="480" y1="60" x2="480" y2="260"/>
-        <line x1="560" y1="60" x2="560" y2="260"/>
-        <line x1="640" y1="60" x2="640" y2="260"/>
-        <line x1="720" y1="60" x2="720" y2="260"/>
+
+      <!-- ground shadow -->
+      <ellipse cx="600" cy="438" rx="540" ry="14" fill="url(#ground)"/>
+
+      <!-- ═══════ TRAILER ═══════ -->
+      <!-- main box -->
+      <path d="M360,90 L1160,90 Q1180,90 1180,108 L1180,360 Q1180,378 1160,378 L360,378 Z"
+            fill="url(#trailerBody)"/>
+      <!-- subtle horizontal ribs (light + dark pair, simulating panels) -->
+      <g opacity=".25">
+        <line x1="362" y1="120" x2="1178" y2="120" stroke="#fff"/>
+        <line x1="362" y1="122" x2="1178" y2="122" stroke="#3a060b"/>
+        <line x1="362" y1="170" x2="1178" y2="170" stroke="#fff"/>
+        <line x1="362" y1="172" x2="1178" y2="172" stroke="#3a060b"/>
+        <line x1="362" y1="220" x2="1178" y2="220" stroke="#fff"/>
+        <line x1="362" y1="222" x2="1178" y2="222" stroke="#3a060b"/>
+        <line x1="362" y1="270" x2="1178" y2="270" stroke="#fff"/>
+        <line x1="362" y1="272" x2="1178" y2="272" stroke="#3a060b"/>
+        <line x1="362" y1="320" x2="1178" y2="320" stroke="#fff"/>
+        <line x1="362" y1="322" x2="1178" y2="322" stroke="#3a060b"/>
       </g>
-      <g opacity=".92">
-        <text x="495" y="172" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="56" fill="#fff" letter-spacing="-1">MPSPED</text>
-        <line x1="430" y1="190" x2="560" y2="190" stroke="#fff" stroke-width="1.5" opacity=".4"/>
-        <text x="495" y="208" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="14" fill="#fff" opacity=".7" letter-spacing="3">LOGISTICS</text>
+      <!-- vertical seam every ~120px -->
+      <g stroke="rgba(0,0,0,.35)" stroke-width="1">
+        <line x1="480" y1="92" x2="480" y2="376"/>
+        <line x1="600" y1="92" x2="600" y2="376"/>
+        <line x1="720" y1="92" x2="720" y2="376"/>
+        <line x1="840" y1="92" x2="840" y2="376"/>
+        <line x1="960" y1="92" x2="960" y2="376"/>
+        <line x1="1080" y1="92" x2="1080" y2="376"/>
       </g>
-      <path d="M60,260 L60,120 Q60,90 90,90 L230,90 Q250,90 250,110 L250,260 Z" fill="url(#bodyRed)" stroke="#3a070c" stroke-width="2"/>
-      <path d="M88,178 L88,118 Q88,108 100,108 L220,108 Q232,108 232,120 L232,178 Z" fill="url(#glass)" opacity=".95"/>
-      <rect x="92" y="186" width="50" height="34" rx="3" fill="url(#glass)" opacity=".85"/>
-      <rect x="200" y="210" width="20" height="4" rx="2" fill="#3a070c"/>
-      <rect x="100" y="232" width="130" height="14" rx="3" fill="#1a0307"/>
-      <rect x="64" y="220" width="22" height="14" rx="3" fill="#fff7c8"/>
-      <rect x="240" y="220" width="8" height="14" rx="2" fill="#ffae3a"/>
-      <rect x="56" y="248" width="200" height="14" rx="3" fill="#2a050a"/>
-      <rect x="58" y="262" width="684" height="10" fill="#0a0204"/>
-      <g fill="#0a0a0a" stroke="#2a2a2a" stroke-width="2">
-        <circle cx="120" cy="290" r="34"/>
-        <circle cx="330" cy="290" r="34"/>
-        <circle cx="430" cy="290" r="34"/>
-        <circle cx="650" cy="290" r="34"/>
+      <!-- top edge highlight -->
+      <path d="M360,90 L1160,90 Q1180,90 1180,108" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"/>
+      <!-- bottom edge shadow -->
+      <line x1="360" y1="378" x2="1180" y2="378" stroke="rgba(0,0,0,.6)" stroke-width="2"/>
+      <!-- trailer specular sweep -->
+      <rect x="360" y="92" width="820" height="180" fill="url(#cabSpec)" opacity=".35"/>
+
+      <!-- MPSPED wordmark on trailer -->
+      <g opacity=".95">
+        <text x="770" y="220" text-anchor="middle"
+              font-family="Archivo, Helvetica, Arial, sans-serif"
+              font-weight="900" font-size="78" fill="#fff" letter-spacing="-2">MPSPED</text>
+        <line x1="660" y1="245" x2="880" y2="245" stroke="#fff" stroke-width="2" opacity=".55"/>
+        <text x="770" y="278" text-anchor="middle"
+              font-family="Inter, Helvetica, Arial, sans-serif"
+              font-weight="500" font-size="18" fill="#fff" opacity=".75" letter-spacing="5">LOGISTICS</text>
       </g>
-      <g fill="#3a3a3a">
-        <circle cx="120" cy="290" r="12"/>
-        <circle cx="330" cy="290" r="12"/>
-        <circle cx="430" cy="290" r="12"/>
-        <circle cx="650" cy="290" r="12"/>
+
+      <!-- trailer rear door -->
+      <rect x="1162" y="92" width="20" height="284" fill="#3a070c"/>
+      <rect x="1166" y="100" width="4" height="40" fill="#1a0305"/>
+      <rect x="1166" y="320" width="4" height="40" fill="#1a0305"/>
+
+      <!-- under-trailer fairing / skirting -->
+      <path d="M380,378 L1140,378 L1130,398 L390,398 Z" fill="#1a0a0d"/>
+
+      <!-- mud flaps -->
+      <rect x="1140" y="378" width="24" height="42" rx="2" fill="#0a0a0a"/>
+      <text x="1152" y="406" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" opacity=".5">MP</text>
+
+      <!-- side marker lights -->
+      <g>
+        <rect x="370" y="100" width="8" height="6" rx="2" fill="#ffb83a" opacity=".95"/>
+        <rect x="370" y="360" width="8" height="6" rx="2" fill="#ff4040" opacity=".9"/>
+        <rect x="1162" y="100" width="8" height="6" rx="2" fill="#ffb83a" opacity=".95"/>
+        <rect x="1162" y="360" width="8" height="6" rx="2" fill="#ff4040" opacity=".9"/>
       </g>
-      <rect x="62" y="92" width="186" height="6" rx="3" fill="#fff" opacity=".18"/>
-      <rect x="252" y="62" width="486" height="6" rx="3" fill="#fff" opacity=".22"/>
+
+      <!-- ═══════ CAB ═══════ -->
+      <!-- main cab body -->
+      <path d="M80,378 L80,160
+               Q80,118 122,108
+               L240,90
+               Q280,82 310,98
+               L340,128
+               Q360,148 360,180
+               L360,378 Z"
+            fill="url(#cabBody)"/>
+      <!-- roof spoiler / aero -->
+      <path d="M115,108 Q120,82 150,82 L290,82 Q316,82 332,98 L300,108 Q280,102 240,108 L150,124 Q120,128 115,108 Z"
+            fill="#0d0306" opacity=".7"/>
+      <!-- chrome exhaust stack (cab side) -->
+      <rect x="330" y="84" width="10" height="58" rx="2" fill="url(#chrome)"/>
+      <circle cx="335" cy="84" r="5" fill="url(#chrome)"/>
+      <!-- cab highlight stripe -->
+      <path d="M82,162 Q86,142 122,134 L320,134 Q340,138 342,156" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none"/>
+      <!-- windshield -->
+      <path d="M124,238 L124,160
+               Q124,134 154,128
+               L288,108
+               Q310,104 322,118
+               L336,142
+               Q340,150 340,162
+               L340,238 Z"
+            fill="url(#glassRefl)"/>
+      <!-- windshield highlight reflections -->
+      <path d="M138,232 L188,168 L208,164 L156,232 Z" fill="rgba(255,255,255,.18)"/>
+      <path d="M232,228 L284,138 L298,142 L252,228 Z" fill="rgba(255,255,255,.12)"/>
+      <!-- side window -->
+      <path d="M124,252 L324,252 L324,302 L124,302 Z" fill="url(#glassRefl)" opacity=".85"/>
+      <line x1="220" y1="252" x2="220" y2="302" stroke="#0a0a0f" stroke-width="2"/>
+      <!-- door seam -->
+      <line x1="230" y1="252" x2="230" y2="375" stroke="rgba(0,0,0,.55)" stroke-width="1.5"/>
+      <!-- door handle -->
+      <rect x="248" y="320" width="34" height="6" rx="3" fill="#1a0307"/>
+      <rect x="248" y="320" width="34" height="2" rx="1" fill="rgba(255,255,255,.35)"/>
+      <!-- climb step -->
+      <rect x="92" y="358" width="40" height="6" rx="1" fill="#1a0307"/>
+      <rect x="100" y="372" width="32" height="4" rx="1" fill="#0a0204"/>
+
+      <!-- grille -->
+      <rect x="130" y="316" width="200" height="38" rx="4" fill="#0a0204"/>
+      <g stroke="#3a3a3a" stroke-width="1">
+        <line x1="138" y1="324" x2="322" y2="324"/>
+        <line x1="138" y1="332" x2="322" y2="332"/>
+        <line x1="138" y1="340" x2="322" y2="340"/>
+        <line x1="138" y1="348" x2="322" y2="348"/>
+      </g>
+      <!-- brand badge on grille -->
+      <rect x="218" y="328" width="24" height="14" rx="2" fill="#E11D2A"/>
+      <text x="230" y="339" text-anchor="middle" font-family="Archivo, Arial" font-weight="900" font-size="10" fill="#fff">MP</text>
+
+      <!-- headlights -->
+      <rect x="88" y="306" width="34" height="22" rx="4" fill="#0d0204"/>
+      <rect x="92" y="310" width="26" height="14" rx="2" fill="url(#bulb)"/>
+      <circle cx="98" cy="317" r="3.5" fill="#fff"/>
+      <!-- turn signal -->
+      <rect x="88" y="332" width="34" height="10" rx="3" fill="#ffb030" opacity=".85"/>
+
+      <!-- bumper (chrome) -->
+      <rect x="78" y="356" width="282" height="22" rx="3" fill="url(#chrome)"/>
+      <rect x="78" y="356" width="282" height="6" fill="rgba(255,255,255,.4)"/>
+      <rect x="78" y="370" width="282" height="6" fill="rgba(0,0,0,.45)"/>
+      <!-- tow hook -->
+      <rect x="210" y="362" width="20" height="12" rx="1" fill="#0a0a0a"/>
+
+      <!-- cab specular gloss -->
+      <path d="M80,160 Q80,140 100,130 L350,130 Q360,150 360,170 L360,178 Q200,168 80,178 Z"
+            fill="url(#cabSpec)" opacity=".5"/>
+
+      <!-- ═══════ CHASSIS ═══════ -->
+      <rect x="78" y="396" width="1102" height="14" fill="#0a0204"/>
+      <rect x="78" y="396" width="1102" height="2" fill="rgba(255,255,255,.06)"/>
+
+      <!-- ═══════ WHEELS ═══════ -->
+      <!-- function: tire + alloy hub + spokes + center cap -->
+      <g>
+        <!-- front cab wheel -->
+        <g transform="translate(180 408)">
+          <circle r="44" fill="url(#tire)"/>
+          <circle r="36" fill="#0a0a0a"/>
+          <circle r="28" fill="url(#hub)"/>
+          <g stroke="#0e1116" stroke-width="3" fill="none">
+            <line x1="-22" y1="0" x2="22" y2="0"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="-16" y1="-16" x2="16" y2="16"/>
+            <line x1="-16" y1="16" x2="16" y2="-16"/>
+          </g>
+          <circle r="9" fill="#cfd4db"/>
+          <circle r="4" fill="#3a3f48"/>
+        </g>
+        <!-- rear cab wheel (twin axle, just show closer) -->
+        <g transform="translate(310 408)">
+          <circle r="44" fill="url(#tire)"/>
+          <circle r="36" fill="#0a0a0a"/>
+          <circle r="28" fill="url(#hub)"/>
+          <g stroke="#0e1116" stroke-width="3" fill="none">
+            <line x1="-22" y1="0" x2="22" y2="0"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="-16" y1="-16" x2="16" y2="16"/>
+            <line x1="-16" y1="16" x2="16" y2="-16"/>
+          </g>
+          <circle r="9" fill="#cfd4db"/>
+          <circle r="4" fill="#3a3f48"/>
+        </g>
+        <!-- trailer first axle -->
+        <g transform="translate(820 408)">
+          <circle r="44" fill="url(#tire)"/>
+          <circle r="36" fill="#0a0a0a"/>
+          <circle r="28" fill="url(#hub)"/>
+          <g stroke="#0e1116" stroke-width="3" fill="none">
+            <line x1="-22" y1="0" x2="22" y2="0"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="-16" y1="-16" x2="16" y2="16"/>
+            <line x1="-16" y1="16" x2="16" y2="-16"/>
+          </g>
+          <circle r="9" fill="#cfd4db"/>
+          <circle r="4" fill="#3a3f48"/>
+        </g>
+        <!-- trailer second axle -->
+        <g transform="translate(940 408)">
+          <circle r="44" fill="url(#tire)"/>
+          <circle r="36" fill="#0a0a0a"/>
+          <circle r="28" fill="url(#hub)"/>
+          <g stroke="#0e1116" stroke-width="3" fill="none">
+            <line x1="-22" y1="0" x2="22" y2="0"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="-16" y1="-16" x2="16" y2="16"/>
+            <line x1="-16" y1="16" x2="16" y2="-16"/>
+          </g>
+          <circle r="9" fill="#cfd4db"/>
+          <circle r="4" fill="#3a3f48"/>
+        </g>
+        <!-- trailer third axle -->
+        <g transform="translate(1060 408)">
+          <circle r="44" fill="url(#tire)"/>
+          <circle r="36" fill="#0a0a0a"/>
+          <circle r="28" fill="url(#hub)"/>
+          <g stroke="#0e1116" stroke-width="3" fill="none">
+            <line x1="-22" y1="0" x2="22" y2="0"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="-16" y1="-16" x2="16" y2="16"/>
+            <line x1="-16" y1="16" x2="16" y2="-16"/>
+          </g>
+          <circle r="9" fill="#cfd4db"/>
+          <circle r="4" fill="#3a3f48"/>
+        </g>
+      </g>
+
+      <!-- ═══════ FUEL TANK BETWEEN CAB AND TRAILER ═══════ -->
+      <rect x="362" y="350" width="100" height="48" rx="10" fill="url(#chrome)" opacity=".9"/>
+      <rect x="362" y="350" width="100" height="10" fill="rgba(255,255,255,.4)"/>
+      <rect x="362" y="388" width="100" height="10" fill="rgba(0,0,0,.4)"/>
+
     </symbol>
   </defs>
 </svg>
