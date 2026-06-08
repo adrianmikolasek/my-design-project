@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UrRoll — Árnyékolástechnika</title>
+<meta name="description" content="UrRoll Árnyékolástechnika Kft. — Redőny, reluxa, napellenző, szúnyogháló. Felmérés, gyártás, beszerelés egy kézből." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="UrRoll kezdőlap">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <!-- Stilizált redőny ikon: 4 vízszintes vonal -->
+        <rect width="40" height="40" rx="9" fill="#1a1a1a"/>
+        <g stroke="#E89B3C" stroke-width="2.4" stroke-linecap="round">
+          <line x1="10" y1="13" x2="30" y2="13"/>
+          <line x1="10" y1="19" x2="30" y2="19"/>
+          <line x1="10" y1="25" x2="30" y2="25"/>
+          <line x1="10" y1="31" x2="30" y2="31"/>
+        </g>
+      </svg>
+      <span class="brand-name">UrRoll</span>
+      <span class="brand-tag">árnyékolástechnika</span>
+    </a>
+    <nav class="nav-links" aria-label="Fő menü">
+      <a href="#termekek">Termékek</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#galeria">Galéria</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <a class="nav-cta" href="#kapcsolat">
+      Ajánlatkérés <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- Vékony progress bar -->
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<main id="top">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO + REDŐNY ANIMÁCIÓ
+       A scene-wrap 240vh magas; a stage sticky a viewport tetején.
+       Görgetésre a redőny felhúzódik clip-path-szal és az „alsó léc"
+       transzformációval, miközben alóla előtűnik a meleg háttér.
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="hero" data-scene="hero">
+    <div class="hero-stage">
+
+      <!-- ① Háttér: meleg fényű ablakkép -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-bg-window">
+          <!-- Egyszerű ablakkeret + tájvázlat háttér -->
+          <div class="window-pane">
+            <div class="landscape">
+              <div class="sky"></div>
+              <div class="sun"></div>
+              <div class="hills hills-far"></div>
+              <div class="hills hills-near"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Szöveg középre, kezdetben átlátszó, redőny mögött látszik -->
+      <div class="hero-copy">
+        <p class="eyebrow">UrRoll · Árnyékolástechnika</p>
+        <h1 class="hero-title">
+          Engedd be<br/>
+          a <span class="accent">fényt.</span>
+        </h1>
+        <p class="hero-lede">
+          Redőny, reluxa, napellenző, szúnyogháló — felmérés,
+          gyártás, beszerelés egy kézből.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn btn--primary" href="#kapcsolat">
+            Ajánlatot kérek
+          </a>
+          <a class="btn btn--ghost" href="#termekek">
+            Termékek →
+          </a>
+        </div>
+      </div>
+
+      <!-- ③ A redőny — 10 lamella + alsó léc -->
+      <div class="blind" aria-hidden="true">
+        <div class="blind-slats">
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+        </div>
+      </div>
+      <!-- Alsó léc — külön elem, hogy a görgetésnél „pulled up" érzete legyen -->
+      <div class="blind-rail" aria-hidden="true">
+        <div class="rail-cord rail-cord--l"></div>
+        <div class="rail-cord rail-cord--r"></div>
+        <div class="rail-bar"></div>
+      </div>
+
+      <!-- Görgess hint a sticky stage alján -->
+      <a class="hero-scroll-hint" href="#termekek">
+        <span>Görgess</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TERMÉKEK
+       Editorial-style image cards (CSS-art product visuals)
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="termekek">
+    <div class="container">
+      <header class="section-head">
+        <p class="section-num">01 / Termékek</p>
+        <h2 class="section-title">
+          Minden, ami <span class="accent">árnyék.</span>
+        </h2>
+        <p class="section-sub">
+          Hat fő termékcsoport — méretre szabva, minőségi
+          alapanyagokból, magyar gyártóktól.
+        </p>
+      </header>
+
+      <div class="products">
+        <a class="product" href="#kapcsolat" data-product="redony">
+          <div class="product-visual">
+            <div class="pv-redony">
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Redőny</h3>
+            <p>Műanyag és alumínium, beépített és előtét — minden ablakra méretre.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="reluxa">
+          <div class="product-visual">
+            <div class="pv-reluxa">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Reluxa</h3>
+            <p>Vízszintes lamellák — fény szabályozása fokmérővel pontosan.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="szunyog">
+          <div class="product-visual">
+            <div class="pv-szunyog"></div>
+          </div>
+          <div class="product-body">
+            <h3>Szúnyogháló</h3>
+            <p>Rugós, plisszé, mágneses ajtó — minden nyílászáróra megoldás.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="napellenzo">
+          <div class="product-visual">
+            <div class="pv-napellenzo">
+              <div class="pv-fabric"></div>
+              <div class="pv-arm"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Napellenző</h3>
+            <p>Karos, ejtőkaros, kazettás — kertbe, teraszra, üzletre.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="pergola">
+          <div class="product-visual">
+            <div class="pv-pergola">
+              <div class="pv-roof"></div>
+              <div class="pv-pillar pv-pillar--l"></div>
+              <div class="pv-pillar pv-pillar--r"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Pergola</h3>
+            <p>Bioklimatikus, motoros, esőálló — egész éves teraszhasználat.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="sotetito">
+          <div class="product-visual">
+            <div class="pv-sotetito">
+              <div class="pv-curtain pv-curtain--l"></div>
+              <div class="pv-curtain pv-curtain--r"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Sötétítő roló</h3>
+            <p>Blackout, hőszigetelő, dekoratív — szövettől a kazettás kivitelig.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOLYAMAT
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--dark" id="folyamat">
+    <div class="container">
+      <header class="section-head section-head--center">
+        <p class="section-num">02 / Folyamat</p>
+        <h2 class="section-title">
+          Egy hívás — és <span class="accent">megoldjuk.</span>
+        </h2>
+        <p class="section-sub">
+          Az első kontaktustól a beszerelésig — átlátható menetrend,
+          fix árajánlat, garancia.
+        </p>
+      </header>
+
+      <ol class="process">
+        <li class="process-step">
+          <span class="process-num">01</span>
+          <h3>Helyszíni felmérés</h3>
+          <p>Kijövünk, lemérünk, tanácsot adunk. A felmérés ingyenes és kötelezettségmentes.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">02</span>
+          <h3>Fix árajánlat</h3>
+          <p>Részletes, tételes ajánlatot adunk — utólag se árváltozás, se rejtett költség.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">03</span>
+          <h3>Gyártás méretre</h3>
+          <p>Magyar partnereinkkel pontosan a te ablakaidra szabva, ellenőrzött minőségben.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">04</span>
+          <h3>Profi beszerelés</h3>
+          <p>Tapasztalt szerelők, tiszta munka, percre pontos érkezés. Utána mi takarítunk.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">05</span>
+          <h3>Garancia &amp; szerviz</h3>
+          <p>Termékenként 2–5 év garancia, és ha bármi gond — visszajövünk.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MIÉRT MINKET
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <p class="section-num">03 / Miért UrRoll?</p>
+          <h2 class="section-title">
+            Nem hozzák.<br/>
+            <span class="accent">Készítjük.</span>
+          </h2>
+          <p class="why-p">
+            Nem viszonteladók vagyunk — magyar gyártókkal dolgozunk,
+            a méreteket mi vesszük le, a beszerelést a saját
+            szerelőink végzik. Ezért tudunk garanciát is vállalni
+            a teljes folyamatra.
+          </p>
+          <blockquote class="pull-quote" data-reveal-words>
+            „Olyan minőséget szerelünk, amit a saját otthonunkba is bekötnénk."
+          </blockquote>
+        </div>
+
+        <ul class="badges">
+          <li class="badge">
+            <span class="badge-num" data-count="2" data-suffix="–5 év">2</span>
+            <span class="badge-label">Garancia<br/>terméken</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num">0 Ft</span>
+            <span class="badge-label">Ingyenes<br/>felmérés</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num" data-count="100" data-suffix="%">100%</span>
+            <span class="badge-label">Magyar<br/>gyártás</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num">Fix</span>
+            <span class="badge-label">Árajánlat<br/>előre</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GALÉRIA — minimal, csak fotó-placeholderek
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--gallery" id="galeria">
+    <div class="container">
+      <header class="section-head">
+        <p class="section-num">04 / Galéria</p>
+        <h2 class="section-title">
+          Friss <span class="accent">munkák.</span>
+        </h2>
+        <p class="section-sub">
+          Néhány közelmúltbeli beszerelés — ha a sajátodét is itt
+          látnád, dolgozzunk együtt.
+        </p>
+      </header>
+
+      <div class="gallery">
+        <figure class="gal-item gal-item--tall">
+          <div class="gal-photo gal-1"></div>
+          <figcaption>Alumínium redőny · családi ház · Budapest</figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-photo gal-2"></div>
+          <figcaption>Kazettás napellenző · étterem-terasz</figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-photo gal-3"></div>
+          <figcaption>Plisszé szúnyogháló · nappali ajtó</figcaption>
+        </figure>
+        <figure class="gal-item gal-item--wide">
+          <div class="gal-photo gal-4"></div>
+          <figcaption>Bioklimatikus pergola · privát kert</figcaption>
+        </figure>
+      </div>
+
+      <!-- TODO: A .gal-photo elemekbe töltsd a saját fotódat — ha az
+           assets/gal-1.jpg ... gal-4.jpg ott van, a JS lecseréli a
+           dekoratív CSS hátteret a valódi képre. -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KAPCSOLAT
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--cta" id="kapcsolat">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-text">
+          <p class="section-num">05 / Kapcsolat</p>
+          <h2 class="section-title section-title--xl">
+            Kezdjük el?
+          </h2>
+          <p class="cta-sub">
+            Mondd el, mi kell. Visszahívunk és kijövünk
+            felmérésre — a hívás, a felmérés és az árajánlat
+            ingyenes.
+          </p>
+          <!-- TODO: cseréld a placeholder elérhetőségeket -->
+          <ul class="cta-meta">
+            <li><span>Hétfő–Péntek</span><strong>8:00–17:00</strong></li>
+            <li><span>Szombat</span><strong>9:00–13:00</strong></li>
+            <li><span>Vasárnap</span><strong>Zárva</strong></li>
+          </ul>
+        </div>
+
+        <div class="cta-cards">
+          <a class="cta-card cta-card--primary" href="tel:+36000000000">
+            <span class="cta-card-label">Telefon</span>
+            <span class="cta-card-value">[telefonszám]</span>
+            <span class="cta-card-arrow">→</span>
+          </a>
+          <a class="cta-card" href="mailto:info@urroll.hu">
+            <span class="cta-card-label">Email</span>
+            <span class="cta-card-value">[email cím]</span>
+            <span class="cta-card-arrow">→</span>
+          </a>
+          <div class="cta-card">
+            <span class="cta-card-label">Cím</span>
+            <span class="cta-card-value">[telephely]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container foot-grid">
+      <div class="foot-brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="9" fill="#1a1a1a"/>
+          <g stroke="#E89B3C" stroke-width="2.4" stroke-linecap="round">
+            <line x1="10" y1="13" x2="30" y2="13"/>
+            <line x1="10" y1="19" x2="30" y2="19"/>
+            <line x1="10" y1="25" x2="30" y2="25"/>
+            <line x1="10" y1="31" x2="30" y2="31"/>
+          </g>
+        </svg>
+        <div>
+          <strong>UrRoll Kft.</strong>
+          <p>Árnyékolástechnika · felmérés · gyártás · beszerelés</p>
+        </div>
+      </div>
+      <nav class="foot-links" aria-label="Lábléc menü">
+        <a href="#termekek">Termékek</a>
+        <a href="#folyamat">Folyamat</a>
+        <a href="#galeria">Galéria</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+      </nav>
+      <div class="foot-contact">
+        <a href="tel:+36000000000">[telefonszám]</a>
+        <a href="mailto:info@urroll.hu">[email cím]</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="container foot-bottom-row">
+        <span>© <span id="year"></span> UrRoll Kft. — Minden jog fenntartva.</span>
+        <span>Készült Magyarországon</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>

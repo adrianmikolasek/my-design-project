@@ -1,0 +1,1793 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UrRoll — Árnyékolástechnika</title>
+<meta name="description" content="UrRoll Árnyékolástechnika Kft. — Redőny, reluxa, napellenző, szúnyogháló. Felmérés, gyártás, beszerelés egy kézből." />
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   UrRoll — Árnyékolástechnika
+   Letisztult, fiatalos, eye-catching scroll-driven hero
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Színpaletta — meleg krém + szénszürke + borostyán */
+  --cream:        #FAF7F2;
+  --cream-50:     #FFFEFB;
+  --cream-100:    #F4EFE6;
+  --cream-200:    #EBE3D4;
+  --ink-300:      #C9C4BC;
+  --ink-500:      #75716A;
+  --ink-700:      #3A3733;
+  --ink-900:      #1A1A1A;
+  --ink-950:      #0D0D0D;
+
+  --amber:        #E89B3C;      /* signature warm */
+  --amber-dark:   #C77C20;
+  --amber-soft:   #FFE5C5;
+
+  /* Fa-textúrás redőny lamella */
+  --slat-top:     #B57F47;
+  --slat-mid:     #8A5827;
+  --slat-bot:     #5A3818;
+  --slat-shadow:  rgba(0,0,0,.35);
+
+  /* Fő tipográfia */
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Easings */
+  --ease-out:  cubic-bezier(.22,.61,.36,1);
+  --ease-io:   cubic-bezier(.65,.05,.36,1);
+
+  --maxw:      1240px;
+  --pad-x:     clamp(20px, 5vw, 64px);
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-900);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img,svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+  width: 100%;
+}
+.accent { color: var(--amber); }
+
+/* ═══════════════════════════════════════════════════════════════
+   PROGRESS BAR
+   ═══════════════════════════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+}
+.scroll-progress > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--amber);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(250,247,242,.75);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border-bottom: 1px solid transparent;
+  transition: background .3s var(--ease-out), border-color .3s var(--ease-out);
+}
+.nav.scrolled {
+  background: rgba(250,247,242,.95);
+  border-color: var(--cream-200);
+}
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--ink-900);
+}
+.brand-mark { width: 32px; height: 32px; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.brand-tag {
+  font-size: 11px;
+  color: var(--ink-500);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+@media (max-width: 720px) { .brand-tag { display: none; } }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-700);
+}
+.nav-links a {
+  position: relative;
+  padding: 6px 0;
+  transition: color .2s var(--ease-out);
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink-900); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: var(--ink-900);
+  color: var(--cream-50);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background .2s var(--ease-out), transform .2s var(--ease-out);
+}
+.nav-cta:hover { background: var(--amber); color: var(--ink-900); transform: translateY(-1px); }
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIPOGRÁFIA
+   ═══════════════════════════════════════════════════════════════ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0;
+}
+.section-num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin: 0 0 16px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: .98;
+  letter-spacing: -.03em;
+  margin: 0 0 18px;
+  color: var(--ink-900);
+}
+.section-title--xl {
+  font-size: clamp(44px, 6.5vw, 108px);
+  line-height: 1.0;
+}
+.section-sub {
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-500);
+  margin: 0;
+  max-width: 56ch;
+}
+.section { padding: clamp(80px, 12vh, 140px) 0; }
+.section--dark { background: var(--ink-950); color: var(--cream-100); }
+.section--dark .section-title { color: var(--cream-50); }
+.section--dark .section-num   { color: var(--ink-300); }
+.section--dark .section-sub   { color: var(--cream-100); }
+
+.section-head { max-width: 720px; margin-bottom: clamp(40px, 6vw, 72px); }
+.section-head--center {
+  margin-left: auto; margin-right: auto;
+  text-align: center;
+}
+.section-head--center .section-sub { margin-left: auto; margin-right: auto; }
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform .2s var(--ease-out), background .2s var(--ease-out), color .2s var(--ease-out);
+  border: none;
+}
+.btn--primary {
+  background: var(--amber);
+  color: var(--ink-900);
+  box-shadow: 0 8px 22px -6px rgba(232,155,60,.55);
+}
+.btn--primary:hover {
+  background: var(--ink-900);
+  color: var(--cream-50);
+  transform: translateY(-2px);
+}
+.btn--ghost {
+  background: rgba(255,255,255,.06);
+  color: var(--cream-50);
+  border: 1.5px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(8px);
+}
+.btn--ghost:hover {
+  background: rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.5);
+  transform: translateY(-2px);
+}
+/* Hero ghost is over light bg, swap colors */
+.hero-cta-row .btn--ghost {
+  background: rgba(26,26,26,.04);
+  color: var(--ink-900);
+  border-color: var(--ink-300);
+}
+.hero-cta-row .btn--ghost:hover {
+  background: var(--ink-900);
+  color: var(--cream-50);
+  border-color: var(--ink-900);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO + BLIND ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 240vh;            /* hosszú scroll szakasz, hogy a redőny ráérjen */
+  background: var(--cream);
+}
+.hero-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ─── ① háttér: meleg „kintről" érkező napsütés ─── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #fff8ed 0%, #fbe6c8 60%, #f5d4a2 100%);
+}
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 38%, rgba(255, 220, 160, .9), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 30% 70%, rgba(232, 155, 60, .25), transparent 70%);
+}
+.hero-bg-window {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.window-pane {
+  width: min(900px, 78vw);
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(180deg, #fff 0%, #fffbf3 100%);
+  border-radius: 14px;
+  box-shadow:
+    0 50px 100px -40px rgba(58, 55, 51, .25),
+    0 4px 12px rgba(0,0,0,.08);
+  overflow: hidden;
+  position: relative;
+}
+.window-pane::before {
+  /* window cross — vékony középső léc */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 49.7%, rgba(0,0,0,.12) 49.7%, rgba(0,0,0,.12) 50.3%, transparent 50.3%),
+    linear-gradient(90deg, transparent 49.7%, rgba(0,0,0,.12) 49.7%, rgba(0,0,0,.12) 50.3%, transparent 50.3%);
+  pointer-events: none;
+  z-index: 2;
+}
+.landscape {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #cfe2ff 0%, #ffd8a7 70%, #ffb070 100%);
+}
+.sun {
+  position: absolute;
+  top: 22%; left: 62%;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff8e0 0%, #ffd47a 50%, rgba(255,170,90,0) 75%);
+  filter: blur(1px);
+}
+.hills {
+  position: absolute;
+  left: -10%; right: -10%;
+  bottom: 0;
+  height: 50%;
+}
+.hills-far {
+  bottom: 18%;
+  background:
+    radial-gradient(ellipse 60% 100% at 30% 100%, #8aa6b8 0%, transparent 70%),
+    radial-gradient(ellipse 70% 100% at 75% 100%, #6f8b9e 0%, transparent 70%);
+  opacity: .6;
+}
+.hills-near {
+  background:
+    radial-gradient(ellipse 80% 100% at 20% 100%, #4a3d2b 0%, transparent 60%),
+    radial-gradient(ellipse 90% 100% at 80% 100%, #3a2f20 0%, transparent 60%);
+}
+
+/* ─── ② szöveg középen, redőny mögött látható (mert blind transparency-vel kezdődik) ─── */
+.hero-copy {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 var(--pad-x);
+  max-width: var(--maxw);
+  margin: 0 auto;
+  left: 0; right: 0;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(56px, 11vw, 168px);
+  line-height: .92;
+  letter-spacing: -.045em;
+  margin: 18px 0 22px;
+  color: var(--ink-900);
+}
+.hero-title .accent {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--amber) 0%, var(--amber-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-lede {
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-700);
+  max-width: 48ch;
+  margin: 0 0 28px;
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  z-index: 30;
+  animation: bob 2.4s var(--ease-io) infinite;
+}
+@keyframes bob {
+  0%,100% { transform: translate(-50%, 0); }
+  50%     { transform: translate(-50%, 6px); }
+}
+
+/* ─── ③ A REDŐNY ─── */
+.blind {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  /* JS állítja a clip-path-t (--roll: 0%→100%) */
+  --roll: 0%;
+  clip-path: inset(0 0 var(--roll) 0);
+  will-change: clip-path;
+}
+.blind-slats {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.slat {
+  flex: 1 1 0;
+  /* fa-redőny lamella — meleg gradiensekkel + alsó árnyékkal */
+  background:
+    /* belső világos sáv (a lamella görbéje miatt) */
+    linear-gradient(180deg,
+      var(--slat-top) 0%,
+      #c98e54 15%,
+      var(--slat-mid) 50%,
+      #6e431f 80%,
+      var(--slat-bot) 100%);
+  border-bottom: 1px solid rgba(0,0,0,.45);
+  box-shadow:
+    inset 0 -3px 4px -2px rgba(0,0,0,.6),
+    inset 0 2px 2px -1px rgba(255,210,150,.25);
+  position: relative;
+}
+.slat::before {
+  /* finom keresztcsíkozás — fa-erezet illúzió */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.05) 0,
+      rgba(0,0,0,.05) 2px,
+      transparent 2px,
+      transparent 24px),
+    repeating-linear-gradient(180deg,
+      rgba(255,200,140,.06) 0,
+      rgba(255,200,140,.06) 1px,
+      transparent 1px,
+      transparent 9px);
+  pointer-events: none;
+}
+
+/* ─── alsó léc (a teljes redőny dobozban felfelé csúszó, fix kompakt sáv) ─── */
+.blind-rail {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  /* a JS állítja a translateY-t — végpozíció a clip-path edge-én */
+  --rail-y: calc(100% - 28px);
+  transform: translateY(var(--rail-y));
+  height: 28px;
+  z-index: 11;
+  pointer-events: none;
+  will-change: transform;
+}
+.rail-bar {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #2a1b0d 0%, #1a0f06 50%, #0f0903 100%);
+  border-top: 1px solid rgba(255,200,140,.25);
+  border-bottom: 2px solid rgba(0,0,0,.5);
+  box-shadow:
+    0 8px 16px -4px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,200,140,.18);
+}
+.rail-cord {
+  position: absolute;
+  top: 100%;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,.1));
+}
+.rail-cord::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; left: -3px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #2a1b0d;
+  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+}
+.rail-cord--l { left: 12%; }
+.rail-cord--r { right: 12%; }
+
+/* ═══════════════════════════════════════════════════════════════
+   TERMÉKEK
+   ═══════════════════════════════════════════════════════════════ */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 980px) { .products { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .products { grid-template-columns: 1fr; } }
+
+.product {
+  position: relative;
+  background: var(--cream-50);
+  border: 1px solid var(--cream-200);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .35s var(--ease-out), border-color .35s var(--ease-out), box-shadow .35s var(--ease-out);
+  color: var(--ink-900);
+}
+.product:hover {
+  transform: translateY(-6px);
+  border-color: var(--ink-900);
+  box-shadow: 0 32px 60px -28px rgba(58,55,51,.25);
+}
+.product-visual {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--cream-100) 0%, var(--cream-200) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* CSS-rajzolt termék piktogramok */
+.pv-redony, .pv-reluxa, .pv-szunyog, .pv-napellenzo, .pv-pergola, .pv-sotetito {
+  position: absolute;
+  inset: 14% 18%;
+}
+
+/* Redőny */
+.pv-redony {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pv-slat {
+  flex: 1;
+  background: linear-gradient(180deg, var(--slat-top) 0%, var(--slat-mid) 60%, var(--slat-bot) 100%);
+  border-bottom: 1px solid rgba(0,0,0,.4);
+  border-radius: 2px;
+}
+
+/* Reluxa — vékony vízszintes lamellák */
+.pv-reluxa {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+.pv-reluxa i {
+  display: block;
+  height: 4px;
+  background: linear-gradient(180deg, #c9c4bc 0%, #75716A 100%);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Szúnyogháló — finom hálópattern */
+.pv-szunyog {
+  position: absolute;
+  inset: 14% 18%;
+  background:
+    linear-gradient(180deg, rgba(232,155,60,.05), rgba(232,155,60,.12)),
+    repeating-linear-gradient(0deg,  rgba(60,55,50,.3) 0, rgba(60,55,50,.3) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(90deg, rgba(60,55,50,.3) 0, rgba(60,55,50,.3) 1px, transparent 1px, transparent 5px),
+    #f7efe2;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px rgba(58,55,51,.4);
+}
+
+/* Napellenző — kifeszített csíkos szövet */
+.pv-napellenzo {
+  position: absolute;
+  inset: 0;
+}
+.pv-fabric {
+  position: absolute;
+  top: 14%; left: 10%; right: 10%;
+  height: 60%;
+  background: repeating-linear-gradient(90deg,
+    #E89B3C 0, #E89B3C 24px,
+    #f5d4a2 24px, #f5d4a2 48px);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow: 0 8px 16px -4px rgba(232,155,60,.4);
+}
+.pv-arm {
+  position: absolute;
+  bottom: 18%; left: 50%;
+  transform: translateX(-50%) rotate(8deg);
+  transform-origin: top center;
+  width: 4px;
+  height: 22%;
+  background: linear-gradient(180deg, #c9c4bc 0%, #75716A 100%);
+  border-radius: 2px;
+}
+
+/* Pergola */
+.pv-pergola {
+  position: absolute;
+  inset: 14% 14%;
+}
+.pv-roof {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 14%;
+  background: linear-gradient(180deg, #c9c4bc 0%, #75716A 100%);
+  border-radius: 4px 4px 0 0;
+}
+.pv-pillar {
+  position: absolute;
+  top: 14%; bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, #75716A 0%, #3A3733 100%);
+  border-radius: 0 0 3px 3px;
+}
+.pv-pillar--l { left: 8%; }
+.pv-pillar--r { right: 8%; }
+.pv-pergola::before {
+  content: "";
+  position: absolute;
+  top: 14%; left: 14%; right: 14%; bottom: 25%;
+  background: repeating-linear-gradient(90deg,
+    rgba(58,55,51,.55) 0, rgba(58,55,51,.55) 4px,
+    transparent 4px, transparent 22px);
+}
+
+/* Sötétítő — két függönylapot szétnyíló jelleggel */
+.pv-sotetito {
+  position: absolute;
+  inset: 14% 18%;
+}
+.pv-curtain {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 38%;
+  background: repeating-linear-gradient(90deg,
+    #3A3733 0, #3A3733 14px,
+    #4d4943 14px, #4d4943 28px);
+  border-radius: 3px;
+  box-shadow: 0 6px 16px -4px rgba(0,0,0,.4);
+}
+.pv-curtain--l { left: 0; }
+.pv-curtain--r { right: 0; }
+
+.product-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 12px;
+  padding: 22px 24px 26px;
+}
+.product-body h3 {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.product-body p {
+  grid-column: 1;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-500);
+  margin: 4px 0 0;
+}
+.product-arrow {
+  grid-column: 2;
+  grid-row: 1;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: var(--ink-900);
+  color: var(--cream-50);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background .25s var(--ease-out), transform .25s var(--ease-out);
+}
+.product:hover .product-arrow {
+  background: var(--amber);
+  color: var(--ink-900);
+  transform: translateX(4px) rotate(-45deg);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOLYAMAT
+   ═══════════════════════════════════════════════════════════════ */
+.process {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+@media (max-width: 980px) { .process { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .process { grid-template-columns: 1fr; } }
+
+.process-step {
+  position: relative;
+  padding: 32px 22px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  transition: background .3s var(--ease-out), border-color .3s var(--ease-out);
+}
+.process-step:hover {
+  background: rgba(232,155,60,.06);
+  border-color: rgba(232,155,60,.5);
+}
+.process-num {
+  position: absolute;
+  top: -16px; left: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 32px;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--ink-900);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 16px -4px rgba(232,155,60,.5);
+}
+.process-step h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  margin: 10px 0 8px;
+  letter-spacing: -.01em;
+  color: var(--cream-50);
+}
+.process-step p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-300);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MIÉRT MINKET
+   ═══════════════════════════════════════════════════════════════ */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+@media (max-width: 920px) { .why-grid { grid-template-columns: 1fr; } }
+
+.why-text { max-width: 620px; }
+.why-p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-700);
+  margin: 0 0 18px;
+}
+.pull-quote {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -.015em;
+  color: var(--amber-dark);
+  margin: 32px 0 0;
+  padding-left: 22px;
+  border-left: 4px solid var(--amber);
+  font-style: normal;
+}
+.pull-quote .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.4em);
+  transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
+}
+.pull-quote .w.in { opacity: 1; transform: translateY(0); }
+
+.badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.badge {
+  position: relative;
+  padding: 28px 22px;
+  background: var(--ink-900);
+  color: var(--cream-50);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.badge:nth-child(odd) {
+  background: var(--amber);
+  color: var(--ink-900);
+}
+.badge-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+.badge-label {
+  display: block;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 500;
+  opacity: .85;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GALÉRIA — bento-grid CSS-art placeholders
+   ═══════════════════════════════════════════════════════════════ */
+.section--gallery { background: var(--cream-100); }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 16px;
+}
+@media (max-width: 780px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+.gal-item {
+  position: relative;
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--cream-200);
+  transition: transform .4s var(--ease-out);
+}
+.gal-item:hover { transform: translateY(-4px); }
+.gal-item--tall { grid-row: span 2; }
+.gal-item--wide { grid-column: span 2; }
+@media (max-width: 780px) { .gal-item--wide, .gal-item--tall { grid-column: auto; grid-row: auto; } }
+
+.gal-photo {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .8s var(--ease-out);
+}
+.gal-item:hover .gal-photo { transform: scale(1.04); }
+/* CSS-art placeholder hátterek (amíg nincs valódi fotó) */
+.gal-1 {
+  background:
+    radial-gradient(ellipse 80% 50% at 40% 25%, rgba(255,230,180,.45), transparent 70%),
+    linear-gradient(180deg, #d8c5a3 0%, #b09373 40%, #7e6549 100%);
+}
+.gal-1::before {
+  content: "";
+  position: absolute; inset: 14% 18% 22% 18%;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg,
+      var(--slat-top) 0%,
+      var(--slat-mid) 50%,
+      var(--slat-bot) 100%);
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,.3),
+    0 12px 24px -8px rgba(0,0,0,.4);
+}
+.gal-1::after {
+  content: "";
+  position: absolute; inset: 14% 18% 22% 18%;
+  background-image: repeating-linear-gradient(180deg,
+    rgba(0,0,0,.4) 0, rgba(0,0,0,.4) 1px,
+    rgba(255,210,160,.18) 1px, rgba(255,210,160,.18) 10px,
+    rgba(0,0,0,.4) 10px, rgba(0,0,0,.4) 11px);
+  border-radius: 8px;
+}
+.gal-2 {
+  background:
+    radial-gradient(circle at 75% 25%, rgba(255,255,220,.7), transparent 50%),
+    linear-gradient(135deg, #e89b3c 0%, #c77c20 100%);
+}
+.gal-2::before {
+  content: "";
+  position: absolute;
+  top: 28%; left: 8%; right: 8%; height: 32%;
+  background: repeating-linear-gradient(90deg,
+    rgba(255,255,255,.35) 0, rgba(255,255,255,.35) 16px,
+    transparent 16px, transparent 32px);
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
+  border-radius: 4px 4px 10px 10px;
+}
+.gal-2::after {
+  content: "";
+  position: absolute; bottom: 0; left: 0; right: 0; height: 32%;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.35));
+}
+.gal-3 {
+  background:
+    repeating-linear-gradient(0deg,  rgba(58,55,51,.45) 0, rgba(58,55,51,.45) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(90deg, rgba(58,55,51,.45) 0, rgba(58,55,51,.45) 1px, transparent 1px, transparent 6px),
+    linear-gradient(135deg, #fffaf0 0%, #f5d4a2 100%);
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.3);
+}
+.gal-4 {
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 80%, rgba(232,155,60,.4), transparent 70%),
+    linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 40%, #3A3733 100%);
+}
+.gal-4::before {
+  /* Pergola tetőszerkezet */
+  content: "";
+  position: absolute;
+  top: 18%; left: 12%; right: 12%; height: 12%;
+  background: linear-gradient(180deg, #c9c4bc 0%, #75716A 100%);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
+.gal-4::after {
+  /* Pergola lamellák */
+  content: "";
+  position: absolute;
+  top: 30%; left: 18%; right: 18%; bottom: 30%;
+  background: repeating-linear-gradient(90deg,
+    rgba(255,230,180,.3) 0, rgba(255,230,180,.3) 4px,
+    transparent 4px, transparent 18px);
+}
+.gal-item figcaption {
+  position: absolute;
+  left: 14px; bottom: 12px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(0,0,0,.6);
+  color: var(--cream-50);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA / KAPCSOLAT
+   ═══════════════════════════════════════════════════════════════ */
+.section--cta { background: var(--ink-950); color: var(--cream-100); }
+.section--cta .section-num { color: var(--ink-300); }
+.section--cta .section-title { color: var(--cream-50); }
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+@media (max-width: 920px) { .cta-grid { grid-template-columns: 1fr; } }
+
+.cta-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.6;
+  color: var(--cream-200);
+  max-width: 50ch;
+  margin: 16px 0 30px;
+}
+.cta-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  max-width: 360px;
+}
+.cta-meta li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: 14.5px;
+  color: var(--cream-100);
+}
+.cta-meta strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--cream-50);
+}
+
+.cta-cards {
+  display: grid;
+  gap: 12px;
+}
+.cta-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 26px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  transition: background .25s var(--ease-out), border-color .25s var(--ease-out), transform .25s var(--ease-out);
+  color: var(--cream-50);
+}
+.cta-card:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(232,155,60,.5);
+  transform: translateY(-2px);
+}
+.cta-card--primary {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink-900);
+}
+.cta-card--primary:hover {
+  background: var(--amber-dark);
+  border-color: var(--amber-dark);
+}
+.cta-card-label {
+  grid-column: 1;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cream-200);
+  font-weight: 700;
+}
+.cta-card--primary .cta-card-label { color: rgba(26,26,26,.7); }
+.cta-card-value {
+  grid-column: 1;
+  grid-row: 2;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+.cta-card-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-size: 24px;
+  color: var(--cream-200);
+  transition: transform .25s var(--ease-out);
+}
+.cta-card--primary .cta-card-arrow { color: rgba(26,26,26,.8); }
+.cta-card:hover .cta-card-arrow { transform: translateX(4px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+.foot {
+  background: var(--cream);
+  border-top: 1px solid var(--cream-200);
+  padding: 64px 0 0;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+@media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+.foot-brand { display: flex; align-items: center; gap: 14px; }
+.foot-brand strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 17px;
+  display: block;
+}
+.foot-brand p { font-size: 13px; color: var(--ink-500); margin: 4px 0 0; }
+
+.foot-links, .foot-contact {
+  display: grid; gap: 10px;
+  font-size: 14.5px;
+}
+.foot-links a, .foot-contact a {
+  color: var(--ink-700);
+  transition: color .2s var(--ease-out);
+}
+.foot-links a:hover, .foot-contact a:hover { color: var(--amber); }
+
+.foot-bottom {
+  border-top: 1px solid var(--cream-200);
+  padding: 18px 0;
+}
+.foot-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-500);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REVEAL
+   ═══════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .blind { clip-path: inset(0 0 100% 0); }
+  .blind-rail { transform: translateY(-100%); }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="UrRoll kezdőlap">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <!-- Stilizált redőny ikon: 4 vízszintes vonal -->
+        <rect width="40" height="40" rx="9" fill="#1a1a1a"/>
+        <g stroke="#E89B3C" stroke-width="2.4" stroke-linecap="round">
+          <line x1="10" y1="13" x2="30" y2="13"/>
+          <line x1="10" y1="19" x2="30" y2="19"/>
+          <line x1="10" y1="25" x2="30" y2="25"/>
+          <line x1="10" y1="31" x2="30" y2="31"/>
+        </g>
+      </svg>
+      <span class="brand-name">UrRoll</span>
+      <span class="brand-tag">árnyékolástechnika</span>
+    </a>
+    <nav class="nav-links" aria-label="Fő menü">
+      <a href="#termekek">Termékek</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#galeria">Galéria</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <a class="nav-cta" href="#kapcsolat">
+      Ajánlatkérés <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- Vékony progress bar -->
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<main id="top">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO + REDŐNY ANIMÁCIÓ
+       A scene-wrap 240vh magas; a stage sticky a viewport tetején.
+       Görgetésre a redőny felhúzódik clip-path-szal és az „alsó léc"
+       transzformációval, miközben alóla előtűnik a meleg háttér.
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="hero" data-scene="hero">
+    <div class="hero-stage">
+
+      <!-- ① Háttér: meleg fényű ablakkép -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-bg-window">
+          <!-- Egyszerű ablakkeret + tájvázlat háttér -->
+          <div class="window-pane">
+            <div class="landscape">
+              <div class="sky"></div>
+              <div class="sun"></div>
+              <div class="hills hills-far"></div>
+              <div class="hills hills-near"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Szöveg középre, kezdetben átlátszó, redőny mögött látszik -->
+      <div class="hero-copy">
+        <p class="eyebrow">UrRoll · Árnyékolástechnika</p>
+        <h1 class="hero-title">
+          Engedd be<br/>
+          a <span class="accent">fényt.</span>
+        </h1>
+        <p class="hero-lede">
+          Redőny, reluxa, napellenző, szúnyogháló — felmérés,
+          gyártás, beszerelés egy kézből.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn btn--primary" href="#kapcsolat">
+            Ajánlatot kérek
+          </a>
+          <a class="btn btn--ghost" href="#termekek">
+            Termékek →
+          </a>
+        </div>
+      </div>
+
+      <!-- ③ A redőny — 10 lamella + alsó léc -->
+      <div class="blind" aria-hidden="true">
+        <div class="blind-slats">
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+          <div class="slat"></div>
+        </div>
+      </div>
+      <!-- Alsó léc — külön elem, hogy a görgetésnél „pulled up" érzete legyen -->
+      <div class="blind-rail" aria-hidden="true">
+        <div class="rail-cord rail-cord--l"></div>
+        <div class="rail-cord rail-cord--r"></div>
+        <div class="rail-bar"></div>
+      </div>
+
+      <!-- Görgess hint a sticky stage alján -->
+      <a class="hero-scroll-hint" href="#termekek">
+        <span>Görgess</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TERMÉKEK
+       Editorial-style image cards (CSS-art product visuals)
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="termekek">
+    <div class="container">
+      <header class="section-head">
+        <p class="section-num">01 / Termékek</p>
+        <h2 class="section-title">
+          Minden, ami <span class="accent">árnyék.</span>
+        </h2>
+        <p class="section-sub">
+          Hat fő termékcsoport — méretre szabva, minőségi
+          alapanyagokból, magyar gyártóktól.
+        </p>
+      </header>
+
+      <div class="products">
+        <a class="product" href="#kapcsolat" data-product="redony">
+          <div class="product-visual">
+            <div class="pv-redony">
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+              <div class="pv-slat"></div><div class="pv-slat"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Redőny</h3>
+            <p>Műanyag és alumínium, beépített és előtét — minden ablakra méretre.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="reluxa">
+          <div class="product-visual">
+            <div class="pv-reluxa">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Reluxa</h3>
+            <p>Vízszintes lamellák — fény szabályozása fokmérővel pontosan.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="szunyog">
+          <div class="product-visual">
+            <div class="pv-szunyog"></div>
+          </div>
+          <div class="product-body">
+            <h3>Szúnyogháló</h3>
+            <p>Rugós, plisszé, mágneses ajtó — minden nyílászáróra megoldás.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="napellenzo">
+          <div class="product-visual">
+            <div class="pv-napellenzo">
+              <div class="pv-fabric"></div>
+              <div class="pv-arm"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Napellenző</h3>
+            <p>Karos, ejtőkaros, kazettás — kertbe, teraszra, üzletre.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="pergola">
+          <div class="product-visual">
+            <div class="pv-pergola">
+              <div class="pv-roof"></div>
+              <div class="pv-pillar pv-pillar--l"></div>
+              <div class="pv-pillar pv-pillar--r"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Pergola</h3>
+            <p>Bioklimatikus, motoros, esőálló — egész éves teraszhasználat.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="product" href="#kapcsolat" data-product="sotetito">
+          <div class="product-visual">
+            <div class="pv-sotetito">
+              <div class="pv-curtain pv-curtain--l"></div>
+              <div class="pv-curtain pv-curtain--r"></div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3>Sötétítő roló</h3>
+            <p>Blackout, hőszigetelő, dekoratív — szövettől a kazettás kivitelig.</p>
+            <span class="product-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOLYAMAT
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--dark" id="folyamat">
+    <div class="container">
+      <header class="section-head section-head--center">
+        <p class="section-num">02 / Folyamat</p>
+        <h2 class="section-title">
+          Egy hívás — és <span class="accent">megoldjuk.</span>
+        </h2>
+        <p class="section-sub">
+          Az első kontaktustól a beszerelésig — átlátható menetrend,
+          fix árajánlat, garancia.
+        </p>
+      </header>
+
+      <ol class="process">
+        <li class="process-step">
+          <span class="process-num">01</span>
+          <h3>Helyszíni felmérés</h3>
+          <p>Kijövünk, lemérünk, tanácsot adunk. A felmérés ingyenes és kötelezettségmentes.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">02</span>
+          <h3>Fix árajánlat</h3>
+          <p>Részletes, tételes ajánlatot adunk — utólag se árváltozás, se rejtett költség.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">03</span>
+          <h3>Gyártás méretre</h3>
+          <p>Magyar partnereinkkel pontosan a te ablakaidra szabva, ellenőrzött minőségben.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">04</span>
+          <h3>Profi beszerelés</h3>
+          <p>Tapasztalt szerelők, tiszta munka, percre pontos érkezés. Utána mi takarítunk.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-num">05</span>
+          <h3>Garancia &amp; szerviz</h3>
+          <p>Termékenként 2–5 év garancia, és ha bármi gond — visszajövünk.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MIÉRT MINKET
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <p class="section-num">03 / Miért UrRoll?</p>
+          <h2 class="section-title">
+            Nem hozzák.<br/>
+            <span class="accent">Készítjük.</span>
+          </h2>
+          <p class="why-p">
+            Nem viszonteladók vagyunk — magyar gyártókkal dolgozunk,
+            a méreteket mi vesszük le, a beszerelést a saját
+            szerelőink végzik. Ezért tudunk garanciát is vállalni
+            a teljes folyamatra.
+          </p>
+          <blockquote class="pull-quote" data-reveal-words>
+            „Olyan minőséget szerelünk, amit a saját otthonunkba is bekötnénk."
+          </blockquote>
+        </div>
+
+        <ul class="badges">
+          <li class="badge">
+            <span class="badge-num" data-count="2" data-suffix="–5 év">2</span>
+            <span class="badge-label">Garancia<br/>terméken</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num">0 Ft</span>
+            <span class="badge-label">Ingyenes<br/>felmérés</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num" data-count="100" data-suffix="%">100%</span>
+            <span class="badge-label">Magyar<br/>gyártás</span>
+          </li>
+          <li class="badge">
+            <span class="badge-num">Fix</span>
+            <span class="badge-label">Árajánlat<br/>előre</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GALÉRIA — minimal, csak fotó-placeholderek
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--gallery" id="galeria">
+    <div class="container">
+      <header class="section-head">
+        <p class="section-num">04 / Galéria</p>
+        <h2 class="section-title">
+          Friss <span class="accent">munkák.</span>
+        </h2>
+        <p class="section-sub">
+          Néhány közelmúltbeli beszerelés — ha a sajátodét is itt
+          látnád, dolgozzunk együtt.
+        </p>
+      </header>
+
+      <div class="gallery">
+        <figure class="gal-item gal-item--tall">
+          <div class="gal-photo gal-1"></div>
+          <figcaption>Alumínium redőny · családi ház · Budapest</figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-photo gal-2"></div>
+          <figcaption>Kazettás napellenző · étterem-terasz</figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-photo gal-3"></div>
+          <figcaption>Plisszé szúnyogháló · nappali ajtó</figcaption>
+        </figure>
+        <figure class="gal-item gal-item--wide">
+          <div class="gal-photo gal-4"></div>
+          <figcaption>Bioklimatikus pergola · privát kert</figcaption>
+        </figure>
+      </div>
+
+      <!-- TODO: A .gal-photo elemekbe töltsd a saját fotódat — ha az
+           assets/gal-1.jpg ... gal-4.jpg ott van, a JS lecseréli a
+           dekoratív CSS hátteret a valódi képre. -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KAPCSOLAT
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--cta" id="kapcsolat">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-text">
+          <p class="section-num">05 / Kapcsolat</p>
+          <h2 class="section-title section-title--xl">
+            Kezdjük el?
+          </h2>
+          <p class="cta-sub">
+            Mondd el, mi kell. Visszahívunk és kijövünk
+            felmérésre — a hívás, a felmérés és az árajánlat
+            ingyenes.
+          </p>
+          <!-- TODO: cseréld a placeholder elérhetőségeket -->
+          <ul class="cta-meta">
+            <li><span>Hétfő–Péntek</span><strong>8:00–17:00</strong></li>
+            <li><span>Szombat</span><strong>9:00–13:00</strong></li>
+            <li><span>Vasárnap</span><strong>Zárva</strong></li>
+          </ul>
+        </div>
+
+        <div class="cta-cards">
+          <a class="cta-card cta-card--primary" href="tel:+36000000000">
+            <span class="cta-card-label">Telefon</span>
+            <span class="cta-card-value">[telefonszám]</span>
+            <span class="cta-card-arrow">→</span>
+          </a>
+          <a class="cta-card" href="mailto:info@urroll.hu">
+            <span class="cta-card-label">Email</span>
+            <span class="cta-card-value">[email cím]</span>
+            <span class="cta-card-arrow">→</span>
+          </a>
+          <div class="cta-card">
+            <span class="cta-card-label">Cím</span>
+            <span class="cta-card-value">[telephely]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container foot-grid">
+      <div class="foot-brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="9" fill="#1a1a1a"/>
+          <g stroke="#E89B3C" stroke-width="2.4" stroke-linecap="round">
+            <line x1="10" y1="13" x2="30" y2="13"/>
+            <line x1="10" y1="19" x2="30" y2="19"/>
+            <line x1="10" y1="25" x2="30" y2="25"/>
+            <line x1="10" y1="31" x2="30" y2="31"/>
+          </g>
+        </svg>
+        <div>
+          <strong>UrRoll Kft.</strong>
+          <p>Árnyékolástechnika · felmérés · gyártás · beszerelés</p>
+        </div>
+      </div>
+      <nav class="foot-links" aria-label="Lábléc menü">
+        <a href="#termekek">Termékek</a>
+        <a href="#folyamat">Folyamat</a>
+        <a href="#galeria">Galéria</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+      </nav>
+      <div class="foot-contact">
+        <a href="tel:+36000000000">[telefonszám]</a>
+        <a href="mailto:info@urroll.hu">[email cím]</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="container foot-bottom-row">
+        <span>© <span id="year"></span> UrRoll Kft. — Minden jog fenntartva.</span>
+        <span>Készült Magyarországon</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   UrRoll — scroll engine
+   ─ Top progress bar
+   ─ HERO: scroll-driven redőny felhúzás (clip-path + bottom rail)
+   ─ Nav scrolled state
+   ─ Counters, reveal-on-scroll, pull-quote word reveal
+   ═══════════════════════════════════════════════════════════════ */
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // year stamp
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ── utils ──────────────────────────────────────────────────── */
+  const clamp01   = t => t < 0 ? 0 : t > 1 ? 1 : t;
+  const lerp      = (a, b, t) => a + (b - a) * t;
+  const easeOut   = t => 1 - Math.pow(1 - t, 3);
+  const easeInOut = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  /* ── element refs ───────────────────────────────────────────── */
+  const nav        = document.querySelector('.nav');
+  const bar        = document.querySelector('.scroll-progress > span');
+  const hero       = document.querySelector('.hero');
+  const blind      = document.querySelector('.blind');
+  const blindRail  = document.querySelector('.blind-rail');
+  const heroCopy   = document.querySelector('.hero-copy');
+  const scrollHint = document.querySelector('.hero-scroll-hint');
+
+  /* ─────────────────────────────────────────────────────────────
+     Reveal-on-scroll
+     ───────────────────────────────────────────────────────────── */
+  if (!reduced && 'IntersectionObserver' in window) {
+    const reveals = document.querySelectorAll(
+      '.section-head, .product, .process-step, .why-text, .badge, .gal-item, .cta-text, .cta-card'
+    );
+    reveals.forEach(el => el.classList.add('reveal'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const sibs = Array.from(e.target.parentElement.children).filter(c => c.classList.contains('reveal'));
+          const idx = Math.max(0, sibs.indexOf(e.target));
+          setTimeout(() => e.target.classList.add('in'), idx * 70);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => io.observe(el));
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     Pull-quote word reveal
+     ───────────────────────────────────────────────────────────── */
+  document.querySelectorAll('[data-reveal-words]').forEach(el => {
+    const txt = el.textContent.trim();
+    el.innerHTML = txt.split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
+    if (reduced) { el.querySelectorAll('.w').forEach(w => w.classList.add('in')); return; }
+    const words = el.querySelectorAll('.w');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          words.forEach((w, i) => setTimeout(() => w.classList.add('in'), i * 80));
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
+  });
+
+  /* ─────────────────────────────────────────────────────────────
+     Counters
+     ───────────────────────────────────────────────────────────── */
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    if (!isFinite(target) || reduced) { el.textContent = target + suffix; return; }
+    el.textContent = '0' + suffix;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const dur = 1400;
+          const t0 = performance.now();
+          const tick = (now) => {
+            const t = clamp01((now - t0) / dur);
+            const v = Math.round(lerp(0, target, easeOut(t)));
+            el.textContent = v + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    io.observe(el);
+  });
+
+  /* ─────────────────────────────────────────────────────────────
+     Scroll engine — rAF, scrub
+     - progress bar
+     - blind roll-up (clip-path + rail translate)
+     - hero copy fade-in (only after blind starts opening)
+     - nav scrolled state
+     ───────────────────────────────────────────────────────────── */
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const sy   = window.scrollY;
+    const vh   = window.innerHeight;
+    const docMax = Math.max(1, document.documentElement.scrollHeight - vh);
+
+    // Progress bar
+    if (bar) bar.style.width = (clamp01(sy / docMax) * 100).toFixed(2) + '%';
+
+    // Nav scrolled state
+    if (nav) nav.classList.toggle('scrolled', sy > 40);
+
+    // Hero: progress through hero section (0 → 1)
+    if (hero) {
+      const heroRect = hero.getBoundingClientRect();
+      const heroTotal = hero.offsetHeight - vh;  // scrollable length of hero
+      const heroScrolled = -heroRect.top;
+      const p = clamp01(heroScrolled / heroTotal);
+
+      // Redőny felhúzás (0→1 maps clip-path inset 0% → 100%)
+      if (blind) {
+        const eased = easeInOut(p);
+        blind.style.setProperty('--roll', (eased * 100).toFixed(2) + '%');
+      }
+
+      // Alsó léc követi a clip felső szélét (felfelé csúszik)
+      if (blindRail) {
+        const eased = easeInOut(p);
+        // -28px = rail magassága; végén kicsivel a viewport fölött
+        // Translate from "bottom of viewport - rail height" (1 - 28/100% ish) to "above viewport"
+        // We position by --rail-y CSS variable, expressed as percent of the blind container height.
+        // start: 100% - 28px → final: -100% (above)
+        const startPct = 100;          // bottom edge (- rail height handled in CSS)
+        const endPct   = -10;          // a bit above viewport
+        const yPct = lerp(startPct, endPct, eased);
+        // We use translateY in % of itself if endpoint was set via CSS calc; easier:
+        // set transform directly via JS using vh units for full-height tracking.
+        blindRail.style.transform = `translateY(calc(${yPct}vh - 28px))`;
+      }
+
+      // Hero copy: subtle "rises into view" once blind starts opening
+      if (heroCopy) {
+        // 0.0 → 0.25: copy hidden behind blind, slight upward offset
+        // 0.25 → 0.55: copy fades in and lifts
+        // > 0.55: full opacity, holds
+        const cp = clamp01((p - 0.18) / 0.4);
+        const op = easeOut(cp);
+        const ty = lerp(40, 0, easeOut(cp));
+        heroCopy.style.opacity = op.toFixed(3);
+        heroCopy.style.transform = `translateY(${ty}px)`;
+      }
+
+      // Scroll hint fade out as blind opens
+      if (scrollHint) {
+        scrollHint.style.opacity = (1 - clamp01(p * 2.5)).toFixed(2);
+      }
+    }
+  };
+  const onScroll = () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  };
+
+  if (!reduced) {
+    // initial state: hero copy hidden
+    if (heroCopy) { heroCopy.style.opacity = '0'; heroCopy.style.transform = 'translateY(40px)'; }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    requestAnimationFrame(update);
+  } else {
+    // reduced motion: open the blind statically
+    if (blind) blind.style.setProperty('--roll', '100%');
+    if (blindRail) blindRail.style.transform = 'translateY(-10vh)';
+    if (heroCopy) { heroCopy.style.opacity = '1'; heroCopy.style.transform = 'none'; }
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     Optional gallery photo loader
+     If assets/gal-1..4.jpg exist, swap CSS-art placeholders for them
+     ───────────────────────────────────────────────────────────── */
+  document.querySelectorAll('.gal-photo').forEach((el, i) => {
+    const tryExt = (exts) => {
+      if (!exts.length) return;
+      const src = `assets/gal-${i+1}.${exts[0]}`;
+      const probe = new Image();
+      probe.onload  = () => { el.style.backgroundImage = `url("${src}")`; };
+      probe.onerror = () => tryExt(exts.slice(1));
+      probe.src = src;
+    };
+    tryExt(['jpg','png','jpeg','webp']);
+  });
+})();
+
+</script>
+</body>
+</html>
