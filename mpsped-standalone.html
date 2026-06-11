@@ -4,135 +4,230 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>MPSPED — Költöztetés és áruszállítás 1989 óta</title>
-<meta name="description" content="MPSPED Kft. — Költöztetés és áruszállítás 1989 óta, az ország minden pontjára. Magánlakás, iroda, cég, raktár — zongora, széf, raklapos áru." />
+<meta name="description" content="MPSPED Kft. — Költöztetés, áruszállítás és bútorszerelés 1989 óta, az ország egész területén. Zongora, széf, páncélszekrény szállítás. A piros, ami megérkezik." />
+<meta name="theme-color" content="#0C0C0E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:title" content="MPSPED — A piros, ami megérkezik." />
+<meta property="og:description" content="Költöztetés és áruszállítás 1989 óta, az ország egész területén. Hívjon: +36 70 211 0215" />
+<meta property="og:url" content="https://mpsped.hu/" />
+
+<!-- Favicon (inline, nincs külső kérés) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23E11D2A'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='24' fill='%23FFD60A'%3EMP%3C/text%3E%3Ctext x='32' y='52' text-anchor='middle' font-family='Arial' font-weight='700' font-size='11' fill='%23FFD60A'%3ESPED%3C/text%3E%3C/svg%3E" />
+
+<!-- Betűk: Archivo (display) + Inter (szöveg) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   MPSPED — Editorial / Magazin-stílusú weboldal
-   Tiszta tipográfia, sok fehér tér, mértékletes piros akcentus
+   MPSPED — prémium editorial
+   Sötét–világos dramaturgia · piros protagonista · kinetikus tipográfia
    ═══════════════════════════════════════════════════════════════ */
-
 :root {
-  /* Színpaletta */
+  /* Brand */
   --red:        #E11D2A;
-  --red-deep:   #A30E18;
-  --red-soft:   #FFF1F2;
+  --red-bright: #FF2E3C;
+  --red-deep:   #9E0F19;
   --yellow:     #FFD60A;
-  --ink-0:      #ffffff;
-  --ink-50:     #FAFAFA;
-  --ink-100:    #F4F4F5;
-  --ink-200:    #E4E4E7;
-  --ink-300:    #D4D4D8;
-  --ink-400:    #A1A1AA;
-  --ink-500:    #71717A;
-  --ink-600:    #52525B;
-  --ink-700:    #3F3F46;
-  --ink-800:    #27272A;
-  --ink-900:    #18181B;
-  --ink-950:    #09090B;
 
-  /* Tipográfia */
-  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body:    "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Sötét skála */
+  --night:      #0C0C0E;
+  --night-2:    #131316;
+  --night-3:    #1B1B1F;
+  --night-line: #26262B;
 
-  /* Easings */
-  --ease-out:  cubic-bezier(.22,.61,.36,1);
-  --ease-io:   cubic-bezier(.65,.05,.36,1);
+  /* Világos skála — meleg papír */
+  --paper:      #F7F5F1;
+  --paper-2:    #EFECE5;
+  --paper-line: #E0DCD3;
 
-  /* Layout */
-  --maxw:    1200px;
-  --pad-x:   clamp(20px, 5vw, 64px);
+  /* Szöveg */
+  --ink:        #141417;
+  --ink-soft:   #57575E;
+  --chalk:      #F4F3F1;
+  --chalk-soft: #A8A8B0;
+
+  --font-d: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-b: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --ease:    cubic-bezier(.22,.61,.36,1);
+  --ease-io: cubic-bezier(.83,0,.17,1);
+
+  --maxw:  1280px;
+  --pad:   clamp(20px, 5vw, 72px);
+  --r-sm:  6px;
+  --r-md:  14px;
+  --r-lg:  22px;
 }
 
 *,*::before,*::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  font-family: var(--font-body);
+  font-family: var(--font-b);
   font-size: 17px;
   line-height: 1.6;
-  color: var(--ink-900);
-  background: var(--ink-0);
+  color: var(--ink);
+  background: var(--night);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 img,svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-button { font: inherit; }
 
-/* Reusable */
+::selection { background: var(--red); color: #fff; }
+
+/* finom scrollbar */
+@media (pointer: fine) {
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--night); }
+  ::-webkit-scrollbar-thumb { background: #333339; border-radius: 5px; border: 2px solid var(--night); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--red); }
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px; left: 16px;
+  z-index: 300;
+  background: var(--red);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  transition: top .2s var(--ease);
+}
+.skip-link:focus { top: 16px; }
+
 .container {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding-left: var(--pad-x);
-  padding-right: var(--pad-x);
+  padding-left: var(--pad);
+  padding-right: var(--pad);
   width: 100%;
 }
-.accent { color: var(--red); }
 
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL PROGRESS BAR
-   ═══════════════════════════════════════════════════════════════ */
-.scroll-progress {
+/* ═══════════ PRELOADER ═══════════ */
+.loader {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: transparent;
-  z-index: 60;
-  pointer-events: none;
+  inset: 0;
+  z-index: 400;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  transition: transform .8s var(--ease-io), visibility 0s linear .8s;
 }
-.scroll-progress > span {
+.loader.done {
+  transform: translateY(-100%);
+  visibility: hidden;
+}
+.loader-mark {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(40px, 7vw, 80px);
+  letter-spacing: -.03em;
+  line-height: 1;
+  color: var(--yellow);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  overflow: hidden;
+}
+.loader-mp, .loader-sped {
+  display: inline-block;
+  animation: loaderRise .7s var(--ease) both;
+}
+.loader-sped {
+  font-weight: 700;
+  font-size: .42em;
+  letter-spacing: .35em;
+  color: #fff;
+  animation-delay: .12s;
+}
+@keyframes loaderRise {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+.loader-line {
+  width: min(240px, 50vw);
+  height: 2px;
+  background: rgba(255,255,255,.25);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.loader-line i {
   display: block;
   height: 100%;
-  width: 0;
-  background: var(--red);
-  transform-origin: left center;
+  width: 100%;
+  background: var(--yellow);
+  transform-origin: left;
+  animation: loaderBar .9s var(--ease-io) both;
+}
+@keyframes loaderBar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   NAV
-   Sticky, szellős, mértékletes — modern editorial fej
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════ NAV ═══════════ */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  border-bottom: 1px solid var(--ink-100);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background .35s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(12,12,14,.82);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 1px 0 var(--night-line);
 }
 .nav-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 14px var(--pad-x);
+  padding: 16px var(--pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 }
 .brand {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 17px;
-  letter-spacing: .5px;
-  color: var(--ink-900);
-}
-.brand-mark { width: 36px; height: 36px; }
-.brand-name { line-height: 1; }
-
-.nav-links {
   display: flex;
   align-items: center;
+  gap: 11px;
+  color: var(--chalk);
+}
+.brand-mark { width: 36px; height: 36px; filter: drop-shadow(0 4px 14px rgba(225,29,42,.35)); }
+.brand-text {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: .04em;
+}
+.nav-links {
+  display: flex;
   gap: 30px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--ink-600);
+  color: var(--chalk-soft);
 }
 .nav-links a {
   position: relative;
   padding: 6px 0;
-  transition: color .2s var(--ease-out);
+  transition: color .2s var(--ease);
 }
 .nav-links a::after {
   content: "";
@@ -141,581 +236,702 @@ button { font: inherit; }
   height: 2px;
   background: var(--red);
   transform: scaleX(0);
-  transform-origin: center;
-  transition: transform .25s var(--ease-out);
+  transform-origin: left;
+  transition: transform .3s var(--ease);
 }
-.nav-links a:hover { color: var(--ink-900); }
+.nav-links a:hover { color: var(--chalk); }
 .nav-links a:hover::after { transform: scaleX(1); }
-
 .nav-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 9px;
+  padding: 11px 20px;
   border-radius: 999px;
-  background: var(--ink-900);
-  color: var(--ink-0);
-  font-weight: 600;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
   font-size: 14px;
-  letter-spacing: .2px;
-  transition: background .2s var(--ease-out), transform .2s var(--ease-out);
+  letter-spacing: .01em;
+  box-shadow: 0 8px 24px -8px rgba(225,29,42,.55), inset 0 1px 0 rgba(255,255,255,.18);
+  transition: background .25s var(--ease), box-shadow .25s var(--ease);
 }
-.nav-cta:hover { background: var(--red); transform: translateY(-1px); }
-.nav-cta-icon { font-size: 12px; }
-
-@media (max-width: 880px) {
+.nav-cta:hover {
+  background: var(--red-bright);
+  box-shadow: 0 12px 32px -8px rgba(225,29,42,.7), inset 0 1px 0 rgba(255,255,255,.22);
+}
+.nav-progress {
+  height: 2px;
+  background: transparent;
+}
+.nav-progress i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--red-deep), var(--red), var(--red-bright));
+  box-shadow: 0 0 10px rgba(225,29,42,.6);
+}
+@media (max-width: 920px) {
   .nav-links { display: none; }
-  .nav-cta-text { display: none; }
-  .nav-cta { padding: 10px 14px; font-size: 16px; }
-  .nav-cta-icon { font-size: 16px; }
+  .nav-cta span { display: none; }
+  .nav-cta { padding: 11px 13px; }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GLOBÁLIS TIPOGRÁFIA
-   ═══════════════════════════════════════════════════════════════ */
-.eyebrow {
+/* ═══════════ HERO ═══════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(1100px 600px at 78% -10%, rgba(225,29,42,.13), transparent 60%),
+    var(--night);
+  color: var(--chalk);
+  overflow: hidden;
+  padding-top: 96px;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-glow {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(225,29,42,.16), transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(24px, 5vh, 64px) var(--pad) 0;
+  width: 100%;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--chalk-soft);
+  margin-bottom: clamp(20px, 3vh, 36px);
+}
+.meta-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ink-600);
-  margin: 0;
+  padding: 7px 14px;
+  border: 1px solid var(--night-line);
+  border-radius: 999px;
+  color: var(--chalk);
+  background: rgba(255,255,255,.03);
 }
-.eyebrow .dot {
-  display: inline-block;
-  width: 8px; height: 8px;
+.pulse-dot {
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--red);
-  box-shadow: 0 0 0 4px rgba(225,29,42,.15);
+  box-shadow: 0 0 0 0 rgba(225,29,42,.5);
+  animation: pulse 2.2s ease-out infinite;
 }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(225,29,42,.5); }
+  70%  { box-shadow: 0 0 0 9px rgba(225,29,42,0); }
+  100% { box-shadow: 0 0 0 0 rgba(225,29,42,0); }
+}
+.meta-sep { opacity: .4; }
 
-.section-num {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--ink-500);
-  margin: 0 0 18px;
-}
-.section-title {
-  font-family: var(--font-display);
+.hero-title {
+  font-family: var(--font-d);
   font-weight: 900;
-  font-size: clamp(36px, 5.2vw, 80px);
-  line-height: 1.02;
-  letter-spacing: -.025em;
-  margin: 0 0 18px;
-  color: var(--ink-900);
+  font-size: clamp(52px, 10.5vw, 158px);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0 0 clamp(20px, 3vh, 36px);
+  font-stretch: 105%;
 }
-.section-title--xl {
-  font-size: clamp(44px, 6.5vw, 108px);
-  line-height: 1.0;
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .06em;
+  margin-bottom: -.06em;
 }
-.section-sub {
-  font-size: clamp(16px, 1.4vw, 19px);
-  line-height: 1.55;
-  color: var(--ink-600);
+.hero-title .line-inner { display: inline-block; }
+.hero-title em {
+  font-style: normal;
+  color: var(--red);
+  position: relative;
+  text-shadow: 0 0 60px rgba(225,29,42,.4);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-lede {
+  font-size: clamp(15.5px, 1.3vw, 18.5px);
+  line-height: 1.65;
+  color: var(--chalk-soft);
+  max-width: 54ch;
   margin: 0;
-  max-width: 56ch;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.section {
-  padding: clamp(80px, 12vh, 140px) 0;
-}
-.section--dark {
-  background: var(--ink-950);
-  color: var(--ink-100);
-}
-.section--dark .section-title { color: var(--ink-0); }
-.section--dark .section-num { color: var(--ink-400); }
-.section--dark .section-sub { color: var(--ink-300); }
-
-.section-head {
-  max-width: 720px;
-  margin-bottom: clamp(40px, 6vw, 72px);
-}
-.section-head--center {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.section-head--center .section-sub { margin-left: auto; margin-right: auto; }
-
-/* ═══════════════════════════════════════════════════════════════
-   BUTTONS
-   ═══════════════════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 26px;
+  padding: 17px 30px;
   border-radius: 999px;
+  font-family: var(--font-b);
   font-weight: 700;
   font-size: 15px;
-  letter-spacing: .2px;
-  border: none;
+  letter-spacing: .01em;
   cursor: pointer;
-  transition: transform .2s var(--ease-out), background .2s var(--ease-out), box-shadow .2s var(--ease-out);
+  border: none;
+  transition: background .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+  will-change: transform;
 }
-.btn--primary {
+.btn--red {
   background: var(--red);
-  color: var(--ink-0);
-  box-shadow: 0 6px 14px rgba(225,29,42,.3);
-}
-.btn--primary:hover {
-  background: var(--red-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(225,29,42,.4);
-}
-.btn--ghost {
-  background: transparent;
-  color: var(--ink-900);
-  border: 1.5px solid var(--ink-200);
-}
-.btn--ghost:hover {
-  border-color: var(--ink-900);
-  transform: translateY(-2px);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   HERO
-   Aszimmetrikus 60/40 split — bal: editorial szöveg, jobb: fotó
-   ═══════════════════════════════════════════════════════════════ */
-.hero {
-  position: relative;
-  padding: clamp(40px, 6vw, 80px) 0 0;
-  overflow: hidden;
-}
-.hero-grid {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 var(--pad-x);
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: center;
-  min-height: clamp(540px, 70vh, 760px);
-}
-@media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-}
-
-.hero-text { max-width: 640px; }
-
-.hero-title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(40px, 6.5vw, 92px);
-  line-height: 1.0;
-  letter-spacing: -.035em;
-  margin: 22px 0 24px;
-  color: var(--ink-900);
-}
-.hero-title .accent {
-  display: inline-block;
-  font-style: italic;
-  font-weight: 400;
-  font-family: "Georgia", "Times New Roman", serif;
-  color: var(--red);
-  margin-top: 6px;
-  font-size: .8em;
-  line-height: 1;
-}
-
-.hero-lede {
-  font-size: clamp(16px, 1.35vw, 19px);
-  line-height: 1.6;
-  color: var(--ink-600);
-  max-width: 52ch;
-  margin: 0 0 28px;
-}
-
-.hero-cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 40px;
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 32px;
-  list-style: none;
-  padding: 24px 0 0;
-  margin: 0;
-  border-top: 1px solid var(--ink-200);
-}
-.hero-stats li {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.hero-stats strong {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1;
-  letter-spacing: -.02em;
-  color: var(--ink-900);
-}
-.hero-stats span {
-  font-size: 12px;
-  color: var(--ink-500);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-@media (max-width: 540px) {
-  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .hero-cta-row .btn { flex: 1 1 auto; justify-content: center; }
-}
-
-/* ─ Hero fotó keret ─ */
-.hero-visual {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.hero-photo-frame {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #fef0f1 0%, #fde2e4 60%, #fbcfd2 100%);
-  box-shadow:
-    0 30px 60px -20px rgba(225,29,42,.25),
-    0 12px 20px -10px rgba(0,0,0,.12),
-    inset 0 0 0 1px rgba(255,255,255,.5);
-  /* finom red dekoratív "blueprint" háttér ha nincs fotó */
-}
-.hero-photo-frame::before {
-  /* Sarokba: piros pecsét, méretarány-jel */
-  content: "EST. 1989";
-  position: absolute;
-  top: 16px; right: 16px;
-  z-index: 3;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 11px;
-  letter-spacing: 3px;
   color: #fff;
-  background: var(--red);
-  padding: 6px 12px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(225,29,42,.35);
+  box-shadow: 0 14px 36px -10px rgba(225,29,42,.6), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.btn--red:hover {
+  background: var(--red-bright);
+  box-shadow: 0 18px 44px -10px rgba(225,29,42,.75), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn--red svg { transition: transform .25s var(--ease); }
+.btn--red:hover svg { transform: translateX(4px); }
+.btn--line {
+  background: transparent;
+  color: var(--chalk);
+  border: 1.5px solid var(--night-line);
+}
+.btn--line:hover {
+  border-color: var(--chalk);
+}
+
+/* Hero média */
+.hero-media {
+  position: relative;
+  z-index: 2;
+  margin: clamp(36px, 6vh, 72px) auto 0;
+  width: min(1080px, calc(100% - 2*var(--pad)));
+  will-change: transform;
+}
+.hero-media-frame {
+  position: relative;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  overflow: hidden;
+  aspect-ratio: 21 / 8;
+  background: var(--night-2);
+  box-shadow:
+    0 -1px 0 var(--night-line),
+    0 40px 90px -30px rgba(0,0,0,.8);
 }
 .hero-photo {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: none;  /* JS állítja láthatóra ha betölt */
-}
-.hero-photo-frame.has-photo .hero-photo { display: block; }
-.hero-photo-frame.has-photo .hero-photo-fallback { display: none; }
-
-.hero-photo-fallback {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
 }
-.hero-photo-fallback svg { width: 100%; height: auto; max-width: 100%; }
-
-.hero-photo-caption {
-  font-size: 13px;
-  color: var(--ink-500);
+.hero-media-frame.has-photo .hero-photo { display: block; }
+.hero-media-frame.has-photo .hero-art   { display: none; }
+.hero-art {
+  position: absolute;
+  inset: 0;
+}
+.hero-art svg { width: 100%; height: 100%; }
+.art-truck { animation: artFloat 7s ease-in-out infinite; }
+@keyframes artFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+.hero-media-cap {
   text-align: center;
+  font-size: 12.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--chalk-soft);
+  padding: 14px 0 0;
   margin: 0;
-  font-style: italic;
+  opacity: .7;
 }
 
-/* ─ Marquee ─ */
-.hero-marquee {
-  margin-top: clamp(40px, 7vw, 88px);
-  border-top: 1px solid var(--ink-200);
-  border-bottom: 1px solid var(--ink-200);
-  background: var(--ink-50);
+.hero-scroll {
+  position: absolute;
+  right: var(--pad);
+  bottom: 28px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--chalk-soft);
+  writing-mode: vertical-rl;
+}
+.hero-scroll i {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, var(--chalk-soft), transparent);
+  position: relative;
   overflow: hidden;
-  padding: 18px 0;
+}
+.hero-scroll i::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--red);
+  animation: scrollDrop 1.8s var(--ease-io) infinite;
+}
+@keyframes scrollDrop {
+  to { top: 110%; }
+}
+@media (max-width: 720px) { .hero-scroll { display: none; } }
+
+/* betöltési reveal */
+.reveal-load {
+  opacity: 0;
+  transform: translateY(34px);
+  animation: revealUp .9s var(--ease) forwards;
+  animation-delay: var(--d, 0s);
+}
+.hero-title .line-inner.reveal-load {
+  transform: translateY(105%);
+  animation-name: revealLine;
+}
+@keyframes revealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealLine {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ MARQUEE ═══════════ */
+.marquee {
+  background: var(--red);
+  color: #fff;
+  overflow: hidden;
+  padding: 16px 0;
+  position: relative;
+  z-index: 3;
 }
 .marquee-track {
   display: inline-flex;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
   white-space: nowrap;
-  animation: marquee 40s linear infinite;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(18px, 2.2vw, 28px);
-  letter-spacing: -.02em;
-  color: var(--ink-900);
-  padding-left: 32px;
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: clamp(15px, 1.7vw, 21px);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding-left: 36px;
+  animation: marquee 32s linear infinite;
+  will-change: transform;
 }
 .marquee-track i {
-  color: var(--red);
-  font-size: 0.6em;
   font-style: normal;
+  color: var(--yellow);
+  font-size: .55em;
 }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  to { transform: translateX(-50%); }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SZOLGÁLTATÁSOK
-   3-oszlopos, középső kiemelt, mértékletes hover
-   ═══════════════════════════════════════════════════════════════ */
-.services {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-@media (max-width: 920px) { .services { grid-template-columns: 1fr; } }
-
-.service {
+/* ═══════════ SZEKCIÓ ALAPOK ═══════════ */
+.section {
   position: relative;
-  background: var(--ink-0);
-  border: 1px solid var(--ink-200);
-  border-radius: 20px;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  transition: transform .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out);
+  padding: clamp(90px, 13vh, 160px) 0;
 }
-.service:hover {
-  transform: translateY(-4px);
-  border-color: var(--ink-900);
-  box-shadow: 0 30px 60px -30px rgba(0,0,0,.18);
+.section--paper {
+  background: var(--paper);
+  color: var(--ink);
 }
-.service--feature {
-  background: var(--ink-900);
-  color: var(--ink-100);
-  border-color: var(--ink-900);
+.section--dark {
+  background: var(--night);
+  color: var(--chalk);
 }
-.service--feature .service-title,
-.service--feature .service-list li { color: var(--ink-0); }
-.service--feature .service-desc { color: var(--ink-300); }
-.service--feature .service-num { background: var(--red); color: var(--ink-0); border-color: var(--red); }
-
-.service-head {
+.sec-head { max-width: 860px; margin-bottom: clamp(44px, 6vw, 80px); }
+.sec-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.sec-kicker {
   display: flex;
   align-items: center;
   gap: 14px;
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 22px;
 }
-.service-num {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 14px;
-  width: 36px; height: 36px;
+.section--dark .sec-kicker { color: var(--chalk-soft); }
+.sec-head--center .sec-kicker { justify-content: center; }
+.sec-no {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  border: 1.5px solid var(--ink-300);
-  color: var(--ink-700);
-}
-.service-title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 28px;
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  margin: 0;
-}
-.service-desc {
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink-600);
-  margin: 0;
-}
-.service-list {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0;
-  display: grid;
-  gap: 8px;
-}
-.service-list li {
-  position: relative;
-  padding-left: 22px;
-  font-size: 15px;
-  color: var(--ink-800);
-}
-.service-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: .65em;
-  width: 12px; height: 1.5px;
+  min-width: 34px;
+  height: 24px;
+  padding: 0 8px;
   background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  letter-spacing: .08em;
+}
+.sec-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 92px);
+  line-height: .98;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+.sec-title em {
+  font-style: normal;
+  color: var(--red);
+}
+.sec-sub {
+  font-size: clamp(16px, 1.3vw, 19px);
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin: 18px auto 0;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   FOLYAMAT
-   ═══════════════════════════════════════════════════════════════ */
-.process {
-  list-style: none;
-  padding: 0;
+/* ═══════════ SZOLGÁLTATÁS-SOROK ═══════════ */
+.svc-rows {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--paper-line);
+}
+.svc-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1.1fr 1.2fr 56px;
+  align-items: center;
+  gap: clamp(16px, 3vw, 48px);
+  padding: clamp(28px, 4vw, 44px) clamp(8px, 1.5vw, 24px);
+  border-bottom: 1px solid var(--paper-line);
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .35s var(--ease);
+}
+.svc-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--night);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .45s var(--ease-io);
+  z-index: -1;
+}
+.svc-row:hover::before { transform: scaleY(1); }
+.svc-row:hover { color: var(--chalk); }
+.svc-idx {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--red);
+  letter-spacing: .08em;
+}
+.svc-main h3 {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(26px, 3.2vw, 44px);
+  letter-spacing: -.025em;
+  line-height: 1.05;
+  margin: 0 0 6px;
+}
+.svc-main p {
+  font-size: 13.5px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
   margin: 0;
+  transition: color .35s var(--ease);
+}
+.svc-row:hover .svc-main p { color: var(--chalk-soft); }
+.svc-desc {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  transition: color .35s var(--ease);
+}
+.svc-row:hover .svc-desc { color: var(--chalk-soft); }
+.svc-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--paper-line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  transition: background .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease), color .35s var(--ease);
+}
+.svc-row:hover .svc-arrow {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  transform: rotate(-45deg);
+}
+@media (max-width: 880px) {
+  .svc-row { grid-template-columns: 40px 1fr 44px; }
+  .svc-desc { display: none; }
+}
+
+/* ═══════════ TÖRTÉNET — ÚT-IDŐVONAL ═══════════ */
+.story {
+  background:
+    radial-gradient(900px 500px at 12% 30%, rgba(225,29,42,.07), transparent 60%),
+    var(--night);
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: clamp(28px, 5vw, 72px);
+}
+.road {
+  position: relative;
+}
+.road-line {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  background: var(--night-3);
+  border-radius: 17px;
+  overflow: hidden;
+}
+.road-line::after {
+  /* út-középvonal */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background-image: linear-gradient(180deg, var(--yellow) 0 14px, transparent 14px 28px);
+  background-size: 2px 28px;
+  opacity: .5;
+}
+.road-fill {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(225,29,42,.32), rgba(225,29,42,.12));
+}
+.road-marker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+  filter: drop-shadow(0 4px 12px rgba(225,29,42,.5));
+  will-change: top;
+}
+.milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vh, 96px);
+}
+@media (max-width: 640px) {
+  .story-grid { grid-template-columns: 54px 1fr; gap: 20px; }
+  .road-line { width: 20px; border-radius: 10px; }
+  .road-marker svg { width: 28px; height: 18px; }
+}
+.milestone {
+  max-width: 640px;
+  opacity: .25;
+  transform: translateX(18px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.milestone.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.ms-year {
+  display: inline-block;
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(30px, 3.6vw, 52px);
+  letter-spacing: -.03em;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.milestone h3 {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: clamp(20px, 2vw, 27px);
+  letter-spacing: -.02em;
+  margin: 0 0 10px;
+  color: var(--chalk);
+}
+.milestone p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--chalk-soft);
+  margin: 0;
+}
+
+.stats {
+  list-style: none;
+  margin: clamp(64px, 9vh, 110px) 0 0;
+  padding: clamp(28px, 4vw, 44px) 0 0;
+  border-top: 1px solid var(--night-line);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
-@media (max-width: 920px) { .process { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .process { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stats li { display: flex; flex-direction: column; gap: 6px; }
+.stats strong {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--chalk);
+  font-variant-numeric: tabular-nums;
+}
+.stats span:last-child {
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--chalk-soft);
+}
 
-.process-step {
+/* ═══════════ FOLYAMAT ═══════════ */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  counter-reset: step;
+}
+@media (max-width: 980px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+.step {
   position: relative;
-  padding: 32px 24px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px;
-  transition: background .3s var(--ease-out), border-color .3s var(--ease-out);
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--r-md);
+  padding: 34px 26px 30px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
 }
-.process-step:hover {
-  background: rgba(225,29,42,.05);
-  border-color: rgba(225,29,42,.4);
+.step:hover {
+  transform: translateY(-6px);
+  border-color: var(--ink);
+  box-shadow: 0 30px 60px -30px rgba(20,20,23,.25);
 }
-.process-num {
-  position: absolute;
-  top: -18px; left: 24px;
-  width: 40px; height: 40px;
-  display: flex;
+.step-no {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
   background: var(--red);
-  color: var(--ink-0);
-  font-family: var(--font-display);
+  color: #fff;
+  font-family: var(--font-d);
   font-weight: 900;
-  font-size: 18px;
-  box-shadow: 0 8px 18px rgba(225,29,42,.4);
-}
-.process-step h3 {
-  font-family: var(--font-display);
-  font-weight: 800;
   font-size: 19px;
-  margin: 12px 0 8px;
-  letter-spacing: -.01em;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 24px -8px rgba(225,29,42,.55);
 }
-.process-step p {
+.step h3 {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -.015em;
+  margin: 0 0 8px;
+}
+.step p {
   font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--ink-400);
+  line-height: 1.6;
+  color: var(--ink-soft);
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   RÓLUNK
-   ═══════════════════════════════════════════════════════════════ */
-.story-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: start;
-}
-@media (max-width: 920px) { .story-grid { grid-template-columns: 1fr; } }
-
-.story-text { max-width: 620px; }
-.story-p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink-700);
-  margin: 0 0 18px;
-}
-.story-p strong { color: var(--ink-900); }
-
-.pull-quote {
-  font-family: var(--font-display);
+.quote {
+  font-family: var(--font-d);
   font-weight: 900;
-  font-size: clamp(26px, 3.5vw, 44px);
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  color: var(--red);
-  margin: 32px 0 0;
-  padding-left: 24px;
-  border-left: 4px solid var(--red);
-  font-style: normal;
+  font-size: clamp(26px, 3.6vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  max-width: 22ch;
+  margin: clamp(64px, 9vh, 110px) auto 0;
+  text-align: center;
 }
+.quote .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.4em);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.quote .w.in { opacity: 1; transform: none; }
+.quote .w:nth-child(4n+2) { color: var(--red); } /* ritmikus piros hangsúly */
 
-.story-aside {
-  position: sticky;
-  top: 100px;
-  background: var(--ink-50);
-  border-radius: 20px;
-  padding: 32px;
-  border: 1px solid var(--ink-200);
-}
-.fact-list {
-  margin: 0; padding: 0;
-  display: grid;
-  gap: 18px;
-}
-.fact-list > div {
-  display: grid;
-  gap: 4px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--ink-200);
-}
-.fact-list > div:last-child { border-bottom: none; padding-bottom: 0; }
-.fact-list dt {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--ink-500);
-  margin: 0;
-}
-.fact-list dd {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: -.01em;
-  color: var(--ink-900);
-  margin: 0;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   LEFEDETTSÉG
-   ═══════════════════════════════════════════════════════════════ */
-.section--coverage { background: var(--ink-50); }
+/* ═══════════ TÉRKÉP ═══════════ */
+.section--map { padding-top: 0; }
 .map-wrap {
   max-width: 920px;
   margin: 0 auto;
 }
-.hungary-map {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,.06));
-}
+.map { width: 100%; height: auto; }
 .map-cities circle {
   fill: var(--red);
   stroke: #fff;
   stroke-width: 2;
-  filter: drop-shadow(0 4px 8px rgba(225,29,42,.3));
+  filter: drop-shadow(0 4px 8px rgba(225,29,42,.35));
 }
-.map-cities circle.hub {
-  filter: drop-shadow(0 6px 14px rgba(225,29,42,.5));
-}
+.map-cities .hub { filter: drop-shadow(0 6px 14px rgba(225,29,42,.55)); }
 .map-cities text {
-  fill: var(--ink-800);
-  font-family: var(--font-display);
-  font-size: 11px;
+  fill: var(--ink);
+  font-family: var(--font-d);
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: -.01em;
 }
-
-/* Útvonalak — scroll-vezérelt rajzolás (a JS állítja a stroke-dashoffsetet) */
 .map-routes path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -723,154 +939,134 @@ button { font: inherit; }
   will-change: stroke-dashoffset;
 }
 
-/* Hero photo wrapper — parallax target */
-.hero-photo-frame {
-  will-change: transform;
-  transition: none;
+/* ═══════════ KAPCSOLAT ═══════════ */
+.contact {
+  background:
+    radial-gradient(1000px 600px at 85% 100%, rgba(225,29,42,.14), transparent 60%),
+    var(--night);
+  overflow: hidden;
 }
-
-/* Pull-quote word reveal */
-.pull-quote .w {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(.4em);
-  transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
-}
-.pull-quote .w.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   NAGY CTA
-   ═══════════════════════════════════════════════════════════════ */
-.section--cta {
-  background: var(--ink-950);
-  color: var(--ink-100);
-}
-.section--cta .section-num { color: var(--ink-400); }
-.section--cta .section-title { color: var(--ink-0); }
-
-.cta-grid {
+.contact-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(40px, 6vw, 80px);
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(44px, 7vw, 100px);
   align-items: center;
 }
-@media (max-width: 920px) { .cta-grid { grid-template-columns: 1fr; } }
-
-.cta-sub {
-  font-size: clamp(16px, 1.4vw, 19px);
-  line-height: 1.6;
-  color: var(--ink-300);
-  max-width: 48ch;
-  margin: 12px 0 0;
+@media (max-width: 920px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(56px, 8.5vw, 132px);
+  line-height: .94;
+  letter-spacing: -.04em;
+  margin: 0 0 22px;
+  color: var(--chalk);
 }
-
-.cta-cards {
-  display: grid;
-  gap: 12px;
+.contact-title em {
+  font-style: normal;
+  color: var(--red);
+  text-shadow: 0 0 60px rgba(225,29,42,.45);
 }
-.cta-card {
+.contact-sub {
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.65;
+  color: var(--chalk-soft);
+  max-width: 46ch;
+  margin: 0;
+}
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ccard {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 16px;
-  padding: 22px 26px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 16px;
-  transition: background .25s var(--ease-out), border-color .25s var(--ease-out), transform .25s var(--ease-out);
+  gap: 14px;
+  padding: 24px 28px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid var(--night-line);
+  border-radius: var(--r-md);
+  transition: background .3s var(--ease), border-color .3s var(--ease);
+  will-change: transform;
 }
-.cta-card:hover {
-  background: rgba(255,255,255,.07);
+.ccard:hover {
+  background: rgba(255,255,255,.06);
   border-color: rgba(225,29,42,.5);
-  transform: translateY(-2px);
 }
-.cta-card--primary {
+.ccard--red {
   background: var(--red);
   border-color: var(--red);
+  box-shadow: 0 20px 50px -16px rgba(225,29,42,.55);
 }
-.cta-card--primary:hover {
-  background: var(--red-deep);
-  border-color: var(--red-deep);
+.ccard--red:hover {
+  background: var(--red-bright);
+  border-color: var(--red-bright);
 }
-.cta-card-label {
+.ccard-label {
   grid-column: 1;
   font-size: 11px;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--ink-400);
   font-weight: 700;
+  color: var(--chalk-soft);
 }
-.cta-card--primary .cta-card-label { color: rgba(255,255,255,.8); }
-.cta-card-value {
+.ccard--red .ccard-label { color: rgba(255,255,255,.75); }
+.ccard-value {
   grid-column: 1;
   grid-row: 2;
-  font-family: var(--font-display);
+  font-family: var(--font-d);
   font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -.02em;
-  color: var(--ink-0);
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: -.015em;
+  color: var(--chalk);
 }
-.cta-card-arrow {
+.ccard--red .ccard-value { color: #fff; }
+.ccard-arr {
   grid-column: 2;
   grid-row: 1 / span 2;
   font-size: 24px;
-  color: var(--ink-400);
-  transition: transform .25s var(--ease-out);
+  color: var(--chalk-soft);
+  transition: transform .3s var(--ease);
 }
-.cta-card--primary .cta-card-arrow { color: rgba(255,255,255,.9); }
-.cta-card:hover .cta-card-arrow { transform: translateX(4px); }
+.ccard--red .ccard-arr { color: #fff; }
+.ccard:hover .ccard-arr { transform: translateX(5px); }
 
-/* ═══════════════════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════ FOOTER ═══════════ */
 .foot {
-  background: var(--ink-0);
-  border-top: 1px solid var(--ink-200);
-  padding: 64px 0 0;
+  background: var(--night-2);
+  color: var(--chalk-soft);
+  border-top: 1px solid var(--night-line);
+  padding-top: 64px;
 }
 .foot-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 40px;
   align-items: start;
-  padding-bottom: 40px;
+  padding-bottom: 44px;
 }
 @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; gap: 32px; } }
-
-.foot-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+.foot-brand { display: flex; align-items: center; gap: 14px; }
 .foot-brand strong {
-  font-family: var(--font-display);
+  display: block;
+  font-family: var(--font-d);
   font-weight: 900;
   font-size: 17px;
-  letter-spacing: .3px;
-  display: block;
+  color: var(--chalk);
 }
-.foot-brand p {
-  font-size: 13px;
-  color: var(--ink-500);
-  margin: 4px 0 0;
-}
-
+.foot-brand p { font-size: 13px; margin: 4px 0 0; }
 .foot-links, .foot-contact {
   display: grid;
-  gap: 10px;
+  gap: 11px;
   font-size: 14.5px;
 }
-.foot-links a, .foot-contact a {
-  color: var(--ink-700);
-  transition: color .2s var(--ease-out);
-}
-.foot-links a:hover, .foot-contact a:hover { color: var(--red); }
-
+.foot-links a, .foot-contact a { transition: color .2s var(--ease); }
+.foot-links a:hover, .foot-contact a:hover { color: var(--red-bright); }
 .foot-bottom {
-  border-top: 1px solid var(--ink-200);
+  border-top: 1px solid var(--night-line);
   padding: 18px 0;
 }
 .foot-bottom-row {
@@ -878,25 +1074,30 @@ button { font: inherit; }
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
-  font-size: 12px;
-  color: var(--ink-500);
+  font-size: 12.5px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PHOTO UPLOAD FALLBACK
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════ SCROLL REVEAL ═══════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ═══════════ FOTÓ-FELTÖLTŐ FALLBACK ═══════════ */
 .photo-upload {
   position: fixed;
   right: 18px; bottom: 18px;
-  z-index: 200;
-  background: var(--ink-0);
-  border: 1px solid var(--ink-200);
-  border-radius: 14px;
-  padding: 12px 14px;
+  z-index: 220;
+  background: var(--night-2);
+  border: 1px solid var(--night-line);
+  border-radius: var(--r-md);
+  padding: 13px 15px;
   max-width: 280px;
-  box-shadow: 0 12px 36px rgba(0,0,0,.12);
+  box-shadow: 0 16px 44px rgba(0,0,0,.5);
   font-size: 12px;
-  color: var(--ink-600);
+  color: var(--chalk-soft);
 }
 .photo-upload label {
   display: inline-block;
@@ -904,671 +1105,607 @@ button { font: inherit; }
   background: var(--red);
   color: #fff;
   font-weight: 700;
-  padding: 10px 14px;
+  padding: 10px 15px;
   border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(225,29,42,.3);
-  transition: background .2s var(--ease-out), transform .2s var(--ease-out);
+  box-shadow: 0 6px 18px -6px rgba(225,29,42,.6);
+  transition: background .2s var(--ease);
 }
-.photo-upload label:hover { background: var(--red-deep); transform: translateY(-1px); }
+.photo-upload label:hover { background: var(--red-bright); }
 .photo-upload input { display: none; }
-.photo-upload p { margin: 8px 0 0; font-size: 11px; color: var(--ink-500); }
+.photo-upload p { margin: 8px 0 0; font-size: 11px; }
 .photo-upload code {
-  background: var(--ink-100);
+  background: rgba(255,255,255,.07);
   padding: 1px 6px;
   border-radius: 4px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  color: var(--ink-700);
+  font-family: ui-monospace, Menlo, monospace;
+  color: var(--chalk);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   REVEAL ANIMATIONS (mértékletes mikro-animáció)
-   ═══════════════════════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
-}
-.reveal.in {
-  opacity: 1;
-  transform: none;
-}
-
+/* ═══════════ REDUCED MOTION ═══════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .loader { display: none; }
+  .reveal, .reveal-load, .hero-title .line-inner { opacity: 1 !important; transform: none !important; }
+  .milestone { opacity: 1; transform: none; }
+  .quote .w { opacity: 1; transform: none; }
+  .map-routes path { stroke-dashoffset: 0 !important; }
 }
 
 </style>
+
+<!-- Strukturált adat a keresőknek -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "name": "MPSPED Kft.",
+  "alternateName": "MP SPED",
+  "url": "https://mpsped.hu",
+  "telephone": "+36702110215",
+  "foundingDate": "1989",
+  "areaServed": { "@type": "Country", "name": "Hungary" },
+  "slogan": "A piros, ami megérkezik.",
+  "description": "Költöztetés, áruszállítás és bútorszerelés 1989 óta, Magyarország egész területén."
+}
+</script>
 </head>
 <body>
 
+<a class="skip-link" href="#fo-tartalom">Ugrás a tartalomhoz</a>
+
+<!-- ═══════ PRELOADER — piros függöny, betöltés után felgördül ═══════ -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-mark">
+    <span class="loader-mp">MP</span><span class="loader-sped">SPED</span>
+  </div>
+  <div class="loader-line"><i></i></div>
+</div>
+
 <!-- ═══════ NAV ═══════ -->
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#top" aria-label="MPSPED kezdőlap">
       <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-        <rect x="2" y="2" width="44" height="44" rx="4" fill="#E11D2A"/>
-        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="20" fill="#FFD60A" letter-spacing="-1">MP</text>
+        <rect x="2" y="2" width="44" height="44" rx="6" fill="#E11D2A"/>
+        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="19" fill="#FFD60A" letter-spacing="-1">MP</text>
         <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
       </svg>
-      <span class="brand-name">MPSPED</span>
+      <span class="brand-text">MPSPED</span>
     </a>
-    <nav class="nav-links" aria-label="Fő menü">
+    <nav class="nav-links" aria-label="Fő navigáció">
       <a href="#szolgaltatasok">Szolgáltatások</a>
-      <a href="#folyamat">Hogyan dolgozunk</a>
-      <a href="#rolunk">Rólunk</a>
-      <a href="#kapcsolat">Kapcsolat</a>
+      <a href="#tortenet">Történetünk</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#lefedettseg">Lefedettség</a>
     </nav>
-    <a class="nav-cta" href="tel:+36702110215">
-      <span class="nav-cta-icon" aria-hidden="true">☎</span>
-      <span class="nav-cta-text">+36 70 211 0215</span>
+    <a class="nav-cta magnetic" href="tel:+36702110215">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>+36 70 211 0215</span>
     </a>
   </div>
+  <div class="nav-progress" aria-hidden="true"><i></i></div>
 </header>
 
 <main id="top">
 
-  <!-- Vékony scroll progress bar — fixed, top of viewport -->
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — sötét, tipográfiai, kinetikus betöltő animációval
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="hero" id="fo-tartalom">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
 
+  <div class="hero-inner">
+    <div class="hero-meta reveal-load" style="--d:.1s">
+      <span class="meta-pill"><i class="pulse-dot"></i>1989 óta</span>
+      <span class="meta-sep">·</span>
+      <span>Családi vállalkozás</span>
+      <span class="meta-sep">·</span>
+      <span>Országos lefedettség</span>
+    </div>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HERO
-       Aszimmetrikus editorial — bal: tipográfia, jobb: fotó
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow"><span class="dot"></span>1989 óta · Magyarország</p>
-        <h1 class="hero-title">
-          Költöztetés.<br/>
-          Áruszállítás.<br/>
-          <span class="accent">A piros, ami megérkezik.</span>
-        </h1>
-        <p class="hero-lede">
-          Több mint 30 éves családi vállalkozás. Magánlakást,
-          irodát, céget, raktárt költöztetünk — zongorát,
-          páncélszekrényt és raklapos árut szállítunk.
-          Az ország minden pontjára, megbízhatóan.
-        </p>
-        <div class="hero-cta-row">
-          <a class="btn btn--primary" href="tel:+36702110215">
-            <span aria-hidden="true">☎</span> +36 70 211 0215
-          </a>
-          <a class="btn btn--ghost" href="#szolgaltatasok">
-            Szolgáltatások →
-          </a>
+    <h1 class="hero-title" aria-label="A piros, ami megérkezik.">
+      <span class="line"><span class="line-inner reveal-load" style="--d:.2s">A <em>piros</em>,</span></span>
+      <span class="line"><span class="line-inner reveal-load" style="--d:.32s">ami megérkezik.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-lede reveal-load" style="--d:.45s">
+        Költöztetés és áruszállítás több mint három évtizede.
+        Magánlakástól a raktárig, zongorától a páncélszekrényig —
+        épségben, sérülésmentesen, az ország bármely pontjára.
+      </p>
+      <div class="hero-cta reveal-load" style="--d:.55s">
+        <a class="btn btn--red magnetic" href="tel:+36702110215">
+          <span>Hívjon most</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--line magnetic" href="#szolgaltatasok">Szolgáltatásaink</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Média keret — alulról emelkedik be, parallax -->
+  <figure class="hero-media reveal-load" style="--d:.65s">
+    <div class="hero-media-frame" id="heroFrame">
+      <img class="hero-photo" alt="MPSPED piros teherautó" />
+      <!-- Flat grafikus fallback, amíg nincs valódi fotó -->
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="artSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#141416"/>
+              <stop offset="1" stop-color="#1D1D21"/>
+            </linearGradient>
+          </defs>
+          <rect width="1400" height="520" fill="url(#artSky)"/>
+          <!-- horizont vonal -->
+          <line x1="0" y1="430" x2="1400" y2="430" stroke="#2A2A2F" stroke-width="2"/>
+          <!-- útburkolati jel -->
+          <g stroke="#FFD60A" stroke-width="5" stroke-dasharray="36 28" opacity=".5">
+            <line x1="0" y1="475" x2="1400" y2="475"/>
+          </g>
+          <!-- flat poszter-stílusú piros kamion -->
+          <g class="art-truck">
+            <!-- hosszú árnyék -->
+            <ellipse cx="700" cy="436" rx="420" ry="13" fill="#000" opacity=".45"/>
+            <!-- doboz -->
+            <rect x="430" y="170" width="560" height="240" rx="10" fill="#E11D2A"/>
+            <rect x="430" y="170" width="560" height="58" rx="10" fill="#F0303E"/>
+            <!-- felirat -->
+            <text x="710" y="300" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="900" font-size="74" fill="#FFD60A" letter-spacing="2">MP SPED</text>
+            <text x="710" y="345" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="22" fill="#FFD60A" opacity=".85" letter-spacing="6">KÖLTÖZTETÉS · ÁRUSZÁLLÍTÁS</text>
+            <!-- fülke -->
+            <path d="M990 410 V 240 q0-16 16-16 h96 q14 0 22 12 l52 78 q8 12 8 26 v70 z" fill="#E11D2A"/>
+            <path d="M1022 248 h74 q8 0 13 7 l40 60 h-127 z" fill="#15161A"/>
+            <rect x="990" y="394" width="194" height="16" fill="#0C0C0E" opacity=".5"/>
+            <!-- lámpa -->
+            <rect x="1170" y="368" width="12" height="20" rx="3" fill="#FFD60A"/>
+            <!-- kerekek -->
+            <g fill="#0C0C0E" stroke="#2E2E33" stroke-width="5">
+              <circle cx="540" cy="416" r="40"/>
+              <circle cx="660" cy="416" r="40"/>
+              <circle cx="1080" cy="416" r="40"/>
+            </g>
+            <g fill="#4A4A52">
+              <circle cx="540" cy="416" r="15"/>
+              <circle cx="660" cy="416" r="15"/>
+              <circle cx="1080" cy="416" r="15"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <figcaption class="hero-media-cap">A jól ismert piros teherautók — 1989 óta úton</figcaption>
+  </figure>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Görgess</span><i></i>
+  </div>
+</section>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Költöztetés</span><i>●</i><span>Áruszállítás</span><i>●</i><span>Zongora</span><i>●</i><span>Széf</span><i>●</i><span>Bútorszerelés</span><i>●</i><span>Raklapos áru</span><i>●</i><span>1989 óta</span><i>●</i>
+    <span>Költöztetés</span><i>●</i><span>Áruszállítás</span><i>●</i><span>Zongora</span><i>●</i><span>Széf</span><i>●</i><span>Bútorszerelés</span><i>●</i><span>Raklapos áru</span><i>●</i><span>1989 óta</span><i>●</i>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SZOLGÁLTATÁSOK — editorial sorok, hover-kitöltéssel
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper" id="szolgaltatasok">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-kicker reveal"><span class="sec-no">01</span> Szolgáltatások</p>
+      <h2 class="sec-title reveal">Mit bízhat <em>ránk?</em></h2>
+    </header>
+
+    <div class="svc-rows">
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">01</span>
+        <div class="svc-main">
+          <h3>Költöztetés</h3>
+          <p>Magánlakások · Irodák · Irodaházak · Cégek · Raktárak</p>
         </div>
-        <ul class="hero-stats">
-          <li>
-            <strong data-count="1989" data-suffix="">1989</strong>
-            <span>óta szolgálunk</span>
-          </li>
-          <li>
-            <strong data-count="30" data-suffix="+">30+</strong>
-            <span>év tapasztalat</span>
-          </li>
-          <li>
-            <strong>HU</strong>
-            <span>országos lefedettség</span>
-          </li>
-        </ul>
-      </div>
+        <p class="svc-desc">Csomagolóanyagokkal, bútorvédelemmel és szakképzett kollégákkal — a kényes bútorokat fóliázzuk, az apróságokhoz dobozt biztosítunk.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
 
-      <div class="hero-visual">
-        <div class="hero-photo-frame">
-          <!-- A user fotója; ha hiányzik, finom piros gradient placeholder. -->
-          <img class="hero-photo" alt="MPSPED piros kamion"/>
-          <div class="hero-photo-fallback" aria-hidden="true">
-            <svg viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid meet">
-              <use href="#truck-red"/>
-            </svg>
-          </div>
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">02</span>
+        <div class="svc-main">
+          <h3>Áruszállítás</h3>
+          <p>Bútorok · Darabáru · Raklapos áruk</p>
         </div>
-        <p class="hero-photo-caption">
-          MPSPED kamionjaink — családi vállalkozás közel 35 éve
-        </p>
-      </div>
+        <p class="svc-desc">Belföldi szállítás az ország egész területére, megfelelő autóparkkal és megbízható menetrenddel.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">03</span>
+        <div class="svc-main">
+          <h3>Speciális tételek</h3>
+          <p>Zongorák · Pianinók · Széfek · Páncélszekrények</p>
+        </div>
+        <p class="svc-desc">Nehéz és nagy értékű tárgyak szakszerű mozgatása — megfelelő eszközökkel és több évtizedes rutinnal.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">04</span>
+        <div class="svc-main">
+          <h3>Bútorszerelés</h3>
+          <p>Szét- és összeszerelés helyben</p>
+        </div>
+        <p class="svc-desc">A költözés részeként vagy önálló szolgáltatásként — hogy Önnek már csak be kelljen rendezkednie.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
+  </div>
+</section>
 
-    <div class="hero-marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>KÖLTÖZTETÉS</span><i>●</i>
-        <span>ÁRUSZÁLLÍTÁS</span><i>●</i>
-        <span>BÚTORSZERELÉS</span><i>●</i>
-        <span>ZONGORA</span><i>●</i>
-        <span>SZÉF</span><i>●</i>
-        <span>PÁNCÉLSZEKRÉNY</span><i>●</i>
-        <span>RAKLAPOS ÁRU</span><i>●</i>
-        <span>1989 ÓTA</span><i>●</i>
-        <!-- duplicated for seamless loop -->
-        <span>KÖLTÖZTETÉS</span><i>●</i>
-        <span>ÁRUSZÁLLÍTÁS</span><i>●</i>
-        <span>BÚTORSZERELÉS</span><i>●</i>
-        <span>ZONGORA</span><i>●</i>
-        <span>SZÉF</span><i>●</i>
-        <span>PÁNCÉLSZEKRÉNY</span><i>●</i>
-        <span>RAKLAPOS ÁRU</span><i>●</i>
-        <span>1989 ÓTA</span><i>●</i>
+<!-- ═══════════════════════════════════════════════════════════════
+     TÖRTÉNET — út-idővonal: a piros kamion végiggurul az úton
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--dark story" id="tortenet">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-kicker reveal"><span class="sec-no">02</span> Történetünk</p>
+      <h2 class="sec-title reveal">Több mint <em>30 év</em> az úton.</h2>
+    </header>
+
+    <div class="story-grid">
+      <!-- bal: út, amin a kamion-jelölő végiggurul -->
+      <div class="road" aria-hidden="true">
+        <div class="road-line"><i class="road-fill"></i></div>
+        <div class="road-marker" id="roadMarker">
+          <svg viewBox="0 0 44 28" width="44" height="28">
+            <rect x="1" y="4" width="26" height="16" rx="3" fill="#E11D2A"/>
+            <path d="M27 8 h8 l6 7 v5 h-14 z" fill="#E11D2A"/>
+            <circle cx="10" cy="22" r="4.5" fill="#0C0C0E" stroke="#55555c" stroke-width="1.5"/>
+            <circle cx="34" cy="22" r="4.5" fill="#0C0C0E" stroke="#55555c" stroke-width="1.5"/>
+            <text x="13" y="15" text-anchor="middle" font-family="Arial" font-weight="900" font-size="8" fill="#FFD60A">MP</text>
+          </svg>
+        </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       SZOLGÁLTATÁSOK
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--services" id="szolgaltatasok">
-    <div class="container">
-      <header class="section-head">
-        <p class="section-num">01 / Szolgáltatások</p>
-        <h2 class="section-title">
-          Mit csinálunk?
-        </h2>
-        <p class="section-sub">
-          Három fő profilunk — egymástól független, de együtt
-          egy teljes szolgáltatási kör.
-        </p>
-      </header>
-
-      <div class="services">
-        <!-- Költöztetés -->
-        <article class="service">
-          <div class="service-head">
-            <span class="service-num">01</span>
-            <h3 class="service-title">Költöztetés</h3>
-          </div>
-          <p class="service-desc">
-            Magánlakások, irodák, irodaházak, cégek és raktárak teljes
-            körű költöztetése — csomagolóanyagokkal, bútorvédelemmel,
-            szakképzett kollégákkal.
-          </p>
-          <ul class="service-list">
-            <li>Magánlakások</li>
-            <li>Irodák</li>
-            <li>Irodaházak</li>
-            <li>Cégek</li>
-            <li>Raktárak</li>
-          </ul>
-        </article>
-
-        <!-- Áruszállítás -->
-        <article class="service service--feature">
-          <div class="service-head">
-            <span class="service-num">02</span>
-            <h3 class="service-title">Áruszállítás</h3>
-          </div>
-          <p class="service-desc">
-            Belföldi áruszállítás bárhova az ország területén.
-            Bútorok, dobozos és raklapos áruk megbízható kiszállítása —
-            gyorsan, sérülésmentesen.
-          </p>
-          <ul class="service-list">
-            <li>Bútorok</li>
-            <li>Bútorszerelés</li>
-            <li>Darab- és raklapos áruk</li>
-            <li>Belföldi szállítás</li>
-          </ul>
-        </article>
-
-        <!-- Speciális tételek -->
-        <article class="service">
-          <div class="service-head">
-            <span class="service-num">03</span>
-            <h3 class="service-title">Speciális tételek</h3>
-          </div>
-          <p class="service-desc">
-            Kényes, nagy értékű és nehéz tárgyak szakszerű mozgatása
-            megfelelő eszközökkel — több évtizedes rutinnal.
-          </p>
-          <ul class="service-list">
-            <li>Zongorák</li>
-            <li>Pianinók</li>
-            <li>Széfek</li>
-            <li>Páncélszekrények</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       HOGYAN DOLGOZUNK
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--process section--dark" id="folyamat">
-    <div class="container">
-      <header class="section-head section-head--center">
-        <p class="section-num">02 / Folyamat</p>
-        <h2 class="section-title">
-          Egy hívás. Egy <span class="accent">piros kamion.</span> Egy gond kevesebb.
-        </h2>
-      </header>
-
-      <ol class="process">
-        <li class="process-step">
-          <span class="process-num">1</span>
-          <h3>Megrendelés és felmérés</h3>
-          <p>Felhívsz, megbeszéljük, mit, honnan, hova. Felmérjük a feladat méretét és összeállítjuk az árajánlatot.</p>
+      <!-- jobb: mérföldkövek -->
+      <ol class="milestones">
+        <li class="milestone" data-milestone>
+          <span class="ms-year">1989</span>
+          <h3>Az első kilométer</h3>
+          <p>Egyéni vállalkozásként indultunk — egy teherautóval és azzal az egyszerű ígérettel, hogy amit ránk bíznak, az épségben érkezik meg.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">2</span>
-          <h3>Megfelelő autó kiküldése</h3>
-          <p>A munkára szabott méretű, megfelelően felszerelt teherautót küldjük — kellő számú szakképzett kollégával.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">’90-es évek</span>
+          <h3>A piros megjelenik az utakon</h3>
+          <p>A folyamatosan bővülő flotta egységes, piros arculatot kapott — a teherautóink mára összetéveszthetetlenek.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">3</span>
-          <h3>Csomagolás és védelem</h3>
-          <p>A kényesebb és drágább bútorokat szükség esetén fóliázzuk; az apróságokhoz költöztető dobozokat tudunk biztosítani.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">2000+</span>
+          <h3>Specialisták lettünk</h3>
+          <p>Zongorák, széfek, páncélszekrények — olyan feladatokat vállalunk, amelyekhez különleges eszköz és évtizedes rutin kell.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">4</span>
-          <h3>Szállítás és kipakolás</h3>
-          <p>Eljuttatjuk az árut a célállomásra, kipakoljuk, igény esetén bútorokat összeszereljük. Te csak az új tér élvezetével foglalkozz.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">Ma</span>
+          <h3>Országos lefedettség</h3>
+          <p>Az egész ország területén vállalunk költöztetést és szállítást — ugyanazzal a családi precizitással, mint az első napon.</p>
         </li>
       </ol>
     </div>
-  </section>
 
+    <!-- számok -->
+    <ul class="stats">
+      <li class="reveal">
+        <strong><span data-count="35" data-suffix="+">35+</span></strong>
+        <span>év tapasztalat</span>
+      </li>
+      <li class="reveal">
+        <strong>1989</strong>
+        <span>alapítás éve</span>
+      </li>
+      <li class="reveal">
+        <strong>100%</strong>
+        <span>családi tulajdon</span>
+      </li>
+      <li class="reveal">
+        <strong>HU</strong>
+        <span>országos lefedettség</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       RÓLUNK / STORY
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--story" id="rolunk">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-text">
-          <p class="section-num">03 / Rólunk</p>
-          <h2 class="section-title">
-            1989-ben kezdtük.<br/>
-            <span class="accent">Azóta is itt vagyunk.</span>
-          </h2>
-          <p class="story-p">
-            Vállalkozásunk 1989-ben indult — azóta folyamatosan
-            bővülünk. Az eltelt évek során kellő szakmai gyakorlatra
-            tettünk szert, amelyhez nélkülözhetetlen segítségünk
-            voltak a népszerű piros teherautóink.
-          </p>
-          <p class="story-p">
-            Célunk az, hogy levegyük a terheket az Önök válláról,
-            melyek egy költözés során felmerülnek — és hogy az
-            Önök számára fontos dolgok épségben kerüljenek az új
-            helyükre. Cégünkre jellemző a <strong>precíz munkavégzés,
-            megbízhatóság és igényesség.</strong>
-          </p>
-          <p class="story-p">
-            Megfelelő autóparkkal, szerszámokkal és szakképzett
-            kollégákkal dolgozunk — piacképes díjszabással. Várjuk
-            jelentkezését, érdeklődését.
-          </p>
+<!-- ═══════════════════════════════════════════════════════════════
+     FOLYAMAT
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper" id="folyamat">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-kicker reveal"><span class="sec-no">03</span> Hogyan dolgozunk</p>
+      <h2 class="sec-title reveal">Négy lépés, <em>nulla stressz.</em></h2>
+    </header>
 
-          <blockquote class="pull-quote" data-reveal-words>
-            „Több mint 30 éve Önökért."
-          </blockquote>
-        </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-no">1</span>
+        <h3>Felmérés</h3>
+        <p>Telefonon vagy helyszínen felmérjük a feladatot — mit, honnan, hová, mikor.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">2</span>
+        <h3>Megfelelő autó</h3>
+        <p>A munkához méretezett, felszerelt teherautót küldjük, kellő számú szakképzett kollégával.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">3</span>
+        <h3>Csomagolás</h3>
+        <p>A kényes bútorokat fóliázzuk, az apróságokhoz költöztető dobozokat biztosítunk.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">4</span>
+        <h3>Megérkezés</h3>
+        <p>Minden épségben, sérülésmentesen kerül az új helyére. Önnek csak be kell rendezkednie.</p>
+      </li>
+    </ol>
 
-        <aside class="story-aside">
-          <dl class="fact-list">
-            <div>
-              <dt>Alapítva</dt>
-              <dd>1989</dd>
-            </div>
-            <div>
-              <dt>Forma</dt>
-              <dd>Családi vállalkozás</dd>
-            </div>
-            <div>
-              <dt>Lefedettség</dt>
-              <dd>Magyarország teljes területe</dd>
-            </div>
-            <div>
-              <dt>Profil</dt>
-              <dd>Költöztetés · Áruszállítás · Bútorszerelés</dd>
-            </div>
-            <div>
-              <dt>Speciális tételek</dt>
-              <dd>Zongora · Pianino · Széf · Páncélszekrény</dd>
-            </div>
-          </dl>
-        </aside>
+    <blockquote class="quote reveal" data-reveal-words>
+      „Olyan figyelemmel kezeljük az Önök számára fontos dolgokat, mintha a sajátunk lenne."
+    </blockquote>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LEFEDETTSÉG — térkép scroll-rajzolt útvonalakkal
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper section--map" id="lefedettseg">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-kicker reveal"><span class="sec-no">04</span> Lefedettség</p>
+      <h2 class="sec-title reveal">Az <em>egész ország</em> területére.</h2>
+      <p class="sec-sub reveal">Bárhonnan — bárhová. Budapesttől Nyíregyházáig, Szombathelytől Szegedig.</p>
+    </header>
+
+    <div class="map-wrap reveal">
+      <svg viewBox="0 0 800 360" class="map" aria-hidden="true">
+        <defs>
+          <pattern id="mdots" width="14" height="14" patternUnits="userSpaceOnUse">
+            <circle cx="7" cy="7" r="1.1" fill="#D9D4CC"/>
+          </pattern>
+        </defs>
+        <rect x="40" y="20" width="720" height="320" fill="url(#mdots)" rx="8"/>
+        <g class="map-routes" fill="none" stroke="#E11D2A" stroke-width="1.5" stroke-linecap="round">
+          <path d="M400,130 L600,110" pathLength="1"/>
+          <path d="M400,130 L440,240" pathLength="1"/>
+          <path d="M400,130 L280,252" pathLength="1"/>
+          <path d="M400,130 L210,92"  pathLength="1"/>
+          <path d="M400,130 L500,65"  pathLength="1"/>
+          <path d="M400,130 L630,85"  pathLength="1"/>
+          <path d="M400,130 L245,170" pathLength="1"/>
+          <path d="M400,130 L310,155" pathLength="1"/>
+          <path d="M400,130 L420,185" pathLength="1"/>
+          <path d="M400,130 L100,165" pathLength="1"/>
+        </g>
+        <g class="map-cities">
+          <circle cx="400" cy="130" r="9" class="hub"/><text x="412" y="125">Budapest</text>
+          <circle cx="600" cy="110" r="5"/><text x="612" y="105">Debrecen</text>
+          <circle cx="440" cy="240" r="5"/><text x="452" y="245">Szeged</text>
+          <circle cx="280" cy="252" r="5"/><text x="222" y="270">Pécs</text>
+          <circle cx="210" cy="92"  r="5"/><text x="222" y="89">Győr</text>
+          <circle cx="500" cy="65"  r="5"/><text x="512" y="62">Miskolc</text>
+          <circle cx="630" cy="85"  r="5"/><text x="595" y="76">Nyíregyháza</text>
+          <circle cx="245" cy="170" r="5"/><text x="193" y="186">Veszprém</text>
+          <circle cx="310" cy="155" r="5"/><text x="222" y="148">Székesfehérvár</text>
+          <circle cx="420" cy="185" r="5"/><text x="432" y="190">Kecskemét</text>
+          <circle cx="100" cy="165" r="5"/><text x="52"  y="158">Szombathely</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     KAPCSOLAT
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--dark contact" id="kapcsolat">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="sec-kicker reveal"><span class="sec-no">05</span> Kapcsolat</p>
+        <h2 class="contact-title reveal">Mozdítsuk<br/><em>együtt.</em></h2>
+        <p class="contact-sub reveal">Hívjon — megbeszéljük a részleteket, felmérjük a feladatot, és pontos ajánlatot adunk.</p>
+      </div>
+
+      <div class="contact-cards">
+        <a class="ccard ccard--red magnetic reveal" href="tel:+36702110215">
+          <span class="ccard-label">Mobil</span>
+          <span class="ccard-value">+36 70 211 0215</span>
+          <span class="ccard-arr" aria-hidden="true">→</span>
+        </a>
+        <a class="ccard magnetic reveal" href="tel:+3688410785">
+          <span class="ccard-label">Vezetékes</span>
+          <span class="ccard-value">+36 88 410 785</span>
+          <span class="ccard-arr" aria-hidden="true">→</span>
+        </a>
+        <a class="ccard magnetic reveal" href="https://mpsped.hu" target="_blank" rel="noopener">
+          <span class="ccard-label">Web</span>
+          <span class="ccard-value">mpsped.hu</span>
+          <span class="ccard-arr" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       LEFEDETTSÉG / TÉRKÉP
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--coverage">
-    <div class="container">
-      <header class="section-head section-head--center">
-        <p class="section-num">04 / Lefedettség</p>
-        <h2 class="section-title">
-          Az <span class="accent">egész ország</span> területére.
-        </h2>
-        <p class="section-sub">
-          Bárhonnan – bárhova. Budapesttől Nyíregyházáig,
-          Sopronból Pécsig.
-        </p>
-      </header>
-
-      <div class="map-wrap">
-        <svg viewBox="0 0 800 360" class="hungary-map" aria-hidden="true">
-          <!-- Pont-mátrix háttér; nem ország-kontúr, csak térbeli háló -->
-          <defs>
-            <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-              <circle cx="7" cy="7" r="1.1" fill="#E4E4E7"/>
-            </pattern>
-          </defs>
-          <rect x="40" y="20" width="720" height="320" fill="url(#dots)" rx="12"/>
-
-          <!-- Útvonalak Budapestről — pathLength=1 trükk a scroll-rajzoláshoz -->
-          <g class="map-routes" fill="none" stroke="#E11D2A" stroke-width="1.4" stroke-linecap="round">
-            <path d="M400,130 L600,110" pathLength="1"/>
-            <path d="M400,130 L440,240" pathLength="1"/>
-            <path d="M400,130 L280,252" pathLength="1"/>
-            <path d="M400,130 L210,92"  pathLength="1"/>
-            <path d="M400,130 L500,65"  pathLength="1"/>
-            <path d="M400,130 L630,85"  pathLength="1"/>
-            <path d="M400,130 L245,170" pathLength="1"/>
-            <path d="M400,130 L310,155" pathLength="1"/>
-            <path d="M400,130 L420,185" pathLength="1"/>
-            <path d="M400,130 L100,165" pathLength="1"/>
-          </g>
-
-          <!-- Városok -->
-          <g class="map-cities">
-            <circle cx="400" cy="130" r="9" class="hub"/><text x="412" y="125">Budapest</text>
-            <circle cx="600" cy="110" r="5"/><text x="612" y="105">Debrecen</text>
-            <circle cx="440" cy="240" r="5"/><text x="452" y="245">Szeged</text>
-            <circle cx="280" cy="252" r="5"/><text x="220" y="270">Pécs</text>
-            <circle cx="210" cy="92"  r="5"/><text x="222" y="89">Győr</text>
-            <circle cx="500" cy="65"  r="5"/><text x="512" y="62">Miskolc</text>
-            <circle cx="630" cy="85"  r="5"/><text x="595" y="76">Nyíregyháza</text>
-            <circle cx="245" cy="170" r="5"/><text x="195" y="186">Veszprém</text>
-            <circle cx="310" cy="155" r="5"/><text x="225" y="148">Székesfehérvár</text>
-            <circle cx="420" cy="185" r="5"/><text x="432" y="190">Kecskemét</text>
-            <circle cx="100" cy="165" r="5"/><text x="50"  y="160">Szombathely</text>
-          </g>
-        </svg>
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="foot">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="6" fill="#E11D2A"/>
+        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="19" fill="#FFD60A" letter-spacing="-1">MP</text>
+        <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
+      </svg>
+      <div>
+        <strong>MPSPED Kft.</strong>
+        <p>Több mint 30 éve Önökért.</p>
       </div>
     </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       NAGY CTA / KAPCSOLAT
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--cta" id="kapcsolat">
-    <div class="container">
-      <div class="cta-grid">
-        <div class="cta-text">
-          <p class="section-num">05 / Kapcsolat</p>
-          <h2 class="section-title section-title--xl">
-            Kezdjük el?
-          </h2>
-          <p class="cta-sub">
-            Hívjon vagy írjon — visszahívjuk és összeállítjuk
-            az árajánlatát.
-          </p>
-        </div>
-
-        <div class="cta-cards">
-          <a class="cta-card cta-card--primary" href="tel:+36702110215">
-            <span class="cta-card-label">Mobil</span>
-            <span class="cta-card-value">+36 70 211 0215</span>
-            <span class="cta-card-arrow">→</span>
-          </a>
-          <a class="cta-card" href="tel:+3688410785">
-            <span class="cta-card-label">Vezetékes</span>
-            <span class="cta-card-value">+36 88 410 785</span>
-            <span class="cta-card-arrow">→</span>
-          </a>
-          <a class="cta-card" href="https://mpsped.hu" target="_blank" rel="noopener">
-            <span class="cta-card-label">Web</span>
-            <span class="cta-card-value">mpsped.hu</span>
-            <span class="cta-card-arrow">↗</span>
-          </a>
-        </div>
-      </div>
+    <nav class="foot-links" aria-label="Lábléc navigáció">
+      <a href="#szolgaltatasok">Szolgáltatások</a>
+      <a href="#tortenet">Történetünk</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <div class="foot-contact">
+      <a href="tel:+36702110215">+36 70 211 0215</a>
+      <a href="tel:+3688410785">+36 88 410 785</a>
+      <a href="https://mpsped.hu" target="_blank" rel="noopener">mpsped.hu</a>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════════════════════ -->
-  <footer class="foot">
-    <div class="container foot-grid">
-      <div class="foot-brand">
-        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="2" y="2" width="44" height="44" rx="4" fill="#E11D2A"/>
-          <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="20" fill="#FFD60A" letter-spacing="-1">MP</text>
-          <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
-        </svg>
-        <div>
-          <strong>MPSPED Kft.</strong>
-          <p>Több mint 30 éve Önökért.</p>
-        </div>
-      </div>
-      <nav class="foot-links" aria-label="Lábléc menü">
-        <a href="#szolgaltatasok">Szolgáltatások</a>
-        <a href="#folyamat">Hogyan dolgozunk</a>
-        <a href="#rolunk">Rólunk</a>
-        <a href="#kapcsolat">Kapcsolat</a>
-      </nav>
-      <div class="foot-contact">
-        <a href="tel:+36702110215">+36 70 211 0215</a>
-        <a href="tel:+3688410785">+36 88 410 785</a>
-        <a href="https://mpsped.hu" target="_blank" rel="noopener">mpsped.hu</a>
-      </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="container foot-bottom-row">
+      <span>© <span id="year"></span> MPSPED Kft. — Minden jog fenntartva.</span>
+      <span>A piros, ami megérkezik.</span>
     </div>
-    <div class="foot-bottom">
-      <div class="container foot-bottom-row">
-        <span>© <span id="year"></span> MPSPED Kft. — Minden jog fenntartva.</span>
-        <span>Készült Magyarországon</span>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </main>
 
-<!-- ═══════════ SVG SYMBOL (truck fallback only) ═══════════ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="truck-red" viewBox="0 0 1200 480">
-      <defs>
-        <linearGradient id="cabBody" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#ff6470"/>
-          <stop offset=".18"  stop-color="#ee2533"/>
-          <stop offset=".55"  stop-color="#c0121f"/>
-          <stop offset=".85"  stop-color="#5e0810"/>
-          <stop offset="1"    stop-color="#2a0306"/>
-        </linearGradient>
-        <linearGradient id="trailerBody" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#ff5462"/>
-          <stop offset=".12"  stop-color="#e72030"/>
-          <stop offset=".5"   stop-color="#bd111e"/>
-          <stop offset=".85"  stop-color="#660a12"/>
-          <stop offset="1"    stop-color="#260306"/>
-        </linearGradient>
-        <linearGradient id="cabSpec" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0"   stop-color="rgba(255,255,255,0)"/>
-          <stop offset=".4"  stop-color="rgba(255,255,255,.35)"/>
-          <stop offset=".55" stop-color="rgba(255,255,255,.05)"/>
-          <stop offset="1"   stop-color="rgba(255,255,255,0)"/>
-        </linearGradient>
-        <linearGradient id="glassRefl" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#cfe1f5"/>
-          <stop offset=".35"  stop-color="#6b8aa8"/>
-          <stop offset=".65"  stop-color="#1f2a3a"/>
-          <stop offset="1"    stop-color="#0a0f17"/>
-        </linearGradient>
-        <radialGradient id="tire" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="#1c1c1c"/>
-          <stop offset=".7"  stop-color="#0a0a0a"/>
-          <stop offset="1"   stop-color="#000"/>
-        </radialGradient>
-        <radialGradient id="hub" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="#cfd4db"/>
-          <stop offset=".4"  stop-color="#6a7280"/>
-          <stop offset=".75" stop-color="#2a2f38"/>
-          <stop offset="1"   stop-color="#0e1116"/>
-        </radialGradient>
-        <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"   stop-color="#f0f4f8"/>
-          <stop offset=".35" stop-color="#9aa3ad"/>
-          <stop offset=".5"  stop-color="#1e242c"/>
-          <stop offset=".65" stop-color="#7a838d"/>
-          <stop offset="1"   stop-color="#cfd5dc"/>
-        </linearGradient>
-        <radialGradient id="ground" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="rgba(0,0,0,.55)"/>
-          <stop offset="1"   stop-color="rgba(0,0,0,0)"/>
-        </radialGradient>
-      </defs>
-      <ellipse cx="600" cy="438" rx="540" ry="14" fill="url(#ground)"/>
-      <path d="M360,90 L1160,90 Q1180,90 1180,108 L1180,360 Q1180,378 1160,378 L360,378 Z" fill="url(#trailerBody)"/>
-      <g opacity=".25">
-        <line x1="362" y1="120" x2="1178" y2="120" stroke="#fff"/>
-        <line x1="362" y1="170" x2="1178" y2="170" stroke="#fff"/>
-        <line x1="362" y1="220" x2="1178" y2="220" stroke="#fff"/>
-        <line x1="362" y1="270" x2="1178" y2="270" stroke="#fff"/>
-        <line x1="362" y1="320" x2="1178" y2="320" stroke="#fff"/>
-      </g>
-      <text x="510"  y="200" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">KÖLTÖZTETÉS</text>
-      <text x="1020" y="200" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">ÁRUSZÁLLÍTÁS</text>
-      <g transform="translate(770 210)">
-        <text text-anchor="middle" y="0"  font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="64" fill="#FFD60A" letter-spacing="-3">MP</text>
-        <text text-anchor="middle" y="22" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="18" fill="#FFD60A" letter-spacing="4">SPED</text>
-      </g>
-      <text x="770" y="262" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="22" fill="#FFD60A" letter-spacing="1">☎ 06 70 211 0215</text>
-      <text x="770" y="292" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="13" fill="#FFD60A" opacity=".88" letter-spacing="1">06 88 410 785 · mpsped.hu</text>
-      <path d="M80,378 L80,160 Q80,118 122,108 L240,90 Q280,82 310,98 L340,128 Q360,148 360,180 L360,378 Z" fill="url(#cabBody)"/>
-      <path d="M124,238 L124,160 Q124,134 154,128 L288,108 Q310,104 322,118 L336,142 Q340,150 340,162 L340,238 Z" fill="url(#glassRefl)"/>
-      <path d="M124,252 L324,252 L324,302 L124,302 Z" fill="url(#glassRefl)" opacity=".85"/>
-      <rect x="248" y="320" width="34" height="6" rx="3" fill="#1a0307"/>
-      <rect x="130" y="316" width="200" height="38" rx="4" fill="#0a0204"/>
-      <rect x="88" y="306" width="34" height="22" rx="4" fill="#0d0204"/>
-      <rect x="88" y="332" width="34" height="10" rx="3" fill="#ffb030"/>
-      <rect x="78" y="356" width="282" height="22" rx="3" fill="url(#chrome)"/>
-      <rect x="78" y="396" width="1102" height="14" fill="#0a0204"/>
-      <g>
-        <g transform="translate(180 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(310 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(820 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(940 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(1060 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <script>
 /* ═══════════════════════════════════════════════════════════════
-   MPSPED — editorial scroll engine
-   ─ Reveal-on-scroll cards/text via IntersectionObserver
-   ─ Top progress bar (rAF, scrub)
-   ─ Hero photo parallax (rAF, scrub)
-   ─ Stats counters (1989, 30) animate when in view
-   ─ Map routes draw-on-scroll (scrub through the map section)
-   ─ Pull-quote word-by-word reveal
-   ─ Photo loader (assets/truck.{png,jpg,jpeg,webp}) + upload fallback
+   MPSPED — interakciós motor
+   ─ Preloader függöny
+   ─ Nav állapot + olvasási progress
+   ─ Hero média parallax
+   ─ Scroll reveal (IntersectionObserver)
+   ─ Történet út-idővonal: kamion-jelölő + mérföldkő aktiválás
+   ─ Térkép útvonal-rajzolás (scrub)
+   ─ Idézet szavankénti reveal · számlálók · mágneses gombok
+   ─ Fotó-betöltő (assets/truck.*) + böngészős feltöltő fallback
    ═══════════════════════════════════════════════════════════════ */
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-  const y = document.getElementById('year');
-  if (y) y.textContent = new Date().getFullYear();
+  const $  = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
 
-  /* ── small utils ────────────────────────────────────────────── */
-  const clamp01   = t => t < 0 ? 0 : t > 1 ? 1 : t;
-  const lerp      = (a, b, t) => a + (b - a) * t;
-  const easeOut   = t => 1 - Math.pow(1 - t, 3);
-  const easeInOut = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const clamp01 = t => t < 0 ? 0 : t > 1 ? 1 : t;
+  const lerp    = (a, b, t) => a + (b - a) * t;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const easeIO  = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
 
-  /* ─────────────────────────────────────────────────────────────
-     Reveal-on-scroll for cards & sections
-     ───────────────────────────────────────────────────────────── */
-  if (!reduced && 'IntersectionObserver' in window) {
-    const reveals = document.querySelectorAll(
-      '.hero-text, .hero-visual, .section-head, .service, .process-step, .story-text, .story-aside, .map-wrap, .cta-text, .cta-card'
-    );
-    reveals.forEach(el => el.classList.add('reveal'));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const sibs = Array.from(e.target.parentElement.children).filter(c => c.classList.contains('reveal'));
-          const idx = Math.max(0, sibs.indexOf(e.target));
-          setTimeout(() => e.target.classList.add('in'), idx * 70);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    reveals.forEach(el => io.observe(el));
+  const year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  /* ───────────────── Preloader ───────────────── */
+  const loader = $('.loader');
+  if (loader) {
+    if (reduced) loader.remove();
+    else {
+      const hide = () => loader.classList.add('done');
+      // betűk + sáv lefutása után gördül fel; max 1.6s
+      window.addEventListener('load', () => setTimeout(hide, 350));
+      setTimeout(hide, 1600); // biztosíték lassú hálózatra
+      loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+    }
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     1) Pull-quote word-by-word reveal
-        Split text into <span class="w"> for each word at load.
-     ───────────────────────────────────────────────────────────── */
-  document.querySelectorAll('[data-reveal-words]').forEach(el => {
+  /* ───────────────── Scroll reveal ───────────────── */
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const sibs = $$('.reveal', e.target.parentElement);
+        const idx = Math.max(0, sibs.indexOf(e.target));
+        setTimeout(() => e.target.classList.add('in'), idx * 80);
+        io.unobserve(e.target);
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+    $$('.reveal').forEach(el => io.observe(el));
+  } else {
+    $$('.reveal').forEach(el => el.classList.add('in'));
+  }
+
+  /* ───────────────── Idézet — szavankénti reveal ───────────────── */
+  $$('[data-reveal-words]').forEach(el => {
     const txt = el.textContent.trim();
     el.innerHTML = txt.split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
-    if (reduced) { el.querySelectorAll('.w').forEach(w => w.classList.add('in')); return; }
-    const words = el.querySelectorAll('.w');
-    const io = new IntersectionObserver((entries) => {
+    const words = $$('.w', el);
+    if (reduced) { words.forEach(w => w.classList.add('in')); return; }
+    const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          words.forEach((w, i) => setTimeout(() => w.classList.add('in'), i * 90));
-          io.unobserve(e.target);
-        }
+        if (!e.isIntersecting) return;
+        words.forEach((w, i) => setTimeout(() => w.classList.add('in'), i * 70));
+        io.unobserve(e.target);
       });
-    }, { threshold: 0.4 });
+    }, { threshold: .4 });
     io.observe(el);
   });
 
-  /* ─────────────────────────────────────────────────────────────
-     2) Stats counters — animate when in view
-     ───────────────────────────────────────────────────────────── */
-  document.querySelectorAll('[data-count]').forEach(el => {
+  /* ───────────────── Számlálók ───────────────── */
+  $$('[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count, 10);
     const suffix = el.dataset.suffix || '';
     if (!isFinite(target) || reduced) { el.textContent = target + suffix; return; }
     el.textContent = '0' + suffix;
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          const dur = 1400;
-          const t0 = performance.now();
-          const tick = (now) => {
-            const t = clamp01((now - t0) / dur);
-            const v = Math.round(lerp(0, target, easeOut(t)));
-            el.textContent = v + suffix;
-            if (t < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-          io.unobserve(e.target);
-        }
+        if (!e.isIntersecting) return;
+        const t0 = performance.now();
+        const dur = 1500;
+        const tick = now => {
+          const t = clamp01((now - t0) / dur);
+          el.textContent = Math.round(lerp(0, target, easeOut(t))) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(e.target);
       });
-    }, { threshold: 0.6 });
+    }, { threshold: .6 });
     io.observe(el);
   });
 
-  /* ─────────────────────────────────────────────────────────────
-     3 + 4 + 5) Scroll-driven scrub:
-        ─ Progress bar       (whole document)
-        ─ Hero photo parallax (within hero section)
-        ─ Map routes drawing  (within map section)
-     ───────────────────────────────────────────────────────────── */
-  const bar  = document.querySelector('.scroll-progress > span');
-  const heroFrame = document.querySelector('.hero-photo-frame');
-  const heroSection = document.querySelector('.hero');
-  const mapSection = document.querySelector('.section--coverage');
-  const routes = document.querySelectorAll('.map-routes path');
+  /* ───────────────── Mágneses gombok ───────────────── */
+  if (finePointer && !reduced) {
+    $$('.magnetic').forEach(el => {
+      const strength = 0.28;
+      el.addEventListener('pointermove', ev => {
+        const r = el.getBoundingClientRect();
+        const dx = ev.clientX - (r.left + r.width / 2);
+        const dy = ev.clientY - (r.top + r.height / 2);
+        el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+      });
+      el.addEventListener('pointerleave', () => {
+        el.style.transition = 'transform .45s cubic-bezier(.22,.61,.36,1)';
+        el.style.transform = '';
+        setTimeout(() => { el.style.transition = ''; }, 460);
+      });
+    });
+  }
+
+  /* ───────────────── Scroll motor (rAF scrub) ───────────────── */
+  const nav        = $('#nav');
+  const navBar     = $('.nav-progress i');
+  const heroMedia  = $('.hero-media');
+  const hero       = $('.hero');
+  const story      = $('.story');
+  const storyGrid  = $('.story-grid');
+  const roadFill   = $('.road-fill');
+  const roadMarker = $('#roadMarker');
+  const milestones = $$('[data-milestone]');
+  const mapSection = $('.section--map');
+  const routes     = $$('.map-routes path');
 
   let ticking = false;
   const update = () => {
@@ -1577,39 +1714,45 @@ button { font: inherit; }
     const vh = window.innerHeight;
     const docMax = Math.max(1, document.documentElement.scrollHeight - vh);
 
-    // Progress bar
-    if (bar) {
-      const p = clamp01(sy / docMax);
-      bar.style.width = (p * 100).toFixed(2) + '%';
+    if (navBar) navBar.style.width = (clamp01(sy / docMax) * 100).toFixed(2) + '%';
+    if (nav) nav.classList.toggle('scrolled', sy > 40);
+
+    // Hero média parallax — lassabban úszik felfelé, finoman nagyít
+    if (heroMedia && hero) {
+      const hr = hero.getBoundingClientRect();
+      const p = clamp01(-hr.top / Math.max(1, hr.height - vh * .4));
+      heroMedia.style.transform = `translate3d(0, ${lerp(0, -44, p)}px, 0)`;
     }
 
-    // Hero photo parallax (subtle: lift + scale as user scrolls past hero)
-    if (heroFrame && heroSection) {
-      const r = heroSection.getBoundingClientRect();
-      // p = 0 at top of viewport, → 1 when hero fully scrolled away
-      const p = clamp01(-r.top / (r.height + vh * 0.4));
-      // translateY -3vh, scale 1.0 → 1.04
-      const ty = lerp(0, -36, p);
-      const sc = lerp(1, 1.04, p);
-      heroFrame.style.transform = `translate3d(0, ${ty}px, 0) scale(${sc})`;
+    // Történet: út-kitöltés + kamion-jelölő + mérföldkövek
+    if (storyGrid && roadMarker) {
+      const gr = storyGrid.getBoundingClientRect();
+      // a szakasz közepe vezérli: 0 amikor a grid teteje a viewport 75%-án, 1 amikor az alja a 35%-án
+      const start = vh * .75;
+      const end   = vh * .35;
+      const total = gr.height - (start - end);
+      const p = clamp01((start - gr.top) / Math.max(1, total));
+      const eased = p; // lineáris követés — a jelölő "vezet"
+      if (roadFill) roadFill.style.height = (eased * 100).toFixed(2) + '%';
+      roadMarker.style.top = (eased * 100).toFixed(2) + '%';
+
+      // mérföldkövek aktiválása, amikor a jelölő elérte őket
+      milestones.forEach(ms => {
+        const mr = ms.getBoundingClientRect();
+        const msCenterInGrid = (mr.top + mr.height * .35 - gr.top) / Math.max(1, gr.height);
+        ms.classList.toggle('active', eased >= msCenterInGrid - .02);
+      });
     }
 
-    // Map routes draw-in
+    // Térkép útvonalak rajzolása
     if (routes.length && mapSection) {
       const r = mapSection.getBoundingClientRect();
-      // start drawing when section top reaches 80% of viewport,
-      // finish by the time it reaches 30% of viewport
-      const startY = vh * 0.8;
-      const endY   = vh * 0.3;
-      const p = clamp01((startY - r.top) / (startY - endY));
-      // stagger across the routes
+      const p = clamp01((vh * .85 - r.top) / (vh * .5));
       routes.forEach((path, i) => {
-        const start = i / routes.length * 0.6; // staggered start within p
-        const end   = start + 0.4;
-        const pp = clamp01((p - start) / (end - start));
-        // stroke-dasharray=1, dashoffset goes from 1 → 0
-        path.style.strokeDashoffset = (1 - easeInOut(pp)).toFixed(3);
-        path.style.opacity = (0.5 + 0.5 * pp).toFixed(2);
+        const s = (i / routes.length) * .55;
+        const pp = clamp01((p - s) / .45);
+        path.style.strokeDashoffset = (1 - easeIO(pp)).toFixed(3);
+        path.style.opacity = (.45 + .55 * pp).toFixed(2);
       });
     }
   };
@@ -1620,38 +1763,33 @@ button { font: inherit; }
   if (!reduced) {
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    requestAnimationFrame(update); // initial paint
+    requestAnimationFrame(update);
   } else {
-    // Reduced motion: paint final state of routes
     routes.forEach(p => { p.style.strokeDashoffset = '0'; p.style.opacity = '1'; });
+    milestones.forEach(ms => ms.classList.add('active'));
+    if (roadFill) roadFill.style.height = '100%';
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     Photo loader (hero)
-     ───────────────────────────────────────────────────────────── */
-  const frame  = document.querySelector('.hero-photo-frame');
-  const heroImg = document.querySelector('.hero-photo');
-  if (frame && heroImg) {
+  /* ───────────────── Fotó-betöltő ───────────────── */
+  const frame = $('#heroFrame');
+  const photo = $('.hero-photo');
+  if (frame && photo) {
     const candidates = [
-      'assets/truck.png',  'assets/truck.jpg',  'assets/truck.jpeg', 'assets/truck.webp',
-      'assets/Truck.png',  'assets/Truck.jpg',
+      'assets/truck.png', 'assets/truck.jpg', 'assets/truck.jpeg', 'assets/truck.webp',
+      'assets/Truck.png', 'assets/Truck.jpg',
       'truck.png', 'truck.jpg', 'truck.jpeg', 'truck.webp',
     ];
-    const tryNext = (i) => {
-      if (i >= candidates.length) {
-        console.log('[MPSPED] Nincs fotó az assets/ mappában. Kattints a jobb alsó "📷 Fotó feltöltése" gombra, vagy mentsd a képet ide: assets/truck.png');
-        showUploadFallback();
-        return;
-      }
+    const tryNext = i => {
+      if (i >= candidates.length) { showUpload(); return; }
       const probe = new Image();
-      probe.onload  = () => { console.log('[MPSPED] Fotó betöltve:', candidates[i]); heroImg.src = candidates[i]; frame.classList.add('has-photo'); };
+      probe.onload  = () => { photo.src = candidates[i]; frame.classList.add('has-photo'); };
       probe.onerror = () => tryNext(i + 1);
       probe.src = candidates[i];
     };
     tryNext(0);
   }
 
-  function showUploadFallback() {
+  function showUpload() {
     const wrap = document.createElement('div');
     wrap.className = 'photo-upload';
     wrap.innerHTML = `
@@ -1659,21 +1797,18 @@ button { font: inherit; }
         <span>📷 Saját fotó feltöltése</span>
         <input type="file" accept="image/*" />
       </label>
-      <p>vagy mentsd ide: <code>assets/truck.png</code></p>
-    `;
+      <p>vagy mentsd ide: <code>assets/truck.png</code></p>`;
     document.body.appendChild(wrap);
-    const input = wrap.querySelector('input');
-    input.addEventListener('change', () => {
-      const f = input.files && input.files[0];
+    $('input', wrap).addEventListener('change', ev => {
+      const f = ev.target.files && ev.target.files[0];
       if (!f) return;
       const r = new FileReader();
-      r.onload = () => { heroImg.src = r.result; frame.classList.add('has-photo'); wrap.remove(); };
+      r.onload = () => { photo.src = r.result; frame.classList.add('has-photo'); wrap.remove(); };
       r.readAsDataURL(f);
     });
   }
 })();
 
 </script>
-
 </body>
 </html>

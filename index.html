@@ -4,533 +4,469 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>MPSPED — Költöztetés és áruszállítás 1989 óta</title>
-<meta name="description" content="MPSPED Kft. — Költöztetés és áruszállítás 1989 óta, az ország minden pontjára. Magánlakás, iroda, cég, raktár — zongora, széf, raklapos áru." />
+<meta name="description" content="MPSPED Kft. — Költöztetés, áruszállítás és bútorszerelés 1989 óta, az ország egész területén. Zongora, széf, páncélszekrény szállítás. A piros, ami megérkezik." />
+<meta name="theme-color" content="#0C0C0E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:title" content="MPSPED — A piros, ami megérkezik." />
+<meta property="og:description" content="Költöztetés és áruszállítás 1989 óta, az ország egész területén. Hívjon: +36 70 211 0215" />
+<meta property="og:url" content="https://mpsped.hu/" />
+
+<!-- Favicon (inline, nincs külső kérés) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23E11D2A'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='24' fill='%23FFD60A'%3EMP%3C/text%3E%3Ctext x='32' y='52' text-anchor='middle' font-family='Arial' font-weight='700' font-size='11' fill='%23FFD60A'%3ESPED%3C/text%3E%3C/svg%3E" />
+
+<!-- Betűk: Archivo (display) + Inter (szöveg) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
 <link rel="stylesheet" href="styles.css" />
+
+<!-- Strukturált adat a keresőknek -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "name": "MPSPED Kft.",
+  "alternateName": "MP SPED",
+  "url": "https://mpsped.hu",
+  "telephone": "+36702110215",
+  "foundingDate": "1989",
+  "areaServed": { "@type": "Country", "name": "Hungary" },
+  "slogan": "A piros, ami megérkezik.",
+  "description": "Költöztetés, áruszállítás és bútorszerelés 1989 óta, Magyarország egész területén."
+}
+</script>
 </head>
 <body>
 
+<a class="skip-link" href="#fo-tartalom">Ugrás a tartalomhoz</a>
+
+<!-- ═══════ PRELOADER — piros függöny, betöltés után felgördül ═══════ -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-mark">
+    <span class="loader-mp">MP</span><span class="loader-sped">SPED</span>
+  </div>
+  <div class="loader-line"><i></i></div>
+</div>
+
 <!-- ═══════ NAV ═══════ -->
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#top" aria-label="MPSPED kezdőlap">
       <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-        <rect x="2" y="2" width="44" height="44" rx="4" fill="#E11D2A"/>
-        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="20" fill="#FFD60A" letter-spacing="-1">MP</text>
+        <rect x="2" y="2" width="44" height="44" rx="6" fill="#E11D2A"/>
+        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="19" fill="#FFD60A" letter-spacing="-1">MP</text>
         <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
       </svg>
-      <span class="brand-name">MPSPED</span>
+      <span class="brand-text">MPSPED</span>
     </a>
-    <nav class="nav-links" aria-label="Fő menü">
+    <nav class="nav-links" aria-label="Fő navigáció">
       <a href="#szolgaltatasok">Szolgáltatások</a>
-      <a href="#folyamat">Hogyan dolgozunk</a>
-      <a href="#rolunk">Rólunk</a>
-      <a href="#kapcsolat">Kapcsolat</a>
+      <a href="#tortenet">Történetünk</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#lefedettseg">Lefedettség</a>
     </nav>
-    <a class="nav-cta" href="tel:+36702110215">
-      <span class="nav-cta-icon" aria-hidden="true">☎</span>
-      <span class="nav-cta-text">+36 70 211 0215</span>
+    <a class="nav-cta magnetic" href="tel:+36702110215">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>+36 70 211 0215</span>
     </a>
   </div>
+  <div class="nav-progress" aria-hidden="true"><i></i></div>
 </header>
 
 <main id="top">
 
-  <!-- Vékony scroll progress bar — fixed, top of viewport -->
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — sötét, tipográfiai, kinetikus betöltő animációval
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="hero" id="fo-tartalom">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
 
+  <div class="hero-inner">
+    <div class="hero-meta reveal-load" style="--d:.1s">
+      <span class="meta-pill"><i class="pulse-dot"></i>1989 óta</span>
+      <span class="meta-sep">·</span>
+      <span>Családi vállalkozás</span>
+      <span class="meta-sep">·</span>
+      <span>Országos lefedettség</span>
+    </div>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HERO
-       Aszimmetrikus editorial — bal: tipográfia, jobb: fotó
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow"><span class="dot"></span>1989 óta · Magyarország</p>
-        <h1 class="hero-title">
-          Költöztetés.<br/>
-          Áruszállítás.<br/>
-          <span class="accent">A piros, ami megérkezik.</span>
-        </h1>
-        <p class="hero-lede">
-          Több mint 30 éves családi vállalkozás. Magánlakást,
-          irodát, céget, raktárt költöztetünk — zongorát,
-          páncélszekrényt és raklapos árut szállítunk.
-          Az ország minden pontjára, megbízhatóan.
-        </p>
-        <div class="hero-cta-row">
-          <a class="btn btn--primary" href="tel:+36702110215">
-            <span aria-hidden="true">☎</span> +36 70 211 0215
-          </a>
-          <a class="btn btn--ghost" href="#szolgaltatasok">
-            Szolgáltatások →
-          </a>
+    <h1 class="hero-title" aria-label="A piros, ami megérkezik.">
+      <span class="line"><span class="line-inner reveal-load" style="--d:.2s">A <em>piros</em>,</span></span>
+      <span class="line"><span class="line-inner reveal-load" style="--d:.32s">ami megérkezik.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-lede reveal-load" style="--d:.45s">
+        Költöztetés és áruszállítás több mint három évtizede.
+        Magánlakástól a raktárig, zongorától a páncélszekrényig —
+        épségben, sérülésmentesen, az ország bármely pontjára.
+      </p>
+      <div class="hero-cta reveal-load" style="--d:.55s">
+        <a class="btn btn--red magnetic" href="tel:+36702110215">
+          <span>Hívjon most</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--line magnetic" href="#szolgaltatasok">Szolgáltatásaink</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Média keret — alulról emelkedik be, parallax -->
+  <figure class="hero-media reveal-load" style="--d:.65s">
+    <div class="hero-media-frame" id="heroFrame">
+      <img class="hero-photo" alt="MPSPED piros teherautó" />
+      <!-- Flat grafikus fallback, amíg nincs valódi fotó -->
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="artSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#141416"/>
+              <stop offset="1" stop-color="#1D1D21"/>
+            </linearGradient>
+          </defs>
+          <rect width="1400" height="520" fill="url(#artSky)"/>
+          <!-- horizont vonal -->
+          <line x1="0" y1="430" x2="1400" y2="430" stroke="#2A2A2F" stroke-width="2"/>
+          <!-- útburkolati jel -->
+          <g stroke="#FFD60A" stroke-width="5" stroke-dasharray="36 28" opacity=".5">
+            <line x1="0" y1="475" x2="1400" y2="475"/>
+          </g>
+          <!-- flat poszter-stílusú piros kamion -->
+          <g class="art-truck">
+            <!-- hosszú árnyék -->
+            <ellipse cx="700" cy="436" rx="420" ry="13" fill="#000" opacity=".45"/>
+            <!-- doboz -->
+            <rect x="430" y="170" width="560" height="240" rx="10" fill="#E11D2A"/>
+            <rect x="430" y="170" width="560" height="58" rx="10" fill="#F0303E"/>
+            <!-- felirat -->
+            <text x="710" y="300" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="900" font-size="74" fill="#FFD60A" letter-spacing="2">MP SPED</text>
+            <text x="710" y="345" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="22" fill="#FFD60A" opacity=".85" letter-spacing="6">KÖLTÖZTETÉS · ÁRUSZÁLLÍTÁS</text>
+            <!-- fülke -->
+            <path d="M990 410 V 240 q0-16 16-16 h96 q14 0 22 12 l52 78 q8 12 8 26 v70 z" fill="#E11D2A"/>
+            <path d="M1022 248 h74 q8 0 13 7 l40 60 h-127 z" fill="#15161A"/>
+            <rect x="990" y="394" width="194" height="16" fill="#0C0C0E" opacity=".5"/>
+            <!-- lámpa -->
+            <rect x="1170" y="368" width="12" height="20" rx="3" fill="#FFD60A"/>
+            <!-- kerekek -->
+            <g fill="#0C0C0E" stroke="#2E2E33" stroke-width="5">
+              <circle cx="540" cy="416" r="40"/>
+              <circle cx="660" cy="416" r="40"/>
+              <circle cx="1080" cy="416" r="40"/>
+            </g>
+            <g fill="#4A4A52">
+              <circle cx="540" cy="416" r="15"/>
+              <circle cx="660" cy="416" r="15"/>
+              <circle cx="1080" cy="416" r="15"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <figcaption class="hero-media-cap">A jól ismert piros teherautók — 1989 óta úton</figcaption>
+  </figure>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Görgess</span><i></i>
+  </div>
+</section>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Költöztetés</span><i>●</i><span>Áruszállítás</span><i>●</i><span>Zongora</span><i>●</i><span>Széf</span><i>●</i><span>Bútorszerelés</span><i>●</i><span>Raklapos áru</span><i>●</i><span>1989 óta</span><i>●</i>
+    <span>Költöztetés</span><i>●</i><span>Áruszállítás</span><i>●</i><span>Zongora</span><i>●</i><span>Széf</span><i>●</i><span>Bútorszerelés</span><i>●</i><span>Raklapos áru</span><i>●</i><span>1989 óta</span><i>●</i>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SZOLGÁLTATÁSOK — editorial sorok, hover-kitöltéssel
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper" id="szolgaltatasok">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-kicker reveal"><span class="sec-no">01</span> Szolgáltatások</p>
+      <h2 class="sec-title reveal">Mit bízhat <em>ránk?</em></h2>
+    </header>
+
+    <div class="svc-rows">
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">01</span>
+        <div class="svc-main">
+          <h3>Költöztetés</h3>
+          <p>Magánlakások · Irodák · Irodaházak · Cégek · Raktárak</p>
         </div>
-        <ul class="hero-stats">
-          <li>
-            <strong data-count="1989" data-suffix="">1989</strong>
-            <span>óta szolgálunk</span>
-          </li>
-          <li>
-            <strong data-count="30" data-suffix="+">30+</strong>
-            <span>év tapasztalat</span>
-          </li>
-          <li>
-            <strong>HU</strong>
-            <span>országos lefedettség</span>
-          </li>
-        </ul>
-      </div>
+        <p class="svc-desc">Csomagolóanyagokkal, bútorvédelemmel és szakképzett kollégákkal — a kényes bútorokat fóliázzuk, az apróságokhoz dobozt biztosítunk.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
 
-      <div class="hero-visual">
-        <div class="hero-photo-frame">
-          <!-- A user fotója; ha hiányzik, finom piros gradient placeholder. -->
-          <img class="hero-photo" alt="MPSPED piros kamion"/>
-          <div class="hero-photo-fallback" aria-hidden="true">
-            <svg viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid meet">
-              <use href="#truck-red"/>
-            </svg>
-          </div>
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">02</span>
+        <div class="svc-main">
+          <h3>Áruszállítás</h3>
+          <p>Bútorok · Darabáru · Raklapos áruk</p>
         </div>
-        <p class="hero-photo-caption">
-          MPSPED kamionjaink — családi vállalkozás közel 35 éve
-        </p>
-      </div>
+        <p class="svc-desc">Belföldi szállítás az ország egész területére, megfelelő autóparkkal és megbízható menetrenddel.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">03</span>
+        <div class="svc-main">
+          <h3>Speciális tételek</h3>
+          <p>Zongorák · Pianinók · Széfek · Páncélszekrények</p>
+        </div>
+        <p class="svc-desc">Nehéz és nagy értékű tárgyak szakszerű mozgatása — megfelelő eszközökkel és több évtizedes rutinnal.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="svc-row reveal" href="#kapcsolat">
+        <span class="svc-idx">04</span>
+        <div class="svc-main">
+          <h3>Bútorszerelés</h3>
+          <p>Szét- és összeszerelés helyben</p>
+        </div>
+        <p class="svc-desc">A költözés részeként vagy önálló szolgáltatásként — hogy Önnek már csak be kelljen rendezkednie.</p>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
+  </div>
+</section>
 
-    <div class="hero-marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>KÖLTÖZTETÉS</span><i>●</i>
-        <span>ÁRUSZÁLLÍTÁS</span><i>●</i>
-        <span>BÚTORSZERELÉS</span><i>●</i>
-        <span>ZONGORA</span><i>●</i>
-        <span>SZÉF</span><i>●</i>
-        <span>PÁNCÉLSZEKRÉNY</span><i>●</i>
-        <span>RAKLAPOS ÁRU</span><i>●</i>
-        <span>1989 ÓTA</span><i>●</i>
-        <!-- duplicated for seamless loop -->
-        <span>KÖLTÖZTETÉS</span><i>●</i>
-        <span>ÁRUSZÁLLÍTÁS</span><i>●</i>
-        <span>BÚTORSZERELÉS</span><i>●</i>
-        <span>ZONGORA</span><i>●</i>
-        <span>SZÉF</span><i>●</i>
-        <span>PÁNCÉLSZEKRÉNY</span><i>●</i>
-        <span>RAKLAPOS ÁRU</span><i>●</i>
-        <span>1989 ÓTA</span><i>●</i>
+<!-- ═══════════════════════════════════════════════════════════════
+     TÖRTÉNET — út-idővonal: a piros kamion végiggurul az úton
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--dark story" id="tortenet">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-kicker reveal"><span class="sec-no">02</span> Történetünk</p>
+      <h2 class="sec-title reveal">Több mint <em>30 év</em> az úton.</h2>
+    </header>
+
+    <div class="story-grid">
+      <!-- bal: út, amin a kamion-jelölő végiggurul -->
+      <div class="road" aria-hidden="true">
+        <div class="road-line"><i class="road-fill"></i></div>
+        <div class="road-marker" id="roadMarker">
+          <svg viewBox="0 0 44 28" width="44" height="28">
+            <rect x="1" y="4" width="26" height="16" rx="3" fill="#E11D2A"/>
+            <path d="M27 8 h8 l6 7 v5 h-14 z" fill="#E11D2A"/>
+            <circle cx="10" cy="22" r="4.5" fill="#0C0C0E" stroke="#55555c" stroke-width="1.5"/>
+            <circle cx="34" cy="22" r="4.5" fill="#0C0C0E" stroke="#55555c" stroke-width="1.5"/>
+            <text x="13" y="15" text-anchor="middle" font-family="Arial" font-weight="900" font-size="8" fill="#FFD60A">MP</text>
+          </svg>
+        </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       SZOLGÁLTATÁSOK
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--services" id="szolgaltatasok">
-    <div class="container">
-      <header class="section-head">
-        <p class="section-num">01 / Szolgáltatások</p>
-        <h2 class="section-title">
-          Mit csinálunk?
-        </h2>
-        <p class="section-sub">
-          Három fő profilunk — egymástól független, de együtt
-          egy teljes szolgáltatási kör.
-        </p>
-      </header>
-
-      <div class="services">
-        <!-- Költöztetés -->
-        <article class="service">
-          <div class="service-head">
-            <span class="service-num">01</span>
-            <h3 class="service-title">Költöztetés</h3>
-          </div>
-          <p class="service-desc">
-            Magánlakások, irodák, irodaházak, cégek és raktárak teljes
-            körű költöztetése — csomagolóanyagokkal, bútorvédelemmel,
-            szakképzett kollégákkal.
-          </p>
-          <ul class="service-list">
-            <li>Magánlakások</li>
-            <li>Irodák</li>
-            <li>Irodaházak</li>
-            <li>Cégek</li>
-            <li>Raktárak</li>
-          </ul>
-        </article>
-
-        <!-- Áruszállítás -->
-        <article class="service service--feature">
-          <div class="service-head">
-            <span class="service-num">02</span>
-            <h3 class="service-title">Áruszállítás</h3>
-          </div>
-          <p class="service-desc">
-            Belföldi áruszállítás bárhova az ország területén.
-            Bútorok, dobozos és raklapos áruk megbízható kiszállítása —
-            gyorsan, sérülésmentesen.
-          </p>
-          <ul class="service-list">
-            <li>Bútorok</li>
-            <li>Bútorszerelés</li>
-            <li>Darab- és raklapos áruk</li>
-            <li>Belföldi szállítás</li>
-          </ul>
-        </article>
-
-        <!-- Speciális tételek -->
-        <article class="service">
-          <div class="service-head">
-            <span class="service-num">03</span>
-            <h3 class="service-title">Speciális tételek</h3>
-          </div>
-          <p class="service-desc">
-            Kényes, nagy értékű és nehéz tárgyak szakszerű mozgatása
-            megfelelő eszközökkel — több évtizedes rutinnal.
-          </p>
-          <ul class="service-list">
-            <li>Zongorák</li>
-            <li>Pianinók</li>
-            <li>Széfek</li>
-            <li>Páncélszekrények</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       HOGYAN DOLGOZUNK
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--process section--dark" id="folyamat">
-    <div class="container">
-      <header class="section-head section-head--center">
-        <p class="section-num">02 / Folyamat</p>
-        <h2 class="section-title">
-          Egy hívás. Egy <span class="accent">piros kamion.</span> Egy gond kevesebb.
-        </h2>
-      </header>
-
-      <ol class="process">
-        <li class="process-step">
-          <span class="process-num">1</span>
-          <h3>Megrendelés és felmérés</h3>
-          <p>Felhívsz, megbeszéljük, mit, honnan, hova. Felmérjük a feladat méretét és összeállítjuk az árajánlatot.</p>
+      <!-- jobb: mérföldkövek -->
+      <ol class="milestones">
+        <li class="milestone" data-milestone>
+          <span class="ms-year">1989</span>
+          <h3>Az első kilométer</h3>
+          <p>Egyéni vállalkozásként indultunk — egy teherautóval és azzal az egyszerű ígérettel, hogy amit ránk bíznak, az épségben érkezik meg.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">2</span>
-          <h3>Megfelelő autó kiküldése</h3>
-          <p>A munkára szabott méretű, megfelelően felszerelt teherautót küldjük — kellő számú szakképzett kollégával.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">’90-es évek</span>
+          <h3>A piros megjelenik az utakon</h3>
+          <p>A folyamatosan bővülő flotta egységes, piros arculatot kapott — a teherautóink mára összetéveszthetetlenek.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">3</span>
-          <h3>Csomagolás és védelem</h3>
-          <p>A kényesebb és drágább bútorokat szükség esetén fóliázzuk; az apróságokhoz költöztető dobozokat tudunk biztosítani.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">2000+</span>
+          <h3>Specialisták lettünk</h3>
+          <p>Zongorák, széfek, páncélszekrények — olyan feladatokat vállalunk, amelyekhez különleges eszköz és évtizedes rutin kell.</p>
         </li>
-        <li class="process-step">
-          <span class="process-num">4</span>
-          <h3>Szállítás és kipakolás</h3>
-          <p>Eljuttatjuk az árut a célállomásra, kipakoljuk, igény esetén bútorokat összeszereljük. Te csak az új tér élvezetével foglalkozz.</p>
+        <li class="milestone" data-milestone>
+          <span class="ms-year">Ma</span>
+          <h3>Országos lefedettség</h3>
+          <p>Az egész ország területén vállalunk költöztetést és szállítást — ugyanazzal a családi precizitással, mint az első napon.</p>
         </li>
       </ol>
     </div>
-  </section>
 
+    <!-- számok -->
+    <ul class="stats">
+      <li class="reveal">
+        <strong><span data-count="35" data-suffix="+">35+</span></strong>
+        <span>év tapasztalat</span>
+      </li>
+      <li class="reveal">
+        <strong>1989</strong>
+        <span>alapítás éve</span>
+      </li>
+      <li class="reveal">
+        <strong>100%</strong>
+        <span>családi tulajdon</span>
+      </li>
+      <li class="reveal">
+        <strong>HU</strong>
+        <span>országos lefedettség</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       RÓLUNK / STORY
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--story" id="rolunk">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-text">
-          <p class="section-num">03 / Rólunk</p>
-          <h2 class="section-title">
-            1989-ben kezdtük.<br/>
-            <span class="accent">Azóta is itt vagyunk.</span>
-          </h2>
-          <p class="story-p">
-            Vállalkozásunk 1989-ben indult — azóta folyamatosan
-            bővülünk. Az eltelt évek során kellő szakmai gyakorlatra
-            tettünk szert, amelyhez nélkülözhetetlen segítségünk
-            voltak a népszerű piros teherautóink.
-          </p>
-          <p class="story-p">
-            Célunk az, hogy levegyük a terheket az Önök válláról,
-            melyek egy költözés során felmerülnek — és hogy az
-            Önök számára fontos dolgok épségben kerüljenek az új
-            helyükre. Cégünkre jellemző a <strong>precíz munkavégzés,
-            megbízhatóság és igényesség.</strong>
-          </p>
-          <p class="story-p">
-            Megfelelő autóparkkal, szerszámokkal és szakképzett
-            kollégákkal dolgozunk — piacképes díjszabással. Várjuk
-            jelentkezését, érdeklődését.
-          </p>
+<!-- ═══════════════════════════════════════════════════════════════
+     FOLYAMAT
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper" id="folyamat">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-kicker reveal"><span class="sec-no">03</span> Hogyan dolgozunk</p>
+      <h2 class="sec-title reveal">Négy lépés, <em>nulla stressz.</em></h2>
+    </header>
 
-          <blockquote class="pull-quote" data-reveal-words>
-            „Több mint 30 éve Önökért."
-          </blockquote>
-        </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-no">1</span>
+        <h3>Felmérés</h3>
+        <p>Telefonon vagy helyszínen felmérjük a feladatot — mit, honnan, hová, mikor.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">2</span>
+        <h3>Megfelelő autó</h3>
+        <p>A munkához méretezett, felszerelt teherautót küldjük, kellő számú szakképzett kollégával.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">3</span>
+        <h3>Csomagolás</h3>
+        <p>A kényes bútorokat fóliázzuk, az apróságokhoz költöztető dobozokat biztosítunk.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-no">4</span>
+        <h3>Megérkezés</h3>
+        <p>Minden épségben, sérülésmentesen kerül az új helyére. Önnek csak be kell rendezkednie.</p>
+      </li>
+    </ol>
 
-        <aside class="story-aside">
-          <dl class="fact-list">
-            <div>
-              <dt>Alapítva</dt>
-              <dd>1989</dd>
-            </div>
-            <div>
-              <dt>Forma</dt>
-              <dd>Családi vállalkozás</dd>
-            </div>
-            <div>
-              <dt>Lefedettség</dt>
-              <dd>Magyarország teljes területe</dd>
-            </div>
-            <div>
-              <dt>Profil</dt>
-              <dd>Költöztetés · Áruszállítás · Bútorszerelés</dd>
-            </div>
-            <div>
-              <dt>Speciális tételek</dt>
-              <dd>Zongora · Pianino · Széf · Páncélszekrény</dd>
-            </div>
-          </dl>
-        </aside>
+    <blockquote class="quote reveal" data-reveal-words>
+      „Olyan figyelemmel kezeljük az Önök számára fontos dolgokat, mintha a sajátunk lenne."
+    </blockquote>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LEFEDETTSÉG — térkép scroll-rajzolt útvonalakkal
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--paper section--map" id="lefedettseg">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-kicker reveal"><span class="sec-no">04</span> Lefedettség</p>
+      <h2 class="sec-title reveal">Az <em>egész ország</em> területére.</h2>
+      <p class="sec-sub reveal">Bárhonnan — bárhová. Budapesttől Nyíregyházáig, Szombathelytől Szegedig.</p>
+    </header>
+
+    <div class="map-wrap reveal">
+      <svg viewBox="0 0 800 360" class="map" aria-hidden="true">
+        <defs>
+          <pattern id="mdots" width="14" height="14" patternUnits="userSpaceOnUse">
+            <circle cx="7" cy="7" r="1.1" fill="#D9D4CC"/>
+          </pattern>
+        </defs>
+        <rect x="40" y="20" width="720" height="320" fill="url(#mdots)" rx="8"/>
+        <g class="map-routes" fill="none" stroke="#E11D2A" stroke-width="1.5" stroke-linecap="round">
+          <path d="M400,130 L600,110" pathLength="1"/>
+          <path d="M400,130 L440,240" pathLength="1"/>
+          <path d="M400,130 L280,252" pathLength="1"/>
+          <path d="M400,130 L210,92"  pathLength="1"/>
+          <path d="M400,130 L500,65"  pathLength="1"/>
+          <path d="M400,130 L630,85"  pathLength="1"/>
+          <path d="M400,130 L245,170" pathLength="1"/>
+          <path d="M400,130 L310,155" pathLength="1"/>
+          <path d="M400,130 L420,185" pathLength="1"/>
+          <path d="M400,130 L100,165" pathLength="1"/>
+        </g>
+        <g class="map-cities">
+          <circle cx="400" cy="130" r="9" class="hub"/><text x="412" y="125">Budapest</text>
+          <circle cx="600" cy="110" r="5"/><text x="612" y="105">Debrecen</text>
+          <circle cx="440" cy="240" r="5"/><text x="452" y="245">Szeged</text>
+          <circle cx="280" cy="252" r="5"/><text x="222" y="270">Pécs</text>
+          <circle cx="210" cy="92"  r="5"/><text x="222" y="89">Győr</text>
+          <circle cx="500" cy="65"  r="5"/><text x="512" y="62">Miskolc</text>
+          <circle cx="630" cy="85"  r="5"/><text x="595" y="76">Nyíregyháza</text>
+          <circle cx="245" cy="170" r="5"/><text x="193" y="186">Veszprém</text>
+          <circle cx="310" cy="155" r="5"/><text x="222" y="148">Székesfehérvár</text>
+          <circle cx="420" cy="185" r="5"/><text x="432" y="190">Kecskemét</text>
+          <circle cx="100" cy="165" r="5"/><text x="52"  y="158">Szombathely</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     KAPCSOLAT
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="section section--dark contact" id="kapcsolat">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="sec-kicker reveal"><span class="sec-no">05</span> Kapcsolat</p>
+        <h2 class="contact-title reveal">Mozdítsuk<br/><em>együtt.</em></h2>
+        <p class="contact-sub reveal">Hívjon — megbeszéljük a részleteket, felmérjük a feladatot, és pontos ajánlatot adunk.</p>
+      </div>
+
+      <div class="contact-cards">
+        <a class="ccard ccard--red magnetic reveal" href="tel:+36702110215">
+          <span class="ccard-label">Mobil</span>
+          <span class="ccard-value">+36 70 211 0215</span>
+          <span class="ccard-arr" aria-hidden="true">→</span>
+        </a>
+        <a class="ccard magnetic reveal" href="tel:+3688410785">
+          <span class="ccard-label">Vezetékes</span>
+          <span class="ccard-value">+36 88 410 785</span>
+          <span class="ccard-arr" aria-hidden="true">→</span>
+        </a>
+        <a class="ccard magnetic reveal" href="https://mpsped.hu" target="_blank" rel="noopener">
+          <span class="ccard-label">Web</span>
+          <span class="ccard-value">mpsped.hu</span>
+          <span class="ccard-arr" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       LEFEDETTSÉG / TÉRKÉP
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--coverage">
-    <div class="container">
-      <header class="section-head section-head--center">
-        <p class="section-num">04 / Lefedettség</p>
-        <h2 class="section-title">
-          Az <span class="accent">egész ország</span> területére.
-        </h2>
-        <p class="section-sub">
-          Bárhonnan – bárhova. Budapesttől Nyíregyházáig,
-          Sopronból Pécsig.
-        </p>
-      </header>
-
-      <div class="map-wrap">
-        <svg viewBox="0 0 800 360" class="hungary-map" aria-hidden="true">
-          <!-- Pont-mátrix háttér; nem ország-kontúr, csak térbeli háló -->
-          <defs>
-            <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-              <circle cx="7" cy="7" r="1.1" fill="#E4E4E7"/>
-            </pattern>
-          </defs>
-          <rect x="40" y="20" width="720" height="320" fill="url(#dots)" rx="12"/>
-
-          <!-- Útvonalak Budapestről — pathLength=1 trükk a scroll-rajzoláshoz -->
-          <g class="map-routes" fill="none" stroke="#E11D2A" stroke-width="1.4" stroke-linecap="round">
-            <path d="M400,130 L600,110" pathLength="1"/>
-            <path d="M400,130 L440,240" pathLength="1"/>
-            <path d="M400,130 L280,252" pathLength="1"/>
-            <path d="M400,130 L210,92"  pathLength="1"/>
-            <path d="M400,130 L500,65"  pathLength="1"/>
-            <path d="M400,130 L630,85"  pathLength="1"/>
-            <path d="M400,130 L245,170" pathLength="1"/>
-            <path d="M400,130 L310,155" pathLength="1"/>
-            <path d="M400,130 L420,185" pathLength="1"/>
-            <path d="M400,130 L100,165" pathLength="1"/>
-          </g>
-
-          <!-- Városok -->
-          <g class="map-cities">
-            <circle cx="400" cy="130" r="9" class="hub"/><text x="412" y="125">Budapest</text>
-            <circle cx="600" cy="110" r="5"/><text x="612" y="105">Debrecen</text>
-            <circle cx="440" cy="240" r="5"/><text x="452" y="245">Szeged</text>
-            <circle cx="280" cy="252" r="5"/><text x="220" y="270">Pécs</text>
-            <circle cx="210" cy="92"  r="5"/><text x="222" y="89">Győr</text>
-            <circle cx="500" cy="65"  r="5"/><text x="512" y="62">Miskolc</text>
-            <circle cx="630" cy="85"  r="5"/><text x="595" y="76">Nyíregyháza</text>
-            <circle cx="245" cy="170" r="5"/><text x="195" y="186">Veszprém</text>
-            <circle cx="310" cy="155" r="5"/><text x="225" y="148">Székesfehérvár</text>
-            <circle cx="420" cy="185" r="5"/><text x="432" y="190">Kecskemét</text>
-            <circle cx="100" cy="165" r="5"/><text x="50"  y="160">Szombathely</text>
-          </g>
-        </svg>
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="foot">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="6" fill="#E11D2A"/>
+        <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="19" fill="#FFD60A" letter-spacing="-1">MP</text>
+        <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
+      </svg>
+      <div>
+        <strong>MPSPED Kft.</strong>
+        <p>Több mint 30 éve Önökért.</p>
       </div>
     </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       NAGY CTA / KAPCSOLAT
-       ═══════════════════════════════════════════════════════════ -->
-  <section class="section section--cta" id="kapcsolat">
-    <div class="container">
-      <div class="cta-grid">
-        <div class="cta-text">
-          <p class="section-num">05 / Kapcsolat</p>
-          <h2 class="section-title section-title--xl">
-            Kezdjük el?
-          </h2>
-          <p class="cta-sub">
-            Hívjon vagy írjon — visszahívjuk és összeállítjuk
-            az árajánlatát.
-          </p>
-        </div>
-
-        <div class="cta-cards">
-          <a class="cta-card cta-card--primary" href="tel:+36702110215">
-            <span class="cta-card-label">Mobil</span>
-            <span class="cta-card-value">+36 70 211 0215</span>
-            <span class="cta-card-arrow">→</span>
-          </a>
-          <a class="cta-card" href="tel:+3688410785">
-            <span class="cta-card-label">Vezetékes</span>
-            <span class="cta-card-value">+36 88 410 785</span>
-            <span class="cta-card-arrow">→</span>
-          </a>
-          <a class="cta-card" href="https://mpsped.hu" target="_blank" rel="noopener">
-            <span class="cta-card-label">Web</span>
-            <span class="cta-card-value">mpsped.hu</span>
-            <span class="cta-card-arrow">↗</span>
-          </a>
-        </div>
-      </div>
+    <nav class="foot-links" aria-label="Lábléc navigáció">
+      <a href="#szolgaltatasok">Szolgáltatások</a>
+      <a href="#tortenet">Történetünk</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <div class="foot-contact">
+      <a href="tel:+36702110215">+36 70 211 0215</a>
+      <a href="tel:+3688410785">+36 88 410 785</a>
+      <a href="https://mpsped.hu" target="_blank" rel="noopener">mpsped.hu</a>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════════════════════ -->
-  <footer class="foot">
-    <div class="container foot-grid">
-      <div class="foot-brand">
-        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="2" y="2" width="44" height="44" rx="4" fill="#E11D2A"/>
-          <text x="24" y="26" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="20" fill="#FFD60A" letter-spacing="-1">MP</text>
-          <text x="24" y="38" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="9" fill="#FFD60A" letter-spacing="2">SPED</text>
-        </svg>
-        <div>
-          <strong>MPSPED Kft.</strong>
-          <p>Több mint 30 éve Önökért.</p>
-        </div>
-      </div>
-      <nav class="foot-links" aria-label="Lábléc menü">
-        <a href="#szolgaltatasok">Szolgáltatások</a>
-        <a href="#folyamat">Hogyan dolgozunk</a>
-        <a href="#rolunk">Rólunk</a>
-        <a href="#kapcsolat">Kapcsolat</a>
-      </nav>
-      <div class="foot-contact">
-        <a href="tel:+36702110215">+36 70 211 0215</a>
-        <a href="tel:+3688410785">+36 88 410 785</a>
-        <a href="https://mpsped.hu" target="_blank" rel="noopener">mpsped.hu</a>
-      </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="container foot-bottom-row">
+      <span>© <span id="year"></span> MPSPED Kft. — Minden jog fenntartva.</span>
+      <span>A piros, ami megérkezik.</span>
     </div>
-    <div class="foot-bottom">
-      <div class="container foot-bottom-row">
-        <span>© <span id="year"></span> MPSPED Kft. — Minden jog fenntartva.</span>
-        <span>Készült Magyarországon</span>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </main>
 
-<!-- ═══════════ SVG SYMBOL (truck fallback only) ═══════════ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="truck-red" viewBox="0 0 1200 480">
-      <defs>
-        <linearGradient id="cabBody" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#ff6470"/>
-          <stop offset=".18"  stop-color="#ee2533"/>
-          <stop offset=".55"  stop-color="#c0121f"/>
-          <stop offset=".85"  stop-color="#5e0810"/>
-          <stop offset="1"    stop-color="#2a0306"/>
-        </linearGradient>
-        <linearGradient id="trailerBody" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#ff5462"/>
-          <stop offset=".12"  stop-color="#e72030"/>
-          <stop offset=".5"   stop-color="#bd111e"/>
-          <stop offset=".85"  stop-color="#660a12"/>
-          <stop offset="1"    stop-color="#260306"/>
-        </linearGradient>
-        <linearGradient id="cabSpec" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0"   stop-color="rgba(255,255,255,0)"/>
-          <stop offset=".4"  stop-color="rgba(255,255,255,.35)"/>
-          <stop offset=".55" stop-color="rgba(255,255,255,.05)"/>
-          <stop offset="1"   stop-color="rgba(255,255,255,0)"/>
-        </linearGradient>
-        <linearGradient id="glassRefl" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"    stop-color="#cfe1f5"/>
-          <stop offset=".35"  stop-color="#6b8aa8"/>
-          <stop offset=".65"  stop-color="#1f2a3a"/>
-          <stop offset="1"    stop-color="#0a0f17"/>
-        </linearGradient>
-        <radialGradient id="tire" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="#1c1c1c"/>
-          <stop offset=".7"  stop-color="#0a0a0a"/>
-          <stop offset="1"   stop-color="#000"/>
-        </radialGradient>
-        <radialGradient id="hub" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="#cfd4db"/>
-          <stop offset=".4"  stop-color="#6a7280"/>
-          <stop offset=".75" stop-color="#2a2f38"/>
-          <stop offset="1"   stop-color="#0e1116"/>
-        </radialGradient>
-        <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"   stop-color="#f0f4f8"/>
-          <stop offset=".35" stop-color="#9aa3ad"/>
-          <stop offset=".5"  stop-color="#1e242c"/>
-          <stop offset=".65" stop-color="#7a838d"/>
-          <stop offset="1"   stop-color="#cfd5dc"/>
-        </linearGradient>
-        <radialGradient id="ground" cx=".5" cy=".5" r=".5">
-          <stop offset="0"   stop-color="rgba(0,0,0,.55)"/>
-          <stop offset="1"   stop-color="rgba(0,0,0,0)"/>
-        </radialGradient>
-      </defs>
-      <ellipse cx="600" cy="438" rx="540" ry="14" fill="url(#ground)"/>
-      <path d="M360,90 L1160,90 Q1180,90 1180,108 L1180,360 Q1180,378 1160,378 L360,378 Z" fill="url(#trailerBody)"/>
-      <g opacity=".25">
-        <line x1="362" y1="120" x2="1178" y2="120" stroke="#fff"/>
-        <line x1="362" y1="170" x2="1178" y2="170" stroke="#fff"/>
-        <line x1="362" y1="220" x2="1178" y2="220" stroke="#fff"/>
-        <line x1="362" y1="270" x2="1178" y2="270" stroke="#fff"/>
-        <line x1="362" y1="320" x2="1178" y2="320" stroke="#fff"/>
-      </g>
-      <text x="510"  y="200" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">KÖLTÖZTETÉS</text>
-      <text x="1020" y="200" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="26" fill="#FFD60A" letter-spacing="2">ÁRUSZÁLLÍTÁS</text>
-      <g transform="translate(770 210)">
-        <text text-anchor="middle" y="0"  font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="64" fill="#FFD60A" letter-spacing="-3">MP</text>
-        <text text-anchor="middle" y="22" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="18" fill="#FFD60A" letter-spacing="4">SPED</text>
-      </g>
-      <text x="770" y="262" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="22" fill="#FFD60A" letter-spacing="1">☎ 06 70 211 0215</text>
-      <text x="770" y="292" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="13" fill="#FFD60A" opacity=".88" letter-spacing="1">06 88 410 785 · mpsped.hu</text>
-      <path d="M80,378 L80,160 Q80,118 122,108 L240,90 Q280,82 310,98 L340,128 Q360,148 360,180 L360,378 Z" fill="url(#cabBody)"/>
-      <path d="M124,238 L124,160 Q124,134 154,128 L288,108 Q310,104 322,118 L336,142 Q340,150 340,162 L340,238 Z" fill="url(#glassRefl)"/>
-      <path d="M124,252 L324,252 L324,302 L124,302 Z" fill="url(#glassRefl)" opacity=".85"/>
-      <rect x="248" y="320" width="34" height="6" rx="3" fill="#1a0307"/>
-      <rect x="130" y="316" width="200" height="38" rx="4" fill="#0a0204"/>
-      <rect x="88" y="306" width="34" height="22" rx="4" fill="#0d0204"/>
-      <rect x="88" y="332" width="34" height="10" rx="3" fill="#ffb030"/>
-      <rect x="78" y="356" width="282" height="22" rx="3" fill="url(#chrome)"/>
-      <rect x="78" y="396" width="1102" height="14" fill="#0a0204"/>
-      <g>
-        <g transform="translate(180 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(310 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(820 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(940 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-        <g transform="translate(1060 408)"><circle r="44" fill="url(#tire)"/><circle r="28" fill="url(#hub)"/><circle r="9" fill="#cfd4db"/></g>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <script src="script.js" defer></script>
-
 </body>
 </html>
